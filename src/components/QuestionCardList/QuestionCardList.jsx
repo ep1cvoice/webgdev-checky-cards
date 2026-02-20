@@ -1,7 +1,8 @@
+import { memo } from 'react';
 import QuestionCard from '../QuestionCard';
 import styles from './QuestionCardList.module.css';
 
-const QuestionCardList = ({ cards }) => {
+const QuestionCardList = memo(({ cards }) => {
 	return (
 		<div className={styles.cardList}>
 			{cards.map((card, index) => {
@@ -9,6 +10,6 @@ const QuestionCardList = ({ cards }) => {
 			})}
 		</div>
 	);
-};
+});
 
 export default QuestionCardList;
