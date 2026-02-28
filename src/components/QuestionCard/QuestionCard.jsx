@@ -8,7 +8,6 @@ import AngularLogo from '../../assets/angular-logo.svg';
 import VueLogo from '../../assets/vue-logo.png';
 import NodeLogo from '../../assets/nodejs-icon.svg';
 
-import { Check } from 'lucide-react';
 import styles from './QuestionCard.module.css';
 
 const QuestionCard = ({ card }) => {

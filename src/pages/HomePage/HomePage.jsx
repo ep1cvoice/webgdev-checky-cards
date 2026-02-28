@@ -12,6 +12,7 @@ const HomePage = () => {
 	const [questions, setQuestions] = useState([]);
 	const [searchValue, setSearchValue] = useState('');
 	const [sortSelectValue, setSortSelectValue] = useState('');
+	const [filterSelectValue, setFilterSelectValue] = useState('');
 
 	const [getQuestions, isLoading, error] = useFetch(async (url) => {
 		const response = await fetch(`${API_URL}/${url}`);
@@ -26,42 +27,53 @@ const HomePage = () => {
 	}, [questions, searchValue]);
 
 	useEffect(() => {
-		getQuestions('react');
-	}, []);
+		const params = [];
 
-	useEffect(() => {
-		getQuestions(`react${sortSelectValue}`);
-	}, [sortSelectValue]);
+		if (filterSelectValue) {
+			params.push(`category=${filterSelectValue}`);
+		}
 
-	const onSearchChangehandler = (e) => {
+		if (sortSelectValue) {
+			params.push(`_sort=${sortSelectValue}`);
+		}
+
+		const queryString = params.length ? `?${params.join('&')}` : '';
+
+		getQuestions(`checkycards${queryString}`);
+	}, [filterSelectValue, sortSelectValue]);
+
+	const onSearchChangeHandler = (e) => {
 		setSearchValue(e.target.value);
 	};
 
 	const onSortSelectChangeHandler = (e) => {
 		setSortSelectValue(e.target.value);
 	};
+	const onFilterSelectChangeHandler = (e) => {
+		setFilterSelectValue(e.target.value);
+	};
 
 	return (
 		<>
 			<div className={styles.controlsContainer}>
-				<SearchInput value={searchValue} onChange={onSearchChangehandler} />
+				<SearchInput value={searchValue} onChange={onSearchChangeHandler} />
 
 				<div className={styles.selectGroup}>
-					<select value='s' onChange={onSortSelectChangeHandler} className={styles.select}>
+					<select value={filterSelectValue} onChange={onFilterSelectChangeHandler} className={styles.select}>
 						<option value=''>technology</option>
-						<option value=''>Vanilla JS</option>
-						<option value=''>React</option>
-						<option value=''>Angular</option>
-						<option value=''>Vue</option>
-						<option value=''>Node.js</option>
-						<option value=''>Next.js</option>
+						<option value='js'>Vanilla JS</option>
+						<option value='react'>React</option>
+						<option value='angular'>Angular</option>
+						<option value='vue'>Vue</option>
+						<option value='node'>Node.js</option>
+						<option value='next'>Next.js</option>
 					</select>
 					<select value={sortSelectValue} onChange={onSortSelectChangeHandler} className={styles.select}>
 						<option value=''>sort by</option>
-						<option value='?_sort=level'>LVL asc</option>
-						<option value='?_sort=-level'>LVL desc</option>
-						<option value='?_sort=completed'>completed asc</option>
-						<option value='?_sort=-completed'>completed desc</option>
+						<option value='level'>LVL asc</option>
+						<option value='-level'>LVL desc</option>
+						<option value='completed'>completed asc</option>
+						<option value='-completed'>not completed desc</option>
 					</select>
 				</div>
 			</div>
