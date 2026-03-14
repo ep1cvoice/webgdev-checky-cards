@@ -7,6 +7,7 @@ import ReactLogo from '../../assets/react.svg';
 import AngularLogo from '../../assets/angular-logo.svg';
 import VueLogo from '../../assets/vue-logo.png';
 import NodeLogo from '../../assets/nodejs-icon.svg';
+import NextLogo from '../../assets/nextjs-icon.svg'
 
 import styles from './QuestionCard.module.css';
 
@@ -19,6 +20,7 @@ const QuestionCard = ({ card }) => {
 		angular: AngularLogo,
 		vue: VueLogo,
 		node: NodeLogo,
+		next: NextLogo
 	};
 
 	const levelMap = {

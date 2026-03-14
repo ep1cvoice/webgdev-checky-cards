@@ -5,7 +5,7 @@
 	padding: 20px;
 	background-color: var(--card-bg-color);
 	color: var(--text-color);
-	box-shadow: 0 0 8px 5px rgba(0, 0, 0, 0.1);
+	box-shadow: var(--shadow);
     display: flex;
     flex-direction: column;
     justify-content: start;

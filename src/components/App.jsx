@@ -3,6 +3,7 @@ import MainLayout from './MainLayout';
 import HomePage from '../pages/HomePage';
 import QuestionPage from '../pages/QuestionPage';
 import NotFoundPage from '../pages/NotFoundPage';
+import AddQuestionPage from '../pages/AddQuestionPage/AddQuestionPage';
 
 function App() {
 	return (
@@ -12,13 +13,9 @@ function App() {
 					<Route element={<MainLayout />}>
 						<Route path='/' element={<HomePage />}></Route>
 
-						<Route path='/main' element={<div> Main</div>}></Route>
-
-						<Route path='/addquestion' element={<div> Add a question</div>}></Route>
+						<Route path='/addquestion' element={<AddQuestionPage />}></Route>
 
 						<Route path='/forbidden' element={<div> Forbidden</div>}></Route>
-
-						<Route path='/question/:id' element={<QuestionPage />}></Route>
 
 						<Route path='/question/:id' element={<QuestionPage />}></Route>
 
