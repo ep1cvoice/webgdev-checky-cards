@@ -10,10 +10,10 @@ import htmlLogo from '../../assets/HTML5.png';
 import cssLogo from '../../assets/CSS3.png';
 import JSLogo from '../../assets/javascript-logo.svg';
 import ReactLogo from '../../assets/react.svg';
-import AngularLogo from '../../assets/angular-logo.svg';
-import VueLogo from '../../assets/vue-logo.png';
-import NodeJSLogo from '../../assets/nodejs-icon.svg';
-import NextJSLogo from '../../assets/nextjs-icon.svg';
+import TSLogo from '../../assets/typescript_logo.png';
+import GitHubLogo from '../../assets/github_logo.png';
+import InternetLogo from '../../assets/internet_logo.png';
+
 import TagLogo from '../../assets/html-tag.svg?react';
 
 import { Plus, LogIn } from 'lucide-react';
@@ -75,24 +75,19 @@ const Header = () => {
 						<img className={styles.headerIcon} src={ReactLogo} alt='React logo' />
 					</button>
 					<button
-						className={`${styles.headerButton} ${activeTechnology === 'angular' ? styles.active : ''}`}
-						onClick={() => goToTechnology('angular')}>
-						<img className={styles.headerIcon} src={AngularLogo} alt='Angular logo' />
+						className={`${styles.headerButton} ${activeTechnology === 'typescript' ? styles.active : ''}`}
+						onClick={() => goToTechnology('typescript')}>
+						<img className={styles.headerIcon} src={TSLogo} alt='TS logo' />
 					</button>
 					<button
-						className={`${styles.headerButton} ${activeTechnology === 'vue' ? styles.active : ''}`}
-						onClick={() => goToTechnology('vue')}>
-						<img className={styles.headerIcon} src={VueLogo} alt='Vue logo' />
+						className={`${styles.headerButton} ${activeTechnology === 'git' ? styles.active : ''}`}
+						onClick={() => goToTechnology('git')}>
+						<img className={styles.headerIcon} src={GitHubLogo} alt='GitHub logo' />
 					</button>
 					<button
-						className={`${styles.headerButton} ${activeTechnology === 'node' ? styles.active : ''}`}
-						onClick={() => goToTechnology('node')}>
-						<img className={styles.headerIcon} src={NodeJSLogo} alt='Node.js logo' />
-					</button>
-					<button
-						className={`${styles.headerButton} ${activeTechnology === 'next' ? styles.active : ''}`}
-						onClick={() => goToTechnology('next')}>
-						<img className={styles.headerIcon} src={NextJSLogo} alt='Next.js logo' />
+						className={`${styles.headerButton} ${activeTechnology === 'web' ? styles.active : ''}`}
+						onClick={() => goToTechnology('web')}>
+						<img className={styles.headerIcon} src={InternetLogo} alt='Internet logo' />
 					</button>
 				</div>
 
@@ -143,23 +138,19 @@ const Header = () => {
 					<span>React</span>
 				</div>
 
-				<div className={styles.menuItem} onClick={() => goToTechnology('angular')}>
-					<img src={AngularLogo} alt='Angular' />
-					<span>Angular</span>
+				<div className={styles.menuItem} onClick={() => goToTechnology('typescript')}>
+					<img src={TSLogo} alt='Typescript' />
+					<span>TypeScript</span>
 				</div>
 
-				<div className={styles.menuItem} onClick={() => goToTechnology('vue')}>
-					<img src={VueLogo} alt='Vue' />
-					<span>Vue</span>
+				<div className={styles.menuItem} onClick={() => goToTechnology('git')}>
+					<img src={GitHubLogo} alt='GitHub' />
+					<span>GitHub</span>
 				</div>
 
-				<div className={styles.menuItem} onClick={() => goToTechnology('node')}>
-					<img src={NodeJSLogo} alt='Node.js' />
-					<span>Node.js</span>
-				</div>
-				<div className={styles.menuItem} onClick={() => goToTechnology('next')}>
-					<img src={NextJSLogo} alt='Next.js' />
-					<span>Next.js</span>
+				<div className={styles.menuItem} onClick={() => goToTechnology('web')}>
+					<img src={InternetLogo} alt='Web Fundamentals' />
+					<span>Web Basics</span>
 				</div>
 
 				{isAuth ? (

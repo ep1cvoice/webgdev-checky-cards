@@ -34,10 +34,10 @@ WebDevCards is a knowledge management tool designed for developers who want to o
 Each card contains:
 
 - Title
-- Category (HTML, CSS, JavaScript, React, Angular, Vue, Node.js, Next)
+- Category (HTML, CSS, JavaScript, React, TypeScript, Git, Web Basics)
 - Short Description
 - Extended Description
-- Exampel of using or code example (not done yet)
+- Example of using or code example (not done yet)
 - Links
 - Knowledge Status (Completed / Not completed)
 
@@ -53,19 +53,24 @@ Users can:
 
 ## How to run
 
-1. Install dependencies
+1. Run the clone command in the the folder where you want the project
+
+```bash
+git clone https://github.com/ep1cvoice/WebDev-Cards.git
+```
+2. Install dependencies
 
 ```bash
 npm install
 ```
 
-2. Start JSON Server (mock backend)
+3. Start JSON Server (mock backend)
 
 ```bash
 npm run server
 ```
 
-3. Start the frontend (in a separate terminal! ⚠️)
+4. Start the frontend (in a separate terminal! ⚠️)
 
 ```bash
 npm run dev
@@ -87,10 +92,9 @@ Currently supported categories:
 - CSS
 - JavaScript
 - React
-- Angular
-- Vue
-- Node.js
-- Next.js
+- TypeScript
+- Git
+- Web Basics
 
 Users can create cards for any of these technologies.
 
@@ -166,7 +170,7 @@ This project is designed to cover and reinforce:
 
 - Single Page Application (SPA)
 - Modular component structure
-- Reusable UI components (Button, Card, Modal, etc.)
+- Reusable UI components (Button, Card, Form, Badge, etc.)
 - Clear separation of concerns
 - Organized folder structure
 

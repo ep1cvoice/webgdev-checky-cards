@@ -76,9 +76,6 @@ const HomePage = () => {
 	const onSortSelectChangeHandler = (e) => {
 		setSortSelectValue(e.target.value);
 	};
-	const onFilterSelectChangeHandler = (e) => {
-		setFilterSelectValue(e.target.value);
-	};
 
 	useEffect(() => {
 		const handleResize = () => {
@@ -118,10 +115,9 @@ const HomePage = () => {
 						<option value='css'>CSS</option>
 						<option value='javascript'>Vanilla JS</option>
 						<option value='react'>React</option>
-						<option value='angular'>Angular</option>
-						<option value='vue'>Vue</option>
-						<option value='node'>Node.js</option>
-						<option value='next'>Next.js</option>
+						<option value='typescript'>TypeScript</option>
+						<option value='git'>Git</option>
+						<option value='web'>Web Basics</option>
 					</select>
 					<select value={sortSelectValue} onChange={onSortSelectChangeHandler} className={styles.select}>
 						<option value=''>Sort By</option>

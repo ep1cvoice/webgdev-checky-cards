@@ -11,9 +11,9 @@ import htmlLogo from '../../assets/HTML5.png';
 import cssLogo from '../../assets/CSS3.png';
 import JSLogo from '../../assets/javascript-logo.svg';
 import ReactLogo from '../../assets/react.svg';
-import AngularLogo from '../../assets/angular-logo.svg';
-import VueLogo from '../../assets/vue-logo.png';
-import NodeLogo from '../../assets/nodejs-icon.svg';
+import TSLogo from '../../assets/typescript_logo.png';
+import GitHubLogo from '../../assets/github_logo.png';
+import InternetLogo from '../../assets/internet_logo.png';
 
 import { Pencil, ArrowLeft } from 'lucide-react';
 import styles from './QuestionPage.module.css';
@@ -74,9 +74,9 @@ const QuestionPage = () => {
 		css: cssLogo,
 		react: ReactLogo,
 		javascript: JSLogo,
-		angular: AngularLogo,
-		vue: VueLogo,
-		node: NodeLogo,
+		typescript: TSLogo,
+		git: GitHubLogo,
+		web: InternetLogo,
 	};
 
 	const levelMap = {
