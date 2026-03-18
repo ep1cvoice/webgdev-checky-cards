@@ -1,578 +1,693 @@
 {
-	"checkycards": [
-		{
-			"id": "1",
-			"category": "react",
-			"question": "Czym jest React?",
-			"answer": "React to biblioteka JavaScript do budowania interfejsów użytkownika.",
-			"description": "React to popularna biblioteka stworzona przez Facebooka (Meta), która umożliwia tworzenie dynamicznych i wydajnych aplikacji webowych. Opiera się na komponentach, które pozwalają dzielić interfejs na mniejsze, wielokrotnego użytku części. React wykorzystuje wirtualny DOM, co poprawia wydajność aktualizacji widoku.",
-			"resources": ["https://react.dev/learn"],
-			"level": 1,
-			"completed": false,
-			"editDate": "18.03.2026"
-		},
-		{
-			"id": "2",
-			"category": "react",
-			"question": "Czym jest JSX?",
-			"answer": "JSX to rozszerzenie składni JavaScript dla Reacta.",
-			"description": "JSX pozwala pisać kod podobny do HTML w JavaScript, który następnie jest transpilowany do wywołań `React.createElement`. Ułatwia to tworzenie i wizualne przedstawienie struktury komponentów.",
-			"resources": ["https://react.dev/learn/writing-markup-with-jsx"],
-			"level": 2,
-			"completed": true,
-			"editDate": "18.03.2026, 20:25"
-		},
-		{
-			"id": "3",
-			"category": "react",
-			"question": "Jaka jest główna zasada działania Reacta?",
-			"answer": "React wykorzystuje Virtual DOM do optymalizacji renderowania.",
-			"description": "React opiera się na koncepcji Virtual DOM — jest to reprezentacja rzeczywistego DOM w pamięci. Gdy stan komponentu się zmienia, React porównuje Virtual DOM z jego poprzednim stanem i aktualizuje na stronie tylko zmienione elementy.",
-			"resources": ["https://react.dev/learn/render-and-commit"],
-			"level": 1,
-			"completed": false,
-			"editDate": "18.03.2026, 20:25"
-		},
-		{
-			"id": "4",
-			"category": "react",
-			"question": "Jak utworzyć komponent w React?",
-			"answer": "Komponent można utworzyć jako funkcję lub klasę.",
-			"description": "Komponenty funkcyjne to funkcje, które przyjmują `props` i zwracają JSX. Komponenty klasowe to klasy dziedziczące po `React.Component`, posiadające metodę \"render\".",
-			"resources": ["https://react.dev/learn/your-first-component"],
-			"level": 1,
-			"completed": false,
-			"editDate": "18.03.2026, 20:25"
-		},
-		{
-			"id": "5",
-			"category": "react",
-			"question": "Czym są props w React?",
-			"answer": "Props to parametry wejściowe komponentów.",
-			"description": "Props (właściwości) służą do przekazywania danych z komponentu nadrzędnego do komponentu potomnego. Są niemutowalne wewnątrz komponentu i pozwalają tworzyć bardziej elastyczne oraz wielokrotnego użytku komponenty.",
-			"resources": ["https://react.dev/learn/passing-props-to-a-component"],
-			"level": 1,
-			"completed": false
-		},
-		{
-			"id": "7",
-			"category": "react",
-			"question": "Jak działa useState w React?",
-			"answer": "useState to hook do zarządzania stanem w komponentach funkcyjnych.",
-			"description": "`useState` zwraca tablicę złożoną z dwóch elementów: bieżącej wartości stanu oraz funkcji do jego aktualizacji. Służy do przechowywania i zmiany danych w komponentach.",
-			"resources": ["https://react.dev/reference/react/useState"],
-			"level": 2,
-			"completed": true
-		},
-		{
-			"id": "10",
-			"category": "react",
-			"question": "Jak zoptymalizować wydajność aplikacji React?",
-			"answer": "Używaj React.memo, useMemo, useCallback oraz optymalizacji renderowania.",
-			"description": "W celu zwiększenia wydajności można używać `React.memo` do memoizacji komponentów, `useMemo` i `useCallback` do zapobiegania niepotrzebnemu ponownemu tworzeniu funkcji i danych, a także Code Splitting oraz Lazy Loading.",
-			"resources": ["https://react.dev/learn/keeping-components-pure"],
-			"level": 3,
-			"completed": true
-		},
-		{
-			"id": "11",
-			"category": "react",
-			"question": "Czym jest Virtual DOM w React?",
-			"answer": "Virtual DOM to reprezentacja rzeczywistego DOM w pamięci.",
-			"description": "Virtual DOM to koncepcja wykorzystywana przez React do optymalizacji aktualizacji interfejsu użytkownika. React porównuje stary i nowy Virtual DOM i zmienia tylko zmodyfikowane elementy w rzeczywistym DOM.",
-			"resources": ["https://react.dev/learn/render-and-commit"],
-			"level": 2,
-			"completed": false
-		},
-		{
-			"id": "12",
-			"category": "react",
-			"question": "Jak działa React.memo?",
-			"answer": "React.memo to HOC do memoizacji komponentów funkcyjnych.",
-			"description": "React.memo zapobiega ponownemu renderowaniu komponentu, jeśli jego propsy nie uległy zmianie. Pomaga to zoptymalizować wydajność poprzez unikanie niepotrzebnych rerenderów.",
-			"resources": ["https://react.dev/reference/react/memo"],
-			"level": 3,
-			"completed": false
-		},
-		{
-			"id": "13",
-			"category": "react",
-			"question": "Co robi useCallback?",
-			"answer": "useCallback memoizuje funkcję i zwraca jej niezmienioną wersję pomiędzy renderowaniami.",
-			"description": "useCallback jest używany do optymalizacji wydajności poprzez zapobieganie ponownemu tworzeniu funkcji przy każdym renderowaniu, jeśli ich zależności nie uległy zmianie.",
-			"resources": ["https://react.dev/reference/react/useCallback"],
-			"level": 3,
-			"completed": false
-		},
-		{
-			"id": "14",
-			"category": "react",
-			"question": "Co robi useMemo?",
-			"answer": "useMemo memoizuje obliczaną wartość.",
-			"description": "useMemo buforuje wynik obliczeń pomiędzy renderowaniami, jeśli zależności nie uległy zmianie. Jest to przydatne do optymalizacji złożonych obliczeń.",
-			"resources": ["https://react.dev/reference/react/useMemo"],
-			"level": 3,
-			"completed": false
-		},
-		{
-			"id": "15",
-			"category": "react",
-			"question": "Jak działa obsługa zdarzeń w React?",
-			"answer": "React wykorzystuje system zdarzeń syntetycznych.",
-			"description": "Zdarzenia w React działają poprzez opakowanie `SyntheticEvent`, które zapewnia kompatybilność między przeglądarkami oraz zoptymalizowaną obsługę.",
-			"resources": ["https://react.dev/learn/responding-to-events"],
-			"level": 2,
-			"completed": true
-		},
-		{
-			"id": "16",
-			"category": "react",
-			"question": "Czym są portale (Portals) w React?",
-			"answer": "Portale pozwalają renderować elementy potomne poza węzłem DOM komponentu nadrzędnego.",
-			"description": "Za pomocą `ReactDOM.createPortal` można renderować elementy w innym kontenerze DOM, zachowując powiązanie z komponentem nadrzędnym.",
-			"resources": ["https://react.dev/reference/react-dom/createPortal"],
-			"level": 3,
-			"completed": false
-		},
-		{
-			"id": "17",
-			"category": "react",
-			"question": "Jak zaimplementować leniwe ładowanie komponentów?",
-			"answer": "Użyj React.lazy oraz Suspense.",
-			"description": "React.lazy pozwala ładować komponenty dynamicznie, a Suspense służy do wyświetlania komponentu zastępczego podczas ładowania.",
-			"resources": ["https://react.dev/reference/react/lazy"],
-			"level": 2,
-			"completed": false
-		},
-		{
-			"id": "18",
-			"category": "react",
-			"question": "Czym jest Context API?",
-			"answer": "Context API to mechanizm przekazywania danych bez konieczności przekazywania propsów przez kolejne poziomy komponentów.",
-			"description": "Context API służy do zarządzania globalnym stanem aplikacji, na przykład motywem lub językiem interfejsu.",
-			"resources": ["https://react.dev/reference/react/createContext"],
-			"level": 2,
-			"completed": false
-		},
-		{
-			"id": "19",
-			"category": "react",
-			"question": "Jak używać useContext?",
-			"answer": "useContext pozwala pobierać wartości z kontekstu.",
-			"description": "useContext przyjmuje obiekt kontekstu i zwraca jego bieżącą wartość, umożliwiając dostęp do danych bez zagnieżdżonych komponentów Consumer.",
-			"resources": ["https://react.dev/reference/react/useContext"],
-			"level": 2,
-			"completed": false
-		},
-		{
-			"id": "20",
-			"category": "react",
-			"question": "Czym są render props?",
-			"answer": "Render props to wzorzec polegający na przekazywaniu funkcji jako propsów.",
-			"description": "Ten wzorzec pozwala przekazywać funkcję zwracającą JSX jako props do komponentu, aby elastycznie kontrolować renderowanie komponentów potomnych.",
-			"resources": ["https://react.dev/learn/render-props"],
-			"level": 3,
-			"completed": false
-		},
-		{
-			"id": "21",
-			"category": "react",
-			"question": "Jak można zaktualizować stan w komponencie klasowym?",
-			"answer": "Za pomocą metody setState.",
-			"description": "setState przyjmuje nowy obiekt stanu i aktualizuje komponent, wywołując ponowne renderowanie. Można przekazać funkcję, aby zaktualizować stan na podstawie poprzedniego stanu.",
-			"resources": ["https://react.dev/reference/react/Component#setstate"],
-			"level": 1,
-			"completed": false
-		},
-		{
-			"id": "22",
-			"category": "react",
-			"question": "Jak pracować z formularzami w React?",
-			"answer": "Używaj komponentów kontrolowanych i niekontrolowanych.",
-			"description": "W komponentach kontrolowanych stan formularza jest przechowywany w state, a w niekontrolowanych — w DOM. Do pracy z formularzami stosuje się useState, onChange oraz ref.",
-			"resources": ["https://react.dev/learn/sharing-state-between-components"],
-			"level": 2,
-			"completed": false
-		},
-		{
-			"id": "23",
-			"category": "react",
-			"question": "Jak przekazać ref do komponentu potomnego?",
-			"answer": "Użyj forwardRef.",
-			"description": "React.forwardRef pozwala przekazać ref do wnętrza komponentu potomnego, aby uzyskać dostęp do jego elementu DOM lub instancji.",
-			"resources": ["https://react.dev/reference/react/forwardRef"],
-			"level": 3,
-			"completed": false
-		},
-		{
-			"id": "24",
-			"category": "react",
-			"question": "Jak używać kluczy (keys) w listach?",
-			"answer": "Klucze pomagają Reactowi rozróżniać elementy podczas renderowania.",
-			"description": "Klucze (`key`) są używane w listach do identyfikacji elementów. Pomagają Reactowi efektywnie aktualizować listę, unikając niepotrzebnych rerenderów.",
-			"resources": ["https://react.dev/learn/rendering-lists"],
-			"level": 1,
-			"completed": false
-		},
-		{
-			"id": "25",
-			"category": "react",
-			"question": "Co robi Strict Mode?",
-			"answer": "StrictMode pomaga wykrywać potencjalne problemy w kodzie.",
-			"description": "StrictMode aktywuje dodatkowe sprawdzenia, ostrzegając o niebezpiecznych metodach cyklu życia oraz innych błędach.",
-			"resources": ["https://react.dev/reference/react/StrictMode"],
-			"level": 2,
-			"completed": false
-		},
-		{
-			"id": "26",
-			"category": "react",
-			"question": "Jak działa useReducer?",
-			"answer": "useReducer zarządza stanem za pomocą funkcji reduktora.",
-			"description": "useReducer jest przydatny w przypadku złożonych stanów. Przyjmuje funkcję reduktora oraz stan początkowy, zwracając bieżący state i funkcję dispatch.",
-			"resources": ["https://react.dev/reference/react/useReducer"],
-			"level": 3,
-			"completed": false
-		},
-		{
-			"id": "27",
-			"category": "react",
-			"question": "Jak przechwytywać błędy w komponentach React?",
-			"answer": "Użyj Error Boundary.",
-			"description": "Error Boundary to komponent implementujący metodę componentDidCatch. Zapobiega on awarii całej aplikacji w przypadku błędu w komponentach potomnych.",
-			"resources": ["https://react.dev/learn/error-handling"],
-			"level": 3,
-			"completed": false
-		},
-		{
-			"id": "28",
-			"category": "react",
-			"question": "Co robi hook useRef?",
-			"answer": "useRef tworzy referencję, która jest zachowywana pomiędzy renderowaniami.",
-			"description": "useRef służy do uzyskiwania dostępu do elementów DOM lub przechowywania danych pomiędzy renderowaniami bez wywoływania ponownego renderowania.",
-			"resources": ["https://react.dev/reference/react/useRef"],
-			"level": 2,
-			"completed": false
-		},
-		{
-			"id": "29",
-			"category": "react",
-			"question": "Jak zaimplementować renderowanie po stronie serwera (SSR) w React?",
-			"answer": "Użyj Next.js lub ReactDOMServer.",
-			"description": "SSR pozwala renderować komponenty React na serwerze, poprawiając SEO oraz szybkość ładowania. W React do tego celu używa się Next.js lub ReactDOMServer.",
-			"resources": ["https://nextjs.org/docs"],
-			"level": 3,
-			"completed": false
-		},
-		{
-			"id": "30",
-			"category": "react",
-			"question": "Czym są fragmenty (React Fragments)?",
-			"answer": "Fragments pozwalają grupować elementy bez dodawania zbędnego węzła do DOM.",
-			"description": "Fragmenty (`<></>` lub `React.Fragment`) są używane, aby uniknąć zbędnych opakowujących divów, co sprawia, że struktura DOM jest bardziej przejrzysta.",
-			"resources": ["https://react.dev/reference/react/Fragment"],
-			"level": 1,
-			"completed": false
-		},
-		{
-			"id": "31",
-			"category": "react",
-			"question": "Jak używać `useLayoutEffect`?",
-			"answer": "`useLayoutEffect` wykonuje się synchronicznie po renderowaniu, ale przed wyświetleniem na ekranie.",
-			"description": "Jest używany, gdy необходимо zmierzyć DOM przed jego wyświetleniem. Różni się od `useEffect`, który uruchamia się po renderowaniu.",
-			"resources": ["https://react.dev/reference/react/useLayoutEffect"],
-			"level": 3,
-			"completed": false
-		},
-		{
-			"id": "32",
-			"category": "react",
-			"question": "Jak działa `useImperativeHandle`?",
-			"answer": "`useImperativeHandle` pozwala zarządzać metodami komponentu potomnego za pomocą `ref`.",
-			"description": "`useImperativeHandle` jest używany razem z `forwardRef` do kontrolowania zachowania wewnętrznego komponentu z poziomu komponentu nadrzędnego. Jest przydatny podczas pracy z zewnętrznymi bibliotekami.",
-			"resources": ["https://react.dev/reference/react/useImperativeHandle"],
-			"level": 3,
-			"completed": false
-		},
-		{
-			"id": "33",
-			"category": "react",
-			"question": "Czym jest HOC (Higher-Order Component)?",
-			"answer": "HOC to funkcja, która przyjmuje komponent i zwraca nowy komponent.",
-			"description": "HOC są używane do ponownego wykorzystania logiki, na przykład autoryzacji lub przetwarzania danych. To wzorzec, który został zastąpiony przez hooki, ale czasami nadal jest przydatny.",
-			"resources": ["https://react.dev/learn/reusing-logic-with-custom-hooks"],
-			"level": 3,
-			"completed": false
-		},
-		{
-			"id": "34",
-			"category": "react",
-			"question": "Jak utworzyć globalny stan w React?",
-			"answer": "Użyj Context API, Redux lub Zustand.",
-			"description": "Globalnym stanem można zarządzać za pomocą `Context API` w prostych przypadkach, `Redux` w przypadku złożonych struktur danych oraz `Zustand` jako lekkiej alternatywy.",
-			"resources": ["https://react.dev/learn/passing-data-deeply-with-context", "https://redux.js.org"],
-			"level": 3,
-			"completed": true
-		},
-		{
-			"id": "35",
-			"category": "react",
-			"question": "Czym jest React Fiber?",
-			"answer": "React Fiber to nowy algorytm renderowania w React.",
-			"description": "React Fiber to przepisany silnik React, który poprawia wydajność i obsługuje takie funkcje jak wstrzymywanie i wznawianie renderowania. Pozwala Reactowi działać asynchronicznie oraz nadawać priorytety zadaniom.",
-			"resources": ["https://react.dev/blog/2017/09/26/react-v16.0.html"],
-			"level": 3,
-			"completed": false
-		},
-		{
-			"id": "36",
-			"category": "react",
-			"question": "Jak działa React Suspense?",
-			"answer": "Suspense pozwala odroczyć renderowanie komponentów do momentu zakończenia operacji asynchronicznych.",
-			"description": "Suspense jest używany do zarządzania operacjami asynchronicznymi, takimi jak pobieranie danych lub leniwe ładowanie komponentów. Wyświetla komponent fallback, dopóki dane nie będą gotowe.",
-			"resources": ["https://react.dev/reference/react/Suspense"],
-			"level": 3,
-			"completed": false
-		},
-		{
-			"id": "37",
-			"category": "react",
-			"question": "Czym jest Concurrent Mode w React?",
-			"answer": "Concurrent Mode to zestaw funkcji poprawiających responsywność aplikacji.",
-			"description": "Concurrent Mode pozwala Reactowi pracować nad wieloma zadaniami jednocześnie, nadając im priorytety i poprawiając doświadczenie użytkownika. Obejmuje takie funkcje jak Suspense oraz priorytetyzację renderowania.",
-			"resources": ["https://react.dev/blog/2021/06/08/the-plan-for-react-18"],
-			"level": 3,
-			"completed": false
-		},
-		{
-			"id": "38",
-			"category": "react",
-			"question": "Jak używać React DevTools?",
-			"answer": "React DevTools to narzędzie do debugowania aplikacji React.",
-			"description": "React DevTools pozwala inspekcjonować drzewo komponentów, przeglądać ich stan i propsy oraz analizować wydajność. Jest dostępne jako rozszerzenie do przeglądarek.",
-			"resources": ["https://react.dev/learn/react-developer-tools"],
-			"level": 1,
-			"completed": false
-		},
-		{
-			"id": "39",
-			"category": "react",
-			"question": "Czym są React Server Components?",
-			"answer": "React Server Components to komponenty renderowane po stronie serwera.",
-			"description": "React Server Components pozwalają renderować komponenty na serwerze, zmniejszając rozmiar kodu po stronie klienta i poprawiając wydajność. Obsługują dane asynchroniczne i mogą być integrowane z komponentami klienckimi.",
-			"resources": ["https://react.dev/blog/2020/12/21/data-fetching-with-react-server-components"],
-			"level": 3,
-			"completed": false
-		},
-		{
-			"id": "40",
-			"category": "react",
-			"question": "Jak używać React z TypeScript?",
-			"answer": "React można używać z TypeScript w celu dodania typowania.",
-			"description": "TypeScript dodaje statyczne typowanie do aplikacji React, co pomaga unikać błędów i usprawnia proces tworzenia oprogramowania. W tym celu wykorzystuje się typy dla propsów, stanu oraz hooków.",
-			"resources": ["https://react.dev/learn/typescript"],
-			"level": 2,
-			"completed": false
-		},
-		{
-			"id": "41",
-			"category": "react",
-			"question": "Czym są React Hooks?",
-			"answer": "React Hooks to funkcje, które pozwalają używać stanu i innych możliwości React w komponentach funkcyjnych.",
-			"description": "Hooki, takie jak `useState`, `useEffect`, `useContext`, pozwalają zarządzać stanem, efektami ubocznymi oraz kontekstem w komponentach funkcyjnych bez używania klas.",
-			"resources": ["https://react.dev/reference/react"],
-			"level": 2,
-			"completed": false
-		},
-		{
-			"id": "42",
-			"category": "react",
-			"question": "Jak używać React z Redux?",
-			"answer": "React można zintegrować z Redux w celu zarządzania globalnym stanem.",
-			"description": "Redux to biblioteka do zarządzania stanem aplikacji. React-Redux udostępnia hooki, takie jak `useSelector` oraz `useDispatch`, do pracy z Redux w komponentach React.",
-			"resources": ["https://react-redux.js.org"],
-			"level": 3,
-			"completed": false
-		},
-		{
-			"id": "43",
-			"category": "react",
-			"question": "Czym jest React Testing Library?",
-			"answer": "React Testing Library to narzędzie do testowania komponentów React.",
-			"description": "React Testing Library pozwala testować komponenty tak, jak używają ich użytkownicy. Skupia się na testowaniu zachowania, a nie implementacji.",
-			"resources": ["https://testing-library.com/docs/react-testing-library/intro"],
-			"level": 2,
-			"completed": false
-		},
-		{
-			"id": "44",
-			"category": "react",
-			"question": "Jak używać React z GraphQL?",
-			"answer": "React można zintegrować z GraphQL za pomocą Apollo Client lub Relay.",
-			"description": "GraphQL to język zapytań do API. Apollo Client oraz Relay udostępniają narzędzia do pracy z GraphQL w aplikacjach React, w tym buforowanie oraz zarządzanie stanem.",
-			"resources": ["https://www.apollographql.com/docs/react"],
-			"level": 3,
-			"completed": false
-		},
-		{
-			"id": "45",
-			"category": "react",
-			"question": "Czym jest React Native?",
-			"answer": "React Native to framework do tworzenia aplikacji mobilnych z wykorzystaniem React.",
-			"description": "React Native pozwala tworzyć wieloplatformowe aplikacje mobilne przy użyciu JavaScript i React. Kompiluje się do natywnych komponentów dla iOS oraz Androida.",
-			"resources": ["https://reactnative.dev"],
-			"level": 2,
-			"completed": false
-		},
-		{
-			"id": "46",
-			"category": "react",
-			"question": "Jak używać React z Webpack?",
-			"answer": "Webpack jest używany do budowania aplikacji React.",
-			"description": "Webpack to bundler modułów, który pozwala łączyć JavaScript, CSS oraz inne zasoby w bundel. W przypadku React konfiguruje się loadery (loaders) oraz wtyczki, takie jak Babel.",
-			"resources": ["https://webpack.js.org/guides/getting-started"],
-			"level": 3,
-			"completed": false
-		},
-		{
-			"id": "47",
-			"category": "react",
-			"question": "Czym są React Error Boundaries?",
-			"answer": "Error Boundaries to komponenty służące do obsługi błędów w React.",
-			"description": "Error Boundaries przechwytują błędy w komponentach potomnych, logują je oraz wyświetlają zapasowy interfejs użytkownika. Są implementowane za pomocą metod `getDerivedStateFromError` oraz `componentDidCatch`.",
-			"resources": ["https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary"],
-			"level": 3,
-			"completed": false
-		},
-		{
-			"id": "48",
-			"category": "react",
-			"question": "Jak używać React z CSS-in-JS?",
-			"answer": "CSS-in-JS pozwala pisać style bezpośrednio w JavaScript.",
-			"description": "Biblioteki, takie jak styled-components lub Emotion, pozwalają pisać style wewnątrz komponentów, co poprawia modularność oraz izolację stylów.",
-			"resources": ["https://styled-components.com"],
-			"level": 2,
-			"completed": false
-		},
-		{
-			"id": "49",
-			"category": "react",
-			"question": "Czym jest React Concurrent Rendering?",
-			"answer": "Concurrent Rendering to możliwość pracy React nad wieloma zadaniami jednocześnie.",
-			"description": "Concurrent Rendering pozwala React wstrzymywać i wznawiać renderowanie, aby zapewnić płynniejsze doświadczenie użytkownika. Jest to szczególnie przydatne w aplikacjach o dużym obciążeniu.",
-			"resources": ["https://react.dev/blog/2021/06/08/the-plan-for-react-18"],
-			"level": 3,
-			"completed": false
-		},
-		{
-			"id": "50",
-			"category": "react",
-			"question": "Jak używać React z SSR i CSR?",
-			"answer": "SSR (Server-Side Rendering) oraz CSR (Client-Side Rendering) można łączyć w React.",
-			"description": "SSR jest używany do renderowania po stronie serwera, co poprawia SEO oraz szybkość ładowania. CSR pozwala dynamicznie aktualizować interfejs po stronie klienta. Next.js to popularny framework do SSR i CSR.",
-			"resources": ["https://nextjs.org/docs"],
-			"level": 3,
-			"completed": false
-		},
-		{
-			"id": "51",
-			"category": "react",
-			"question": "Jak działa proces Reconciliation w React?",
-			"answer": "Reconciliation to proces porównywania poprzedniego i nowego drzewa elementów w celu zminimalizowania zmian w DOM.",
-			"description": "Podczas aktualizacji React tworzy nowe drzewo elementów i porównuje je z poprzednim (diffing algorithm). Na podstawie różnic aktualizuje tylko zmienione elementy w rzeczywistym DOM. Klucze (`key`) pomagają Reactowi identyfikować elementy na listach, zapobiegając niepotrzebnemu usuwaniu i ponownemu tworzeniu komponentów.",
-			"resources": ["https://react.dev/learn/render-and-commit"],
-			"level": 4,
-			"completed": false
-		},
-		{
-			"id": "52",
-			"category": "react",
-			"question": "Jak odwzorować cykl życia komponentu w komponentach funkcyjnych?",
-			"answer": "Cykl życia w komponentach funkcyjnych odwzorowuje się za pomocą hooka `useEffect`.",
-			"description": "`useEffect` może symulować fazy mount, update i unmount. Wywołanie z pustą tablicą zależności (`[]`) odpowiada fazie mount. Cleanup function odpowiada fazie unmount. Zależności w tablicy kontrolują, kiedy efekt wykona się ponownie podczas aktualizacji.",
-			"resources": ["https://react.dev/reference/react/useEffect"],
-			"level": 4,
-			"completed": false
-		},
-		{
-			"id": "53",
-			"category": "react",
-			"question": "Jak działa dependency array w useEffect?",
-			"answer": "Dependency array kontroluje, kiedy `useEffect` zostanie ponownie wykonany.",
-			"description": "React porównuje wartości z dependency array przy użyciu porównania referencyjnego. Jeśli którakolwiek zależność ulegnie zmianie, efekt zostanie ponownie wykonany. Niepoprawne zarządzanie zależnościami może prowadzić do stale closures, nieskończonych pętli lub błędnych danych. Zaleca się używanie eslint-plugin-react-hooks do kontroli poprawności zależności.",
-			"resources": ["https://react.dev/reference/react/useEffect"],
-			"level": 4,
-			"completed": false
-		},
-		{
-			"id": "54",
-			"category": "react",
-			"question": "Czym jest referential equality i jak wpływa na React?",
-			"answer": "Referential equality oznacza porównywanie wartości przez referencję, a nie przez zawartość.",
-			"description": "W React porównanie zależności w hookach oraz propsów w `React.memo` odbywa się przez porównanie referencji. Nowo utworzone funkcje i obiekty mają inną referencję przy każdym renderze, co może powodować niepotrzebne re-renderowanie komponentów. Hooki `useMemo` i `useCallback` pomagają utrzymać stabilne referencje.",
-			"resources": ["https://react.dev/reference/react/useMemo"],
-			"level": 4,
-			"completed": false
-		},
-		{
-			"id": "55",
-			"category": "react",
-			"question": "Czym jest automatic batching w React 18?",
-			"answer": "Automatic batching to mechanizm łączenia wielu aktualizacji stanu w jedno renderowanie.",
-			"description": "W React 18 aktualizacje stanu wykonywane w zdarzeniach asynchronicznych (np. setTimeout, Promise) są automatycznie batchowane. Oznacza to, że wiele wywołań `setState` skutkuje jednym renderem, co poprawia wydajność aplikacji.",
-			"resources": ["https://react.dev/blog/2022/03/29/react-v18"],
-			"level": 4,
-			"completed": false
-		},
-		{
-			"id": "56",
-			"category": "react",
-			"question": "Do czego służą startTransition i useTransition?",
-			"answer": "startTransition i useTransition pozwalają oznaczać aktualizacje jako niepilne.",
-			"description": "Aktualizacje oznaczone jako transition mogą zostać przerwane lub opóźnione na rzecz bardziej pilnych aktualizacji, takich jak interakcje użytkownika. Mechanizm ten poprawia responsywność aplikacji w trybie concurrent rendering.",
-			"resources": ["https://react.dev/reference/react/useTransition"],
-			"level": 4,
-			"completed": false
-		},
-		{
-			"id": "57",
-			"category": "react",
-			"question": "Jak powstają memory leaks w React i jak im zapobiegać?",
-			"answer": "Memory leaks powstają, gdy zasoby nie są czyszczone po unmountowaniu komponentu.",
-			"description": "Najczęstsze przyczyny to brak cleanup w `useEffect`, nieusunięte event listenery, nieczyszczone timery oraz niezakończone zapytania asynchroniczne. Aby zapobiec wyciekom pamięci, należy zwracać funkcję cleanup w `useEffect` i anulować operacje asynchroniczne.",
-			"resources": ["https://react.dev/reference/react/useEffect"],
-			"level": 4,
-			"completed": false
-		},
-		{
-			"id": "58",
-			"category": "react",
-			"question": "Jak projektować custom hooki w React?",
-			"answer": "Custom hooki powinny enkapsulować logikę i zwracać czytelne API.",
-			"description": "Custom hooki pozwalają współdzielić logikę pomiędzy komponentami. Powinny przestrzegać zasad hooków (wywoływanie na najwyższym poziomie), unikać efektów ubocznych poza hookiem oraz zwracać stabilne referencje tam, gdzie to konieczne. Dobrą praktyką jest oddzielenie logiki od warstwy UI.",
-			"resources": ["https://react.dev/learn/reusing-logic-with-custom-hooks"],
-			"level": 4,
-			"completed": false
-		},
-		{
-			"id": "59",
-			"category": "react",
-			"question": "Jak zaprojektować strukturę większej aplikacji React?",
-			"answer": "Struktura powinna być oparta na funkcjonalnościach (feature-based structure).",
-			"description": "W większych aplikacjach zaleca się organizowanie kodu według funkcjonalności zamiast typu pliku. Każda funkcjonalność może zawierać komponenty, hooki, style i logikę biznesową. Ułatwia to skalowanie projektu oraz utrzymanie czytelności kodu.",
-			"resources": ["https://react.dev/learn/scaling-up-with-reducer-and-context"],
-			"level": 4,
-			"completed": false
-		},
-		{
-			"id": "60",
-			"category": "react",
-			"question": "Co powoduje ponowne renderowanie komponentu w React?",
-			"answer": "Komponent renderuje się ponownie, gdy zmieni się jego state, props, context lub gdy renderuje się komponent nadrzędny.",
-			"description": "Zmiana stanu (`setState`), zmiana propsów, zmiana wartości kontekstu lub ponowne renderowanie komponentu nadrzędnego powodują re-render. Można to kontrolować za pomocą `React.memo`, `useMemo` oraz `useCallback`, aby ograniczyć niepotrzebne aktualizacje.",
-			"resources": ["https://react.dev/learn/render-and-commit"],
-			"level": 4,
-			"completed": false
-		}
-	]
+  "checkycards": [
+    {
+      "id": "1",
+      "category": "react",
+      "question": "Czym jest React?",
+      "answer": "React to biblioteka JavaScript do budowania interfejsów użytkownika.",
+      "description": "React to popularna biblioteka stworzona przez Facebooka (Meta), która umożliwia tworzenie dynamicznych i wydajnych aplikacji webowych. Opiera się na komponentach, które pozwalają dzielić interfejs na mniejsze, wielokrotnego użytku części. React wykorzystuje wirtualny DOM, co poprawia wydajność aktualizacji widoku.",
+      "resources": [
+        "https://react.dev/learn"
+      ],
+      "level": 1,
+      "completed": false,
+      "editDate": "18.03.2026"
+    },
+    {
+      "id": "2",
+      "category": "react",
+      "question": "Czym jest JSX?",
+      "answer": "JSX to rozszerzenie składni JavaScript dla Reacta.",
+      "description": "JSX pozwala pisać kod podobny do HTML w JavaScript, który następnie jest transpilowany do wywołań `React.createElement`. Ułatwia to tworzenie i wizualne przedstawienie struktury komponentów.",
+      "resources": [
+        "https://react.dev/learn/writing-markup-with-jsx"
+      ],
+      "level": 2,
+      "completed": false,
+      "editDate": "18.03.2026, 20:25"
+    },
+    {
+      "id": "3",
+      "category": "react",
+      "question": "Jaka jest główna zasada działania Reacta?",
+      "answer": "React wykorzystuje Virtual DOM do optymalizacji renderowania.",
+      "description": "React opiera się na koncepcji Virtual DOM — jest to reprezentacja rzeczywistego DOM w pamięci. Gdy stan komponentu się zmienia, React porównuje Virtual DOM z jego poprzednim stanem i aktualizuje na stronie tylko zmienione elementy.",
+      "resources": [
+        "https://react.dev/learn/render-and-commit"
+      ],
+      "level": 1,
+      "completed": false,
+      "editDate": "18.03.2026, 20:25"
+    },
+    {
+      "id": "4",
+      "category": "react",
+      "question": "Jak utworzyć komponent w React?",
+      "answer": "Komponent można utworzyć jako funkcję lub klasę.",
+      "description": "Komponenty funkcyjne to funkcje, które przyjmują `props` i zwracają JSX. Komponenty klasowe to klasy dziedziczące po `React.Component`, posiadające metodę \"render\".",
+      "resources": [
+        "https://react.dev/learn/your-first-component"
+      ],
+      "level": 1,
+      "completed": false,
+      "editDate": "18.03.2026, 20:25"
+    },
+    {
+      "id": "5",
+      "category": "react",
+      "question": "Czym są props w React?",
+      "answer": "Props to parametry wejściowe komponentów.",
+      "description": "Props (właściwości) służą do przekazywania danych z komponentu nadrzędnego do komponentu potomnego. Są niemutowalne wewnątrz komponentu i pozwalają tworzyć bardziej elastyczne oraz wielokrotnego użytku komponenty.",
+      "resources": [
+        "https://react.dev/learn/passing-props-to-a-component"
+      ],
+      "level": 1,
+      "completed": false
+    },
+    {
+      "id": "7",
+      "category": "react",
+      "question": "Jak działa useState w React?",
+      "answer": "useState to hook do zarządzania stanem w komponentach funkcyjnych.",
+      "description": "`useState` zwraca tablicę złożoną z dwóch elementów: bieżącej wartości stanu oraz funkcji do jego aktualizacji. Służy do przechowywania i zmiany danych w komponentach.",
+      "resources": [
+        "https://react.dev/reference/react/useState"
+      ],
+      "level": 2,
+      "completed": false
+    },
+    {
+      "id": "10",
+      "category": "react",
+      "question": "Jak zoptymalizować wydajność aplikacji React?",
+      "answer": "Używaj React.memo, useMemo, useCallback oraz optymalizacji renderowania.",
+      "description": "W celu zwiększenia wydajności można używać `React.memo` do memoizacji komponentów, `useMemo` i `useCallback` do zapobiegania niepotrzebnemu ponownemu tworzeniu funkcji i danych, a także Code Splitting oraz Lazy Loading.",
+      "resources": [
+        "https://react.dev/learn/keeping-components-pure"
+      ],
+      "level": 3,
+      "completed": false
+    },
+    {
+      "id": "11",
+      "category": "react",
+      "question": "Czym jest Virtual DOM w React?",
+      "answer": "Virtual DOM to reprezentacja rzeczywistego DOM w pamięci.",
+      "description": "Virtual DOM to koncepcja wykorzystywana przez React do optymalizacji aktualizacji interfejsu użytkownika. React porównuje stary i nowy Virtual DOM i zmienia tylko zmodyfikowane elementy w rzeczywistym DOM.",
+      "resources": [
+        "https://react.dev/learn/render-and-commit"
+      ],
+      "level": 2,
+      "completed": false
+    },
+    {
+      "id": "12",
+      "category": "react",
+      "question": "Jak działa React.memo?",
+      "answer": "React.memo to HOC do memoizacji komponentów funkcyjnych.",
+      "description": "React.memo zapobiega ponownemu renderowaniu komponentu, jeśli jego propsy nie uległy zmianie. Pomaga to zoptymalizować wydajność poprzez unikanie niepotrzebnych rerenderów.",
+      "resources": [
+        "https://react.dev/reference/react/memo"
+      ],
+      "level": 3,
+      "completed": false
+    },
+    {
+      "id": "13",
+      "category": "react",
+      "question": "Co robi useCallback?",
+      "answer": "useCallback memoizuje funkcję i zwraca jej niezmienioną wersję pomiędzy renderowaniami.",
+      "description": "useCallback jest używany do optymalizacji wydajności poprzez zapobieganie ponownemu tworzeniu funkcji przy każdym renderowaniu, jeśli ich zależności nie uległy zmianie.",
+      "resources": [
+        "https://react.dev/reference/react/useCallback"
+      ],
+      "level": 3,
+      "completed": false
+    },
+    {
+      "id": "14",
+      "category": "react",
+      "question": "Co robi useMemo?",
+      "answer": "useMemo memoizuje obliczaną wartość.",
+      "description": "useMemo buforuje wynik obliczeń pomiędzy renderowaniami, jeśli zależności nie uległy zmianie. Jest to przydatne do optymalizacji złożonych obliczeń.",
+      "resources": [
+        "https://react.dev/reference/react/useMemo"
+      ],
+      "level": 3,
+      "completed": false
+    },
+    {
+      "id": "15",
+      "category": "react",
+      "question": "Jak działa obsługa zdarzeń w React?",
+      "answer": "React wykorzystuje system zdarzeń syntetycznych.",
+      "description": "Zdarzenia w React działają poprzez opakowanie `SyntheticEvent`, które zapewnia kompatybilność między przeglądarkami oraz zoptymalizowaną obsługę.",
+      "resources": [
+        "https://react.dev/learn/responding-to-events"
+      ],
+      "level": 2,
+      "completed": false
+    },
+    {
+      "id": "16",
+      "category": "react",
+      "question": "Czym są portale (Portals) w React?",
+      "answer": "Portale pozwalają renderować elementy potomne poza węzłem DOM komponentu nadrzędnego.",
+      "description": "Za pomocą `ReactDOM.createPortal` można renderować elementy w innym kontenerze DOM, zachowując powiązanie z komponentem nadrzędnym.",
+      "resources": [
+        "https://react.dev/reference/react-dom/createPortal"
+      ],
+      "level": 3,
+      "completed": false
+    },
+    {
+      "id": "17",
+      "category": "react",
+      "question": "Jak zaimplementować leniwe ładowanie komponentów?",
+      "answer": "Użyj React.lazy oraz Suspense.",
+      "description": "React.lazy pozwala ładować komponenty dynamicznie, a Suspense służy do wyświetlania komponentu zastępczego podczas ładowania.",
+      "resources": [
+        "https://react.dev/reference/react/lazy"
+      ],
+      "level": 2,
+      "completed": false
+    },
+    {
+      "id": "18",
+      "category": "react",
+      "question": "Czym jest Context API?",
+      "answer": "Context API to mechanizm przekazywania danych bez konieczności przekazywania propsów przez kolejne poziomy komponentów.",
+      "description": "Context API służy do zarządzania globalnym stanem aplikacji, na przykład motywem lub językiem interfejsu.",
+      "resources": [
+        "https://react.dev/reference/react/createContext"
+      ],
+      "level": 2,
+      "completed": false
+    },
+    {
+      "id": "19",
+      "category": "react",
+      "question": "Jak używać useContext?",
+      "answer": "useContext pozwala pobierać wartości z kontekstu.",
+      "description": "useContext przyjmuje obiekt kontekstu i zwraca jego bieżącą wartość, umożliwiając dostęp do danych bez zagnieżdżonych komponentów Consumer.",
+      "resources": [
+        "https://react.dev/reference/react/useContext"
+      ],
+      "level": 2,
+      "completed": false
+    },
+    {
+      "id": "20",
+      "category": "react",
+      "question": "Czym są render props?",
+      "answer": "Render props to wzorzec polegający na przekazywaniu funkcji jako propsów.",
+      "description": "Ten wzorzec pozwala przekazywać funkcję zwracającą JSX jako props do komponentu, aby elastycznie kontrolować renderowanie komponentów potomnych.",
+      "resources": [
+        "https://react.dev/learn/render-props"
+      ],
+      "level": 3,
+      "completed": false
+    },
+    {
+      "id": "21",
+      "category": "react",
+      "question": "Jak można zaktualizować stan w komponencie klasowym?",
+      "answer": "Za pomocą metody setState.",
+      "description": "setState przyjmuje nowy obiekt stanu i aktualizuje komponent, wywołując ponowne renderowanie. Można przekazać funkcję, aby zaktualizować stan na podstawie poprzedniego stanu.",
+      "resources": [
+        "https://react.dev/reference/react/Component#setstate"
+      ],
+      "level": 1,
+      "completed": false
+    },
+    {
+      "id": "22",
+      "category": "react",
+      "question": "Jak pracować z formularzami w React?",
+      "answer": "Używaj komponentów kontrolowanych i niekontrolowanych.",
+      "description": "W komponentach kontrolowanych stan formularza jest przechowywany w state, a w niekontrolowanych — w DOM. Do pracy z formularzami stosuje się useState, onChange oraz ref.",
+      "resources": [
+        "https://react.dev/learn/sharing-state-between-components"
+      ],
+      "level": 2,
+      "completed": false
+    },
+    {
+      "id": "23",
+      "category": "react",
+      "question": "Jak przekazać ref do komponentu potomnego?",
+      "answer": "Użyj forwardRef.",
+      "description": "React.forwardRef pozwala przekazać ref do wnętrza komponentu potomnego, aby uzyskać dostęp do jego elementu DOM lub instancji.",
+      "resources": [
+        "https://react.dev/reference/react/forwardRef"
+      ],
+      "level": 3,
+      "completed": false
+    },
+    {
+      "id": "24",
+      "category": "react",
+      "question": "Jak używać kluczy (keys) w listach?",
+      "answer": "Klucze pomagają Reactowi rozróżniać elementy podczas renderowania.",
+      "description": "Klucze (`key`) są używane w listach do identyfikacji elementów. Pomagają Reactowi efektywnie aktualizować listę, unikając niepotrzebnych rerenderów.",
+      "resources": [
+        "https://react.dev/learn/rendering-lists"
+      ],
+      "level": 1,
+      "completed": false
+    },
+    {
+      "id": "25",
+      "category": "react",
+      "question": "Co robi Strict Mode?",
+      "answer": "StrictMode pomaga wykrywać potencjalne problemy w kodzie.",
+      "description": "StrictMode aktywuje dodatkowe sprawdzenia, ostrzegając o niebezpiecznych metodach cyklu życia oraz innych błędach.",
+      "resources": [
+        "https://react.dev/reference/react/StrictMode"
+      ],
+      "level": 2,
+      "completed": false
+    },
+    {
+      "id": "26",
+      "category": "react",
+      "question": "Jak działa useReducer?",
+      "answer": "useReducer zarządza stanem za pomocą funkcji reduktora.",
+      "description": "useReducer jest przydatny w przypadku złożonych stanów. Przyjmuje funkcję reduktora oraz stan początkowy, zwracając bieżący state i funkcję dispatch.",
+      "resources": [
+        "https://react.dev/reference/react/useReducer"
+      ],
+      "level": 3,
+      "completed": false
+    },
+    {
+      "id": "27",
+      "category": "react",
+      "question": "Jak przechwytywać błędy w komponentach React?",
+      "answer": "Użyj Error Boundary.",
+      "description": "Error Boundary to komponent implementujący metodę componentDidCatch. Zapobiega on awarii całej aplikacji w przypadku błędu w komponentach potomnych.",
+      "resources": [
+        "https://react.dev/learn/error-handling"
+      ],
+      "level": 3,
+      "completed": false
+    },
+    {
+      "id": "28",
+      "category": "react",
+      "question": "Co robi hook useRef?",
+      "answer": "useRef tworzy referencję, która jest zachowywana pomiędzy renderowaniami.",
+      "description": "useRef służy do uzyskiwania dostępu do elementów DOM lub przechowywania danych pomiędzy renderowaniami bez wywoływania ponownego renderowania.",
+      "resources": [
+        "https://react.dev/reference/react/useRef"
+      ],
+      "level": 2,
+      "completed": false
+    },
+    {
+      "id": "29",
+      "category": "react",
+      "question": "Jak zaimplementować renderowanie po stronie serwera (SSR) w React?",
+      "answer": "Użyj Next.js lub ReactDOMServer.",
+      "description": "SSR pozwala renderować komponenty React na serwerze, poprawiając SEO oraz szybkość ładowania. W React do tego celu używa się Next.js lub ReactDOMServer.",
+      "resources": [
+        "https://nextjs.org/docs"
+      ],
+      "level": 3,
+      "completed": false
+    },
+    {
+      "id": "30",
+      "category": "react",
+      "question": "Czym są fragmenty (React Fragments)?",
+      "answer": "Fragments pozwalają grupować elementy bez dodawania zbędnego węzła do DOM.",
+      "description": "Fragmenty (`<></>` lub `React.Fragment`) są używane, aby uniknąć zbędnych opakowujących divów, co sprawia, że struktura DOM jest bardziej przejrzysta.",
+      "resources": [
+        "https://react.dev/reference/react/Fragment"
+      ],
+      "level": 1,
+      "completed": false
+    },
+    {
+      "id": "31",
+      "category": "react",
+      "question": "Jak używać `useLayoutEffect`?",
+      "answer": "`useLayoutEffect` wykonuje się synchronicznie po renderowaniu, ale przed wyświetleniem na ekranie.",
+      "description": "Jest używany, gdy необходимо zmierzyć DOM przed jego wyświetleniem. Różni się od `useEffect`, który uruchamia się po renderowaniu.",
+      "resources": [
+        "https://react.dev/reference/react/useLayoutEffect"
+      ],
+      "level": 3,
+      "completed": false
+    },
+    {
+      "id": "32",
+      "category": "react",
+      "question": "Jak działa `useImperativeHandle`?",
+      "answer": "`useImperativeHandle` pozwala zarządzać metodami komponentu potomnego za pomocą `ref`.",
+      "description": "`useImperativeHandle` jest używany razem z `forwardRef` do kontrolowania zachowania wewnętrznego komponentu z poziomu komponentu nadrzędnego. Jest przydatny podczas pracy z zewnętrznymi bibliotekami.",
+      "resources": [
+        "https://react.dev/reference/react/useImperativeHandle"
+      ],
+      "level": 3,
+      "completed": false
+    },
+    {
+      "id": "33",
+      "category": "react",
+      "question": "Czym jest HOC (Higher-Order Component)?",
+      "answer": "HOC to funkcja, która przyjmuje komponent i zwraca nowy komponent.",
+      "description": "HOC są używane do ponownego wykorzystania logiki, na przykład autoryzacji lub przetwarzania danych. To wzorzec, który został zastąpiony przez hooki, ale czasami nadal jest przydatny.",
+      "resources": [
+        "https://react.dev/learn/reusing-logic-with-custom-hooks"
+      ],
+      "level": 3,
+      "completed": false
+    },
+    {
+      "id": "34",
+      "category": "react",
+      "question": "Jak utworzyć globalny stan w React?",
+      "answer": "Użyj Context API, Redux lub Zustand.",
+      "description": "Globalnym stanem można zarządzać za pomocą `Context API` w prostych przypadkach, `Redux` w przypadku złożonych struktur danych oraz `Zustand` jako lekkiej alternatywy.",
+      "resources": [
+        "https://react.dev/learn/passing-data-deeply-with-context",
+        "https://redux.js.org"
+      ],
+      "level": 3,
+      "completed": false
+    },
+    {
+      "id": "35",
+      "category": "react",
+      "question": "Czym jest React Fiber?",
+      "answer": "React Fiber to nowy algorytm renderowania w React.",
+      "description": "React Fiber to przepisany silnik React, który poprawia wydajność i obsługuje takie funkcje jak wstrzymywanie i wznawianie renderowania. Pozwala Reactowi działać asynchronicznie oraz nadawać priorytety zadaniom.",
+      "resources": [
+        "https://react.dev/blog/2017/09/26/react-v16.0.html"
+      ],
+      "level": 3,
+      "completed": false
+    },
+    {
+      "id": "36",
+      "category": "react",
+      "question": "Jak działa React Suspense?",
+      "answer": "Suspense pozwala odroczyć renderowanie komponentów do momentu zakończenia operacji asynchronicznych.",
+      "description": "Suspense jest używany do zarządzania operacjami asynchronicznymi, takimi jak pobieranie danych lub leniwe ładowanie komponentów. Wyświetla komponent fallback, dopóki dane nie będą gotowe.",
+      "resources": [
+        "https://react.dev/reference/react/Suspense"
+      ],
+      "level": 3,
+      "completed": false
+    },
+    {
+      "id": "37",
+      "category": "react",
+      "question": "Czym jest Concurrent Mode w React?",
+      "answer": "Concurrent Mode to zestaw funkcji poprawiających responsywność aplikacji.",
+      "description": "Concurrent Mode pozwala Reactowi pracować nad wieloma zadaniami jednocześnie, nadając im priorytety i poprawiając doświadczenie użytkownika. Obejmuje takie funkcje jak Suspense oraz priorytetyzację renderowania.",
+      "resources": [
+        "https://react.dev/blog/2021/06/08/the-plan-for-react-18"
+      ],
+      "level": 3,
+      "completed": false
+    },
+    {
+      "id": "38",
+      "category": "react",
+      "question": "Jak używać React DevTools?",
+      "answer": "React DevTools to narzędzie do debugowania aplikacji React.",
+      "description": "React DevTools pozwala inspekcjonować drzewo komponentów, przeglądać ich stan i propsy oraz analizować wydajność. Jest dostępne jako rozszerzenie do przeglądarek.",
+      "resources": [
+        "https://react.dev/learn/react-developer-tools"
+      ],
+      "level": 1,
+      "completed": false
+    },
+    {
+      "id": "39",
+      "category": "react",
+      "question": "Czym są React Server Components?",
+      "answer": "React Server Components to komponenty renderowane po stronie serwera.",
+      "description": "React Server Components pozwalają renderować komponenty na serwerze, zmniejszając rozmiar kodu po stronie klienta i poprawiając wydajność. Obsługują dane asynchroniczne i mogą być integrowane z komponentami klienckimi.",
+      "resources": [
+        "https://react.dev/blog/2020/12/21/data-fetching-with-react-server-components"
+      ],
+      "level": 3,
+      "completed": false
+    },
+    {
+      "id": "40",
+      "category": "react",
+      "question": "Jak używać React z TypeScript?",
+      "answer": "React można używać z TypeScript w celu dodania typowania.",
+      "description": "TypeScript dodaje statyczne typowanie do aplikacji React, co pomaga unikać błędów i usprawnia proces tworzenia oprogramowania. W tym celu wykorzystuje się typy dla propsów, stanu oraz hooków.",
+      "resources": [
+        "https://react.dev/learn/typescript"
+      ],
+      "level": 2,
+      "completed": false
+    },
+    {
+      "id": "41",
+      "category": "react",
+      "question": "Czym są React Hooks?",
+      "answer": "React Hooks to funkcje, które pozwalają używać stanu i innych możliwości React w komponentach funkcyjnych.",
+      "description": "Hooki, takie jak `useState`, `useEffect`, `useContext`, pozwalają zarządzać stanem, efektami ubocznymi oraz kontekstem w komponentach funkcyjnych bez używania klas.",
+      "resources": [
+        "https://react.dev/reference/react"
+      ],
+      "level": 2,
+      "completed": false
+    },
+    {
+      "id": "42",
+      "category": "react",
+      "question": "Jak używać React z Redux?",
+      "answer": "React można zintegrować z Redux w celu zarządzania globalnym stanem.",
+      "description": "Redux to biblioteka do zarządzania stanem aplikacji. React-Redux udostępnia hooki, takie jak `useSelector` oraz `useDispatch`, do pracy z Redux w komponentach React.",
+      "resources": [
+        "https://react-redux.js.org"
+      ],
+      "level": 3,
+      "completed": false
+    },
+    {
+      "id": "43",
+      "category": "react",
+      "question": "Czym jest React Testing Library?",
+      "answer": "React Testing Library to narzędzie do testowania komponentów React.",
+      "description": "React Testing Library pozwala testować komponenty tak, jak używają ich użytkownicy. Skupia się na testowaniu zachowania, a nie implementacji.",
+      "resources": [
+        "https://testing-library.com/docs/react-testing-library/intro"
+      ],
+      "level": 2,
+      "completed": false
+    },
+    {
+      "id": "44",
+      "category": "react",
+      "question": "Jak używać React z GraphQL?",
+      "answer": "React można zintegrować z GraphQL za pomocą Apollo Client lub Relay.",
+      "description": "GraphQL to język zapytań do API. Apollo Client oraz Relay udostępniają narzędzia do pracy z GraphQL w aplikacjach React, w tym buforowanie oraz zarządzanie stanem.",
+      "resources": [
+        "https://www.apollographql.com/docs/react"
+      ],
+      "level": 3,
+      "completed": false
+    },
+    {
+      "id": "45",
+      "category": "react",
+      "question": "Czym jest React Native?",
+      "answer": "React Native to framework do tworzenia aplikacji mobilnych z wykorzystaniem React.",
+      "description": "React Native pozwala tworzyć wieloplatformowe aplikacje mobilne przy użyciu JavaScript i React. Kompiluje się do natywnych komponentów dla iOS oraz Androida.",
+      "resources": [
+        "https://reactnative.dev"
+      ],
+      "level": 2,
+      "completed": false
+    },
+    {
+      "id": "46",
+      "category": "react",
+      "question": "Jak używać React z Webpack?",
+      "answer": "Webpack jest używany do budowania aplikacji React.",
+      "description": "Webpack to bundler modułów, który pozwala łączyć JavaScript, CSS oraz inne zasoby w bundel. W przypadku React konfiguruje się loadery (loaders) oraz wtyczki, takie jak Babel.",
+      "resources": [
+        "https://webpack.js.org/guides/getting-started"
+      ],
+      "level": 3,
+      "completed": false
+    },
+    {
+      "id": "47",
+      "category": "react",
+      "question": "Czym są React Error Boundaries?",
+      "answer": "Error Boundaries to komponenty służące do obsługi błędów w React.",
+      "description": "Error Boundaries przechwytują błędy w komponentach potomnych, logują je oraz wyświetlają zapasowy interfejs użytkownika. Są implementowane za pomocą metod `getDerivedStateFromError` oraz `componentDidCatch`.",
+      "resources": [
+        "https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary"
+      ],
+      "level": 3,
+      "completed": false
+    },
+    {
+      "id": "48",
+      "category": "react",
+      "question": "Jak używać React z CSS-in-JS?",
+      "answer": "CSS-in-JS pozwala pisać style bezpośrednio w JavaScript.",
+      "description": "Biblioteki, takie jak styled-components lub Emotion, pozwalają pisać style wewnątrz komponentów, co poprawia modularność oraz izolację stylów.",
+      "resources": [
+        "https://styled-components.com"
+      ],
+      "level": 2,
+      "completed": false
+    },
+    {
+      "id": "49",
+      "category": "react",
+      "question": "Czym jest React Concurrent Rendering?",
+      "answer": "Concurrent Rendering to możliwość pracy React nad wieloma zadaniami jednocześnie.",
+      "description": "Concurrent Rendering pozwala React wstrzymywać i wznawiać renderowanie, aby zapewnić płynniejsze doświadczenie użytkownika. Jest to szczególnie przydatne w aplikacjach o dużym obciążeniu.",
+      "resources": [
+        "https://react.dev/blog/2021/06/08/the-plan-for-react-18"
+      ],
+      "level": 3,
+      "completed": false
+    },
+    {
+      "id": "50",
+      "category": "react",
+      "question": "Jak używać React z SSR i CSR?",
+      "answer": "SSR (Server-Side Rendering) oraz CSR (Client-Side Rendering) można łączyć w React.",
+      "description": "SSR jest używany do renderowania po stronie serwera, co poprawia SEO oraz szybkość ładowania. CSR pozwala dynamicznie aktualizować interfejs po stronie klienta. Next.js to popularny framework do SSR i CSR.",
+      "resources": [
+        "https://nextjs.org/docs"
+      ],
+      "level": 3,
+      "completed": false
+    },
+    {
+      "id": "51",
+      "category": "react",
+      "question": "Jak działa proces Reconciliation w React?",
+      "answer": "Reconciliation to proces porównywania poprzedniego i nowego drzewa elementów w celu zminimalizowania zmian w DOM.",
+      "description": "Podczas aktualizacji React tworzy nowe drzewo elementów i porównuje je z poprzednim (diffing algorithm). Na podstawie różnic aktualizuje tylko zmienione elementy w rzeczywistym DOM. Klucze (`key`) pomagają Reactowi identyfikować elementy na listach, zapobiegając niepotrzebnemu usuwaniu i ponownemu tworzeniu komponentów.",
+      "resources": [
+        "https://react.dev/learn/render-and-commit"
+      ],
+      "level": 4,
+      "completed": false
+    },
+    {
+      "id": "52",
+      "category": "react",
+      "question": "Jak odwzorować cykl życia komponentu w komponentach funkcyjnych?",
+      "answer": "Cykl życia w komponentach funkcyjnych odwzorowuje się za pomocą hooka `useEffect`.",
+      "description": "`useEffect` może symulować fazy mount, update i unmount. Wywołanie z pustą tablicą zależności (`[]`) odpowiada fazie mount. Cleanup function odpowiada fazie unmount. Zależności w tablicy kontrolują, kiedy efekt wykona się ponownie podczas aktualizacji.",
+      "resources": [
+        "https://react.dev/reference/react/useEffect"
+      ],
+      "level": 4,
+      "completed": false
+    },
+    {
+      "id": "53",
+      "category": "react",
+      "question": "Jak działa dependency array w useEffect?",
+      "answer": "Dependency array kontroluje, kiedy `useEffect` zostanie ponownie wykonany.",
+      "description": "React porównuje wartości z dependency array przy użyciu porównania referencyjnego. Jeśli którakolwiek zależność ulegnie zmianie, efekt zostanie ponownie wykonany. Niepoprawne zarządzanie zależnościami może prowadzić do stale closures, nieskończonych pętli lub błędnych danych. Zaleca się używanie eslint-plugin-react-hooks do kontroli poprawności zależności.",
+      "resources": [
+        "https://react.dev/reference/react/useEffect"
+      ],
+      "level": 4,
+      "completed": false
+    },
+    {
+      "id": "54",
+      "category": "react",
+      "question": "Czym jest referential equality i jak wpływa na React?",
+      "answer": "Referential equality oznacza porównywanie wartości przez referencję, a nie przez zawartość.",
+      "description": "W React porównanie zależności w hookach oraz propsów w `React.memo` odbywa się przez porównanie referencji. Nowo utworzone funkcje i obiekty mają inną referencję przy każdym renderze, co może powodować niepotrzebne re-renderowanie komponentów. Hooki `useMemo` i `useCallback` pomagają utrzymać stabilne referencje.",
+      "resources": [
+        "https://react.dev/reference/react/useMemo"
+      ],
+      "level": 4,
+      "completed": false
+    },
+    {
+      "id": "55",
+      "category": "react",
+      "question": "Czym jest automatic batching w React 18?",
+      "answer": "Automatic batching to mechanizm łączenia wielu aktualizacji stanu w jedno renderowanie.",
+      "description": "W React 18 aktualizacje stanu wykonywane w zdarzeniach asynchronicznych (np. setTimeout, Promise) są automatycznie batchowane. Oznacza to, że wiele wywołań `setState` skutkuje jednym renderem, co poprawia wydajność aplikacji.",
+      "resources": [
+        "https://react.dev/blog/2022/03/29/react-v18"
+      ],
+      "level": 4,
+      "completed": false
+    },
+    {
+      "id": "56",
+      "category": "react",
+      "question": "Do czego służą startTransition i useTransition?",
+      "answer": "startTransition i useTransition pozwalają oznaczać aktualizacje jako niepilne.",
+      "description": "Aktualizacje oznaczone jako transition mogą zostać przerwane lub opóźnione na rzecz bardziej pilnych aktualizacji, takich jak interakcje użytkownika. Mechanizm ten poprawia responsywność aplikacji w trybie concurrent rendering.",
+      "resources": [
+        "https://react.dev/reference/react/useTransition"
+      ],
+      "level": 4,
+      "completed": false
+    },
+    {
+      "id": "57",
+      "category": "react",
+      "question": "Jak powstają memory leaks w React i jak im zapobiegać?",
+      "answer": "Memory leaks powstają, gdy zasoby nie są czyszczone po unmountowaniu komponentu.",
+      "description": "Najczęstsze przyczyny to brak cleanup w `useEffect`, nieusunięte event listenery, nieczyszczone timery oraz niezakończone zapytania asynchroniczne. Aby zapobiec wyciekom pamięci, należy zwracać funkcję cleanup w `useEffect` i anulować operacje asynchroniczne.",
+      "resources": [
+        "https://react.dev/reference/react/useEffect"
+      ],
+      "level": 4,
+      "completed": false
+    },
+    {
+      "id": "58",
+      "category": "react",
+      "question": "Jak projektować custom hooki w React?",
+      "answer": "Custom hooki powinny enkapsulować logikę i zwracać czytelne API.",
+      "description": "Custom hooki pozwalają współdzielić logikę pomiędzy komponentami. Powinny przestrzegać zasad hooków (wywoływanie na najwyższym poziomie), unikać efektów ubocznych poza hookiem oraz zwracać stabilne referencje tam, gdzie to konieczne. Dobrą praktyką jest oddzielenie logiki od warstwy UI.",
+      "resources": [
+        "https://react.dev/learn/reusing-logic-with-custom-hooks"
+      ],
+      "level": 4,
+      "completed": false
+    },
+    {
+      "id": "59",
+      "category": "react",
+      "question": "Jak zaprojektować strukturę większej aplikacji React?",
+      "answer": "Struktura powinna być oparta na funkcjonalnościach (feature-based structure).",
+      "description": "W większych aplikacjach zaleca się organizowanie kodu według funkcjonalności zamiast typu pliku. Każda funkcjonalność może zawierać komponenty, hooki, style i logikę biznesową. Ułatwia to skalowanie projektu oraz utrzymanie czytelności kodu.",
+      "resources": [
+        "https://react.dev/learn/scaling-up-with-reducer-and-context"
+      ],
+      "level": 4,
+      "completed": false
+    },
+    {
+      "id": "60",
+      "category": "react",
+      "question": "Co powoduje ponowne renderowanie komponentu w React?",
+      "answer": "Komponent renderuje się ponownie, gdy zmieni się jego state, props, context lub gdy renderuje się komponent nadrzędny.",
+      "description": "Zmiana stanu (`setState`), zmiana propsów, zmiana wartości kontekstu lub ponowne renderowanie komponentu nadrzędnego powodują re-render. Można to kontrolować za pomocą `React.memo`, `useMemo` oraz `useCallback`, aby ograniczyć niepotrzebne aktualizacje.",
+      "resources": [
+        "https://react.dev/learn/render-and-commit"
+      ],
+      "level": 4,
+      "completed": false
+    }
+  ]
 }

@@ -5,6 +5,7 @@ import { useAuth } from '../../hooks/useAuth';
 import { AUTH_STORAGE } from '../../constants';
 
 import Button from '../Button';
+import SettingsPage from '../../pages/SettingsPage/SettingsPage';
 
 import htmlLogo from '../../assets/HTML5.png';
 import cssLogo from '../../assets/CSS3.png';
@@ -13,18 +14,14 @@ import ReactLogo from '../../assets/react.svg';
 import TSLogo from '../../assets/typescript_logo.png';
 import GitHubLogo from '../../assets/github_logo.png';
 import InternetLogo from '../../assets/internet_logo.png';
-
 import TagLogo from '../../assets/html-tag.svg?react';
 
-import { Plus, LogIn } from 'lucide-react';
+import { Plus, LogIn, Settings } from 'lucide-react';
 import styles from './Header.module.css';
 
 const Header = () => {
 	const navigate = useNavigate();
 	const { isAuth, setIsAuth } = useAuth();
-
-	console.log('isAuth', isAuth);
-
 	const [isOpen, setIsOpen] = useState(false);
 
 	const toggleMenu = () => {
@@ -40,7 +37,7 @@ const Header = () => {
 	const activeTechnology = searchParams.get('technology');
 
 	const loginHandler = () => {
-		localStorage.setItem(AUTH_STORAGE, !isAuth)
+		localStorage.setItem(AUTH_STORAGE, !isAuth);
 		setIsAuth(!isAuth);
 	};
 
@@ -99,9 +96,16 @@ const Header = () => {
 
 					<div className={styles.headerButtons}>
 						{isAuth ? (
-							<Button onClick={() => navigate('/addquestion')} isDisabled={false} isNeutral={true}>
-								<Plus size={18} /> Add New Card{' '}
-							</Button>
+							<>
+								<Button onClick={() => navigate('/addquestion')} isDisabled={false} isNeutral={true}>
+									<Plus size={18} /> Add New Card{' '}
+								</Button>
+
+								<Button onClick={() => navigate('/settings')}>
+									<Settings size={18} />
+									Settings
+								</Button>
+							</>
 						) : (
 							''
 						)}

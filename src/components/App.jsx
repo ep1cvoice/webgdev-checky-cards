@@ -6,6 +6,7 @@ import QuestionPage from '../pages/QuestionPage';
 import NotFoundPage from '../pages/NotFoundPage';
 import AddQuestionPage from '../pages/AddQuestionPage';
 import EditQuestionPage from '../pages/EditQuestionPage';
+import SettingsPage from '../pages/SettingsPage';
 import ForbiddenPage from '../pages/ForbiddenPage/ForbiddenPage';
 import useAuth from '../hooks/useAuth';
 
@@ -27,6 +28,7 @@ function App() {
 						<Route element={<ProtectedRoute />}>
 							<Route path='/addquestion' element={<AddQuestionPage />} />
 							<Route path='/editquestion/:id' element={<EditQuestionPage />} />
+							<Route path='/settings' element={<SettingsPage />} />
 						</Route>
 
 						<Route path='/question/:id' element={<QuestionPage />} />
