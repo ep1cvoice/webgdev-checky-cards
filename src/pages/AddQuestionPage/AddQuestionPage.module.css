@@ -4,12 +4,25 @@
 }
 
 .formContainer {
+	margin: 0 auto;
+	margin-top: 25px;
 	width: 100%;
 	max-width: 600px;
-	margin: 0 auto;
 	border-radius: 10px;
 	background-color: var(--card-bg-color);
 	box-shadow: var(--shadow);
 }
 
+.topContainer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 25px;
+}
 
+.containerRight {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 15px;
+}

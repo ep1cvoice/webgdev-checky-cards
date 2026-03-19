@@ -1,5 +1,5 @@
 .forbiddenWrapper {
-    min-height: 100vh;
+    max-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,10 +17,11 @@
 }
 
 .code {
-    font-size: 5rem;
+    font-size: 7rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
     opacity: 0.9;
+    color: var(--color-green);
 }
 
 .title {
@@ -34,7 +35,9 @@
 }
 
 .button {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 0.7rem 1.6rem;
     border-radius: 8px;
     background: var(--btn-bg-color);
@@ -42,6 +45,7 @@
     text-decoration: none;
     font-weight: 500;
     transition: background 0.2s ease;
+    gap: 10px;
 }
 
 .button:hover {

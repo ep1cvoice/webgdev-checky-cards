@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
 import styles from "./NotFoundPage.module.css";
 
 const NotFoundPage = () => {
@@ -12,6 +13,7 @@ const NotFoundPage = () => {
           had its name changed, or is temporarily unavailable.
         </p>
         <Link to="/" className={styles.button}>
+        <ArrowLeft />
           Go Back Home
         </Link>
       </div>

@@ -1,7 +1,9 @@
 import { useEffect } from 'react';
-import styles from './ForbiddenPage.module.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
+
+import { ArrowLeft } from 'lucide-react';
+import styles from './ForbiddenPage.module.css';
 
 const ForbiddenPage = () => {
 	const location = useLocation();
@@ -28,6 +30,7 @@ const ForbiddenPage = () => {
 				</p>
 
 				<Link to='/' className={styles.button}>
+					<ArrowLeft />
 					Go Back Home
 				</Link>
 			</div>

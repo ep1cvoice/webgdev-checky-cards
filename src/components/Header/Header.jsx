@@ -159,17 +159,32 @@ const Header = () => {
 
 				{isAuth ? (
 					<>
-						<Button onClick={() => navigate('/addquestion')} isNeutral={true} isDisabled={false}>
+						<Button
+							onClick={() => {
+								setIsOpen(false);
+								navigate('/addquestion');
+							}}
+							isNeutral={true}
+							isDisabled={false}>
 							<Plus size={16} /> Add New Card{' '}
 						</Button>
-						<Button onClick={() => navigate('/settings')}>
+						<Button
+							onClick={() => {
+								setIsOpen(false);
+								navigate('/settings');
+							}}>
 							<Settings size={16} /> Settings{' '}
 						</Button>
 					</>
 				) : (
 					''
 				)}
-				<Button onClick={loginHandler} isActive={!isAuth}>
+				<Button
+					onClick={() => {
+						setIsOpen(false);
+						loginHandler();
+					}}
+					isActive={!isAuth}>
 					<LogIn size={16} />
 					{isAuth ? 'Log Out' : 'Log In'}
 				</Button>

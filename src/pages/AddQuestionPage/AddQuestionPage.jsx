@@ -1,13 +1,17 @@
 import { useState, useActionState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useFetch } from '../../hooks/useFetch';
 import { createCard } from '../../hooks/cardsApi';
+import Button from '../../components/Button';
 import QuestionForm from '../../components/QuestionForm';
 
+import { ArrowLeft, PenLine } from 'lucide-react';
 import styles from './AddQuestionPage.module.css';
 
 const AddQuestionPage = () => {
 	const [createCardFetch, isLoading, error] = useFetch(createCard);
 	const [successMessage, setSuccessMessage] = useState('');
+	const navigate = useNavigate();
 
 	const createCardAction = async (_prevState, formData) => {
 		try {
@@ -38,15 +42,19 @@ const AddQuestionPage = () => {
 
 	return (
 		<>
-			<h1 className={styles.formTitle}>Add new card</h1>
-
 			<div className={styles.formContainer}>
-				<QuestionForm
-					formAction={formAction}
-					formState={formState}
-					submitBtnText='Create card'
-					isLoading={isLoading}
-				/>
+				<div className={styles.topContainer}>
+					<Button onClick={() => navigate(-1)}>
+						{' '}
+						<ArrowLeft size={18} /> Go Back{' '}
+					</Button>
+					<div className={styles.containerRight}>
+						<PenLine size={26}/>
+						<h2 className={styles.formTitle}>Add New Card</h2>
+					</div>
+				</div>
+
+				<QuestionForm formAction={formAction} formState={formState} submitBtnText='Create card' isLoading={isLoading} />
 				{successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
 				{error && <p style={{ color: 'red' }}>{error}</p>}
 			</div>

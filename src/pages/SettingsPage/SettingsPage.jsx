@@ -46,7 +46,7 @@ const SettingsPage = () => {
 						<ArrowLeft size={18} /> Go Back{' '}
 					</Button>
 					<div className={styles.containerRight}>
-						<h1 className={styles.formTitle}>Settings</h1>
+						<h2 className={styles.formTitle}>Settings</h2>
 						<Settings size={30} />
 					</div>
 				</div>

@@ -1,5 +1,5 @@
 .container {
-  min-height: 100vh;
+  max-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,7 +15,7 @@
   font-size: 120px;
   font-weight: 800;
   margin: 0;
-  color: #2f80ed;
+  color: var(--color-green);
   letter-spacing: 5px;
 }
 
@@ -33,13 +33,16 @@
 }
 
 .button {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 12px 28px;
   background-color: var(--btn-bg-color);
   color: var(--text-color);
   text-decoration: none;
-  border-radius: 30px;
+  border-radius: 15px;
   font-weight: 500;
   transition: all 0.3s ease;
+  gap: 15px;
 }
 
