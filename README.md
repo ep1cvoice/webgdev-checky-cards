@@ -17,39 +17,43 @@ The main objectives are:
 - Practice React in a real project environment
 - Build a scalable Single Page Application architecture
 - Improve state management patterns
-- Implement authentication and protected routes
+- Implement authentication and protected routes and contexts
 - Work with forms, pagination, and filtering
 - Apply clean component design and separation of concerns
 
 Although the application contains default development-related cards, users can freely create and manage their own knowledge cards.
 
-_This project is also designed as a personal learning tool. I actively use this application to organize and review knowledge related to web development. By regularly creating and revisiting cards, the goal is to reinforce important concepts and build a structured knowledge base for my everyday development work._
+_This project is also designed as a personal learning tool. I actively use this application to organize and review knowledge related to web development. By regularly creating and revisiting cards, the goal is to reinforce important concepts and build a structured knowledge base for my everyday development as a future React Developer._
 
 ---
 
 # Main Idea
 
-WebDevCards is a knowledge management tool designed for developers who want to organize and review important concepts from different web technologies.
+WebDevCards is a knowledge management tool designed for developers who want to organize and learn important concepts from different web technologies to become a Frontend React Developer.
 
 Each card contains:
 
 - Title
 - Category (HTML, CSS, JavaScript, React, TypeScript, Git, Web Basics)
-- Short Description
+- Short Answer
 - Extended Description
-- Example of using or code example (not done yet)
+- Example of using or/and code example 
 - Links
 - Knowledge Status (Completed / Not completed)
 
 Users can:
 
 - Create cards
-- Edit cards
-- Delete cards
-- Mark cards as completed or not completed
 - Filter cards by category
 - Navigate through paginated results
-- Use automatic light / dark theme detection
+- Open in a single page card mode with full description
+- Mark cards as completed or not completed
+- Edit cards
+- Style description using implemented Markdown text format (Instructions provided)
+- Delete a single card
+- Use automatic light / dark theme detection or pick one no matter your system theme
+- Swap on click and hover to reveal short answer setting
+- Access do delete all cards at once
 
 ## How to run
 
@@ -140,11 +144,9 @@ Users can create cards for any of these technologies.
 
 The following features are planned for future updates:
 
-- Manual light / dark theme switch
-- Theme preference stored in localStorage
-- Example usage field inside cards
-- Predefined learning card set covering HTML, CSS, JavaScript and React
-- Option to remove all predefined cards and start with an empty collection
+- Implement lazy load for components to improve optimization
+- My personal predefined learning card set covering all categories
+- New categories
 
 ## React Concepts Practiced
 
