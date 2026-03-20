@@ -86,10 +86,10 @@ const EditQuestion = ({ initialState = {} }) => {
 			<div className={styles.formContainer}>
 				<div className={styles.topContainer}>
 					<div className={styles.topContainerLeft}>
-						<Button onClick={() => navigate(-1)} >
-						{' '}
-						<ArrowLeft size={18} /> Go Back{' '}
-					</Button>
+						<Button onClick={() => navigate((-1))}>
+							{' '}
+							<ArrowLeft size={18} /> Go Back{' '}
+						</Button>
 						<h1 className={styles.formTitle}>Edit</h1>
 					</div>
 					<div className={styles.topContainerRight}>
@@ -112,7 +112,7 @@ const EditQuestion = ({ initialState = {} }) => {
 							<X size={18} />
 						</button>
 
-						<h2>Markdown styling info</h2>
+						<h2 className={styles.modalTitle}>Markdown styling info</h2>
 
 						<div className={`${styles.example} ${styles.section}`}>
 							<div className={styles.exampleBlock}>
@@ -122,7 +122,7 @@ const EditQuestion = ({ initialState = {} }) => {
 
 							<div className={styles.exampleBlock}>
 								<p className={styles.resultLabel}>Result</p>
-								<p>
+								<p className={styles.modalLi}>
 									This is <strong>bold text</strong>
 								</p>
 							</div>
@@ -167,8 +167,8 @@ console.log('Hello, World!');
 							<div className={styles.exampleBlock}>
 								<p className={styles.resultLabel}>Result</p>
 								<ul>
-									<li>item 1</li>
-									<li>item 2</li>
+									<li className={styles.modalLi}>item 1</li>
+									<li className={styles.modalLi}>item 2</li>
 								</ul>
 							</div>
 						</div>

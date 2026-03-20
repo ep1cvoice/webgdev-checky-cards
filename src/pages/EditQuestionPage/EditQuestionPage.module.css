@@ -82,6 +82,8 @@
 	position: fixed;
 	inset: 0;
 	background: rgba(0, 0, 0, 0.7);
+	backdrop-filter: blur(6px); 
+	-webkit-backdrop-filter: blur(6px);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -99,6 +101,10 @@
 	max-height: 85vh;
 	overflow-y: auto;
 	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.modalTitle {
+	color: var(--text-color);
 }
 
 .modal h2 {
@@ -191,6 +197,10 @@
 
 .closeBtn:active {
 	transform: scale(0.95);
+}
+
+.modalLi {
+	color: var(--text-color);
 }
 
 .section {

@@ -113,7 +113,7 @@ const QuestionPage = () => {
 				</div>
 
 				<h5 className={styles.cardTitle}>{card.question}</h5>
-				<MarkdownRenderer  content={card.description} />
+				<MarkdownRenderer content={card.description} />
 
 				<div className={styles.cardAnswers}>
 					<span>Short Answer:</span>
@@ -146,7 +146,7 @@ const QuestionPage = () => {
 				</label>
 
 				<div className={styles.buttonsContainer}>
-					<Button onClick={() => navigate(-1)} isDisabled={isCardUpdating}>
+					<Button onClick={() => navigate('/')} isDisabled={isCardUpdating}>
 						{' '}
 						<ArrowLeft size={18} /> Go Back{' '}
 					</Button>

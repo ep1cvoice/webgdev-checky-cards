@@ -1,4 +1,6 @@
 import { useNavigate } from 'react-router-dom';
+import { useState, useRef } from 'react';
+import { useRevealAnswer } from '../../context/RevealAnswerContext';
 import Button from '../Button';
 import Badge from '../Badge';
 
@@ -24,7 +26,6 @@ const QuestionCard = ({ card }) => {
 		typescript: TSLogo,
 		git: GitHubLogo,
 		web: InternetLogo,
-
 	};
 
 	const levelMap = {
@@ -37,6 +38,10 @@ const QuestionCard = ({ card }) => {
 	const levelOption = levelMap[Number(card.level)] || 'primary';
 
 	const completedOption = card.completed ? 'success' : 'primary';
+
+	const { revealMode } = useRevealAnswer();
+	const [showAnswer, setShowAnswer] = useState(false);
+	const timeoutRef = useRef(null);
 
 	return (
 		<div className={styles.card}>
@@ -57,10 +62,37 @@ const QuestionCard = ({ card }) => {
 
 			<div className={styles.cardAnswers}>
 				<span>Short Answer:</span>
-				<p className={styles.cardParagraph}>{card.answer}</p>
+				<p
+					className={`${styles.cardParagraph} ${showAnswer ? styles.show : ''} ${revealMode === 'click' ? styles.clickable : ''}`}
+					onClick={(e) => {
+						e.stopPropagation();
+
+						if (revealMode === 'click') {
+							setShowAnswer(true);
+
+							if (timeoutRef.current) {
+								clearTimeout(timeoutRef.current);
+							}
+
+							timeoutRef.current = setTimeout(() => {
+								setShowAnswer(false);
+							}, 4000);
+						}
+					}}
+					onMouseEnter={() => {
+						if (revealMode === 'hover') setShowAnswer(true);
+					}}
+					onMouseLeave={() => {
+						if (revealMode === 'hover') setShowAnswer(false);
+					}}>
+					{card.answer}
+				</p>
 			</div>
 
-			<Button onClick={() => navigate(`/question/${card.id}`)}> View <Expand size = {18}/></Button>
+			<Button onClick={() => navigate(`/question/${card.id}`)}>
+				{' '}
+				View <Expand size={18} />
+			</Button>
 		</div>
 	);
 };

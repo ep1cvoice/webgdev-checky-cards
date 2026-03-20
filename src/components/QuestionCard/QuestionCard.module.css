@@ -58,6 +58,10 @@
 	text-align: justify;
 	transition: filter 0.3s ease-in-out;
 }
-.cardParagraph:hover {
-	filter: none;
+.show {
+	filter: blur(0);
+}
+
+.clickable {
+	cursor: pointer;
 }
