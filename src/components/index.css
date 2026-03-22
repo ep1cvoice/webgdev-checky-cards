@@ -45,6 +45,9 @@ body {
 		--card-bg-color: #fff;
 		--card-hover-bg: #f3f6fa;
 		--color-green: #219679;
+		--md-code-bg: #f3f4f6;
+		--md-hr: #e5e7eb;
+		--md-pre-bg: #f6f8fa;
 		--border-color: rgba(0, 0, 0, 0.08);
 		--shadow: 0 0 8px 5px rgba(0, 0, 0, 0.1);
 		--highlighted: rgba(0, 0, 0, 0.06);
@@ -63,6 +66,9 @@ body {
 		--card-hover-bg: #273449;
 		--border-color: rgba(255, 255, 255, 0.08);
 		--color-green: #219679;
+		--md-code-bg: rgba(255, 255, 255, 0.08);
+		--md-pre-bg: #1e1e1e;
+		--md-hr: rgba(255, 255, 255, 0.1);
 		--shadow: 0 0 8px 5px rgba(0, 0, 0, 0.1);
 		--highlighted: rgba(255, 255, 255, 0.14);
 	}
@@ -78,6 +84,9 @@ body {
 	--card-bg-color: #fff;
 	--card-hover-bg: #f3f6fa;
 	--color-green: #219679;
+	--md-hr: #e5e7eb;
+	--md-code-bg: #f3f4f6;
+	--md-pre-bg: #f6f8fa;
 	--border-color: rgba(0, 0, 0, 0.08);
 	--shadow: 0 0 8px 5px rgba(0, 0, 0, 0.1);
 	--highlighted: rgba(0, 0, 0, 0.06);
@@ -93,6 +102,9 @@ body {
 	--card-bg-color: #1e293b;
 	--card-hover-bg: #273449;
 	--color-green: #219679;
+	--md-pre-bg: #1e1e1e;
+	--md-code-bg: rgba(255, 255, 255, 0.08);
+	--md-hr: rgba(255, 255, 255, 0.1);
 	--border-color: rgba(255, 255, 255, 0.08);
 	--shadow: 0 0 8px 5px rgba(0, 0, 0, 0.1);
 	--highlighted: rgba(255, 255, 255, 0.14);

@@ -33,6 +33,8 @@ const MarkdownRenderer = ({ content }) => {
 										display: 'block',
 										maxWidth: '100%',
 										overflowX: 'auto',
+										whiteSpace: 'pre-wrap',
+										wordBreak: 'break-word',
 									},
 								}}>
 								{String(children).replace(/\n$/, '')}

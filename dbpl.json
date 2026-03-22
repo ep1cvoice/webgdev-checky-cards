@@ -690,6 +690,136 @@
       "level": 4,
       "completed": false,
       "editDate": "3/19/2026, 12:38 PM"
+    },
+    {
+      "id": "61",
+      "category": "javascript",
+      "question": "Jak dodać JavaScript do strony HTML?",
+      "answer": "JavaScript dodaje się do HTML za pomocą tagu <script>.",
+      "description": "JavaScript można uruchomić w przeglądarce poprzez dodanie go do dokumentu HTML za pomocą tagu `<script>`. Kod umieszczony w tym tagu zostanie automatycznie wykonany podczas ładowania strony.\n\n---\n### 🔹 1. Skrypt wewnątrz HTML\nNajprostszy sposób to umieszczenie kodu bezpośrednio w pliku HTML:\n\n```html\n<script>\n  alert('Hello world');\n</script>\n```\n\nKod wykona się w momencie, gdy przeglądarka natrafi na ten tag.\n\n---\n### 🔹 2. Skrypt w osobnym pliku (zalecane)\n\n```html\n<script src=\"script.js\"></script>\n```\n\nPlik `script.js`:\n```js\nconsole.log('Hello world');\n```\n\n✅ Zalety:\n- lepsza organizacja kodu\n- możliwość ponownego użycia\n- przeglądarka może кешować plik (lepsza wydajność)\n\n---\n### 🔹 3. Ścieżki do pliku\n- względna: `./script.js`\n- absolutna: `/js/script.js`\n- pełny URL:\n```html\n<script src=\"https://cdn.jsdelivr.net/.../lodash.js\"></script>\n```\n\n---\n### ⚠️ Ważne zasady\n- Jeśli używasz `src`, zawartość `<script>` jest ignorowana:\n\n❌ NIE:\n```html\n<script src=\"file.js\">\n  alert(1);\n</script>\n```\n\n✅ TAK:\n```html\n<script src=\"file.js\"></script>\n<script>\n  alert(1);\n</script>\n```\n\n- Jeden tag = albo `src`, albo kod\n\n---\n### 🧠 Dodatkowe informacje\n- Dawniej używano atrybutów `type=\"text/javascript\"` i `language`, ale dziś nie są potrzebne\n- Stare hacki typu komentarze HTML w `<script>` są już przestarzałe\n\n---\n### 📌 Kontekst\nKażda aplikacja frontendowa (np. React) finalnie działa jako JavaScript w przeglądarce — dlatego zrozumienie `<script>` to absolutna podstawa.",
+      "resources": [
+        "https://javascript.info/hello-world"
+      ],
+      "level": 1,
+      "completed": true,
+      "editDate": "21.03.2026"
+    },
+    {
+      "id": "62",
+      "category": "javascript",
+      "question": "Jak wygląda podstawowa struktura kodu w JS?",
+      "answer": "Kod JavaScript składa się z instrukcji oddzielonych średnikami oraz komentarzy.",
+      "description": "Podstawą kodu JavaScript są instrukcje (statements), które wykonują określone działania.\n\n---\n### 🔹 1. Instrukcje (statements)\nInstrukcja to pojedyncze polecenie dla silnika JavaScript.\n\n```js\nalert('Hello');\n```\n\nMożemy mieć wiele instrukcji:\n\n```js\nalert('Hello');\nalert('World');\n```\n\nDla czytelności każdą instrukcję zapisuje się w nowej linii.\n\n---\n### 🔹 2. Średnik (semicolon)\nInstrukcje zazwyczaj oddziela się średnikiem `;`.\n\n```js\nalert('Hello');\nalert('World');\n```\n\nJavaScript posiada mechanizm **Automatic Semicolon Insertion (ASI)**, który w wielu przypadkach automatycznie wstawia średnik:\n\n```js\nalert('Hello')\nalert('World')\n```\n\n⚠️ Problem: to nie działa zawsze poprawnie.\n\n---\n### ❗ Pułapka z brakiem średnika\n\n```js\nalert('Hello')\n[1, 2].forEach(alert)\n```\n\nJavaScript interpretuje to jako:\n\n```js\nalert('Hello')[1, 2].forEach(alert)\n```\n\n➡️ Efekt: błąd\n\n👉 Dlatego dobra praktyka: **zawsze używaj średników**\n\n---\n### 🔹 3. Komentarze\nKomentarze służą do opisywania kodu i są ignorowane przez JavaScript.\n\n#### 🟢 Jednoliniowe\n```js\n// To jest komentarz\nalert('Hello');\n\nalert('World'); // komentarz na końcu linii\n```\n\n#### 🟢 Wieloliniowe\n```js\n/*\n  To jest komentarz\n  wieloliniowy\n*/\nalert('Hello');\n```\n\n---\n### ⚠️ Ważne zasady komentarzy\n- Kod w komentarzu nie jest wykonywany\n- Można używać ich do tymczasowego wyłączania kodu:\n\n```js\n/*\nalert('Hello');\n*/\nalert('World');\n```\n\n- ❌ Nie można zagnieżdżać komentarzy:\n\n```js\n/*\n  /* błąd */\n*/\n```\n\n---\n### 💡 Dobre praktyki\n- Zawsze używaj średników (unikasz trudnych bugów)\n- Pisz czytelny kod — jedna instrukcja na linię\n- Używaj komentarzy do wyjaśniania \"dlaczego\", nie \"co\"\n\n---\n### 📌 Podsumowanie\n- Kod = instrukcje + komentarze\n- Instrukcje wykonują akcje\n- Średniki oddzielają instrukcje (warto używać zawsze)\n- Komentarze pomagają w zrozumieniu kodu i nie wpływają na jego działanie",
+      "resources": [
+        "https://javascript.info/structure"
+      ],
+      "level": 1,
+      "completed": true,
+      "editDate": "21.03.2026"
+    },
+    {
+      "id": "63",
+      "category": "javascript",
+      "question": "Czym jest tryb ścisły (\"use strict\") w JavaScript?",
+      "answer": "\"use strict\" to tryb, który włącza bardziej rygorystyczne zasady działania JavaScript.",
+      "description": "Tryb ścisły (strict mode) został wprowadzony w ES5, aby naprawić błędy i niedoskonałości starszego JavaScript.\n\nDomyślnie JavaScript działa w trybie \"luźnym\" (sloppy mode), który dopuszcza pewne niebezpieczne zachowania. \"use strict\" wymusza bardziej przewidywalne i bezpieczne działanie kodu.\n\n---\n### 🔹 Jak włączyć tryb ścisły\n\nNa początku pliku:\n\n```js\n'use strict';\n\nlet x = 10;\n```\n\nLub w funkcji:\n\n```js\nfunction test() {\n  'use strict';\n  // kod w trybie ścisłym\n}\n```\n\n---\n### ⚠️ Ważne zasady\n- \"use strict\" musi być **na początku pliku lub funkcji**\n- Mogą być przed nim tylko komentarze\n- Nie da się go wyłączyć po włączeniu\n\n❌ Nie zadziała:\n```js\nalert('test');\n'use strict';\n```\n\n---\n### 🔥 Co zmienia \"use strict\"\nTryb ścisły eliminuje ciche błędy i wymusza lepsze praktyki:\n\n#### 1. Zakaz używania niezadeklarowanych zmiennych\n```js\n'use strict';\nx = 10; // ❌ błąd\n```\n\n#### 2. Lepsze wykrywanie błędów\nNiektóre operacje, które wcześniej \"działały\", teraz rzucają błędy.\n\n#### 3. Bezpieczniejsze \"this\"\nZachowanie `this` jest bardziej przewidywalne (nie wskazuje globalnego obiektu domyślnie).\n\n---\n### 🧪 Tryb ścisły w konsoli\n- W konsoli przeglądarki często NIE jest włączony domyślnie\n- Można go wymusić:\n\n```js\n'use strict';\n// kod\n```\n\nLub użyć IIFE:\n\n```js\n(function() {\n  'use strict';\n  // kod\n})();\n```\n\n---\n### 🧠 Czy zawsze trzeba używać?\n👉 Tak — w zwykłym JS warto\n\nALE:\n- moduły ES (`import/export`) → mają strict mode automatycznie\n- klasy (`class`) → też automatycznie\n\n---\n### 💡 Dobre praktyki\n- Zawsze dodawaj \"use strict\" w prostych skryptach\n- W nowoczesnych projektach (React, Vite, Node z modułami) często nie trzeba\n\n---\n### 📌 Podsumowanie\n- \"use strict\" = bezpieczniejszy JavaScript\n- eliminuje stare błędy języka\n- pomaga szybciej wykrywać problemy\n- w nowoczesnym JS często jest domyślny",
+      "resources": [
+        "https://javascript.info/strict-mode"
+      ],
+      "level": 1,
+      "completed": true,
+      "editDate": "21.03.2026"
+    },
+    {
+      "id": "64",
+      "category": "javascript",
+      "question": "Czym są zmienne w JavaScript i jak ich używać?",
+      "answer": "Zmienne to nazwane miejsca w pamięci służące do przechowywania danych.",
+      "description": "Zmienne w JavaScript pozwalają przechowywać i manipulować danymi, takimi jak tekst, liczby czy obiekty.\n\n---\n### 🔹 1. Tworzenie zmiennych\nZmienne deklarujemy za pomocą `let`, `const` lub (rzadziej) `var`.\n\n```js\nlet message;\nmessage = 'Hello';\n```\n\nLub krócej:\n\n```js\nlet message = 'Hello';\n```\n\n---\n### 🔹 2. Odczyt i zmiana wartości\n\n```js\nlet message = 'Hello';\nmessage = 'World';\n\nconsole.log(message); // World\n```\n\n➡️ Nowa wartość nadpisuje starą\n\n---\n### 🔹 3. Kopiowanie wartości\n\n```js\nlet hello = 'Hello world';\nlet message = hello;\n```\n\n➡️ Obie zmienne mają teraz tę samą wartość\n\n---\n### 🔹 4. Deklarowanie wielu zmiennych\n\n```js\nlet user = 'John';\nlet age = 25;\n```\n\nMożliwe też:\n\n```js\nlet user = 'John', age = 25;\n```\n\n👉 Zalecenie: jedna zmienna na linię (czytelność)\n\n---\n### 🔹 5. let vs const vs var\n\n#### ✅ let (najczęściej używane)\n```js\nlet count = 0;\ncount = 1;\n```\n\n#### ✅ const (stała — nie można zmienić)\n```js\nconst PI = 3.14;\n// PI = 4; ❌ błąd\n```\n\n#### ⚠️ var (przestarzałe)\n```js\nvar name = 'John';\n```\n\n👉 `var` ma inne zachowanie (scope, hoisting) — dziś raczej się go nie używa\n\n---\n### 🔹 6. Zasady nazywania zmiennych\n\n✅ Dozwolone:\n```js\nlet userName;\nlet test123;\nlet $ = 1;\nlet _ = 2;\n```\n\n❌ Niedozwolone:\n```js\nlet 1name;     // nie może zaczynać się od liczby\nlet my-name;   // brak myślników\n```\n\n👉 Dobre praktyki:\n- camelCase → `userName`\n- opisowe nazwy → `shoppingCart`, nie `data`\n- język angielski (standard branżowy)\n\n---\n### 🔹 7. Wielkość liter ma znaczenie\n\n```js\nlet user;\nlet USER;\n```\n\n➡️ To są dwie różne zmienne\n\n---\n### 🔹 8. Zakazane nazwy (reserved words)\n\nNie można używać słów kluczowych:\n\n```js\nlet let = 5;     // ❌\nlet return = 5;  // ❌\n```\n\n---\n### 🔹 9. \"use strict\" a zmienne\n\nBez strict mode:\n\n```js\nnum = 5; // ❗ tworzy zmienną (zła praktyka)\n```\n\nZ strict mode:\n\n```js\n'use strict';\nnum = 5; // ❌ błąd\n```\n\n👉 Zawsze deklaruj zmienne (`let` / `const`)\n\n---\n### 🔹 10. Stałe (const) — dobre praktyki\n\nStałe znane wcześniej często zapisuje się wielkimi literami:\n\n```js\nconst COLOR_RED = '#F00';\n```\n\nAle jeśli wartość powstaje w trakcie działania:\n\n```js\nconst pageLoadTime = 123;\n```\n\n---\n### 💡 Dobre praktyki\n- używaj `const` domyślnie\n- używaj `let`, gdy wartość się zmienia\n- unikaj `var`\n- dawaj sensowne nazwy\n- nie nadpisuj jednej zmiennej różnymi typami danych\n\n---\n### 📌 Podsumowanie\n- zmienne = przechowywanie danych\n- `let` → zmienna\n- `const` → stała\n- `var` → przestarzałe\n- dobre nazwy = czytelny kod",
+      "resources": [
+        "https://javascript.info/variables"
+      ],
+      "level": 1,
+      "completed": true,
+      "editDate": "21.03.2026"
+    },
+    {
+      "id": "65",
+      "category": "javascript",
+      "question": "Jakie są typy danych w JavaScript?",
+      "answer": "JavaScript ma 7 prymitywnych(bool, string, number, bigInt, null, undefined, symbol i 1 złożony (object).",
+      "description": "Każda wartość w JavaScript ma określony typ danych. JavaScript jest językiem dynamicznie typowanym, co oznacza, że zmienna może zmieniać typ w trakcie działania programu.\n\n```js\nlet value = 'hello';\nvalue = 123; // OK\n```\n\n---\n### 🔹 1. Typy prymitywne (7)\n\n#### 🟢 number\nReprezentuje liczby całkowite i zmiennoprzecinkowe:\n\n```js\nlet n = 123;\nlet x = 12.34;\n```\n\nSpecjalne wartości:\n```js\nInfinity;\n-Infinity;\nNaN;\n```\n\n```js\nconsole.log(1 / 0); // Infinity\nconsole.log('text' / 2); // NaN\n```\n\n---\n#### 🟢 bigint\nDla bardzo dużych liczb:\n\n```js\nconst big = 123456789012345678901234567890n;\n```\n\n---\n#### 🟢 string\nTekst w cudzysłowie:\n\n```js\nlet str = \"Hello\";\nlet str2 = 'World';\nlet name = 'Jan';\n\nlet msg = `Cześć ${name}`;\n```\n\n➡️ backticki (`` ` ``) pozwalają wstawiać zmienne (`${}`)\n\n---\n#### 🟢 boolean\nLogiczne true / false:\n\n```js\nlet isActive = true;\nlet isGreater = 4 > 1; // true\n```\n\n---\n#### 🟢 null\n\"Brak wartości\" / \"nieznane\":\n\n```js\nlet age = null;\n```\n\n---\n#### 🟢 undefined\nZmienna bez przypisanej wartości:\n\n```js\nlet x;\nconsole.log(x); // undefined\n```\n\n👉 różnica:\n- null → ustawiasz sam\n- undefined → brak przypisania\n\n---\n#### 🟢 symbol\nUnikalne identyfikatory (rzadziej używane):\n\n```js\nconst id = Symbol('id');\n```\n\n---\n### 🔹 2. Typ złożony\n\n#### 🟡 object\nPrzechowuje bardziej złożone dane:\n\n```js\nlet user = {\n  name: 'Jan',\n  age: 30\n};\n```\n\n➡️ wszystko co nie jest prymitywem → object\n\n---\n### 🔹 3. typeof — sprawdzanie typu\n\n```js\ntypeof 123;        // \"number\"\ntypeof \"text\";     // \"string\"\ntypeof true;       // \"boolean\"\ntypeof undefined;  // \"undefined\"\ntypeof null;       // \"object\" ❗ bug w JS\n```\n\n⚠️ ważne:\n```js\ntypeof null === \"object\" // historyczny błąd\n```\n\n---\n### 🔥 Ważne cechy JavaScript\n\n#### ✅ Dynamiczne typowanie\n```js\nlet value = 'text';\nvalue = 100; // OK\n```\n\n#### ✅ Operacje matematyczne są \"bezpieczne\"\n```js\n\"abc\" / 2; // NaN (brak crasha)\n```\n\n---\n### 💡 Dobre praktyki\n- rozum różnicę między null i undefined\n- używaj typeof do debugowania\n- uważaj na NaN (rozlewa się w obliczeniach)\n- używaj backticków do stringów z danymi\n\n---\n### 📌 Podsumowanie\n- 8 typów danych w JS\n- 7 prymitywów + object\n- JS jest dynamicznie typowany\n- typeof pomaga sprawdzić typ\n- null to specjalny przypadek (historyczny bug)",
+      "resources": [
+        "https://javascript.info/types"
+      ],
+      "level": 1,
+      "completed": true,
+      "editDate": "3/22/2026, 11:55 AM"
+    },
+    {
+      "id": "66",
+      "category": "javascript",
+      "question": "Jak działa interakcja z userem w JS (alert, prompt, confirm)?",
+      "answer": "JavaScript oferuje alert, prompt i confirm do prostej interakcji z użytkownikiem w przeglądarce.",
+      "description": "JavaScript w przeglądarce udostępnia trzy podstawowe funkcje do komunikacji z użytkownikiem: `alert`, `prompt` i `confirm`. Są to tzw. **okna modalne** — blokują interakcję ze stroną do momentu zamknięcia.\n\n---\n### 🔹 1. alert\nWyświetla komunikat i czeka na kliknięcie \"OK\".\n\n```js\nalert('Hello');\n```\n\n➡️ Nie zwraca żadnej wartości\n➡️ Używane głównie do debugowania lub prostych komunikatów\n\n---\n### 🔹 2. prompt\nSłuży do pobierania danych od użytkownika.\n\n```js\nlet age = prompt('Ile masz lat?', '18');\n```\n\nParametry:\n- `title` → tekst pytania\n- `default` → domyślna wartość (opcjonalna)\n\n➡️ Zwraca:\n- wpisany tekst (string)\n- `null`, jeśli użytkownik kliknie \"Anuluj\"\n\n```js\nlet name = prompt('Jak masz na imię?', 'Jan');\n\nif (name !== null) {\n  alert(`Cześć ${name}`);\n}\n```\n\n---\n### 🔹 3. confirm\nSłuży do potwierdzenia (tak/nie).\n\n```js\nlet isAdmin = confirm('Czy jesteś adminem?');\n```\n\n➡️ Zwraca:\n- `true` → OK\n- `false` → Anuluj\n\n```js\nif (isAdmin) {\n  alert('Dostęp przyznany');\n}\n```\n\n---\n### ⚠️ Cechy wspólne (modalność)\n- blokują działanie strony\n- użytkownik nie może nic kliknąć w tle\n- zatrzymują wykonywanie kodu\n\n---\n### ❗ Ograniczenia\n- wygląd zależy od przeglądarki (brak stylowania)\n- pozycja okna jest ustalana automatycznie\n- nie nadają się do nowoczesnych UI\n\n---\n### 💡 Dobre praktyki\n- używaj tylko do nauki lub debugowania\n- w prawdziwych aplikacjach używaj własnych komponentów (np. modale w React)\n- zawsze obsługuj `null` z prompt\n\n---\n### 📌 Podsumowanie\n- `alert` → pokazuje komunikat\n- `prompt` → pobiera dane\n- `confirm` → zwraca true/false\n- wszystkie są modalne i blokujące",
+      "resources": [
+        "https://javascript.info/alert-prompt-confirm"
+      ],
+      "level": 1,
+      "completed": true,
+      "editDate": "21.03.2026"
+    },
+    {
+      "id": "67",
+      "category": "javascript",
+      "question": "Jak działa konwersja typów (type coercion) w JavaScript?",
+      "answer": "JavaScript automatycznie lub jawnie konwertuje wartości między typami (string, number, boolean).",
+      "description": "Konwersja typów (type coercion) to proces zmiany jednego typu danych na inny. Może być:\n- automatyczna (implicit)\n- jawna (explicit)\n\n---\n### 🔹 1. Konwersja do string\n\nZachodzi np. przy wyświetlaniu:\n\n```js\nalert(true); // \"true\"\n```\n\nJawnie:\n\n```js\nlet value = true;\nvalue = String(value); // \"true\"\n```\n\n➡️ Zasada: wszystko da się zamienić na string w oczywisty sposób\n\n---\n### 🔹 2. Konwersja do number\n\nZachodzi w operacjach matematycznych:\n\n```js\n\"6\" / \"2\"; // 3\n```\n\nJawnie:\n\n```js\nNumber(\"123\"); // 123\nNumber(\"abc\"); // NaN\n```\n\n---\n### ⚠️ Najważniejsze reguły\n\n```js\nNumber(undefined); // NaN\nNumber(null);      // 0\nNumber(true);      // 1\nNumber(false);     // 0\nNumber(\" 123 \");  // 123\nNumber(\"\");       // 0\nNumber(\"abc\");    // NaN\n```\n\n👉 Kluczowe pułapki:\n- `undefined → NaN`\n- `null → 0`\n\n---\n### 🔹 3. Konwersja do boolean\n\nJawnie:\n\n```js\nBoolean(1); // true\nBoolean(0); // false\n```\n\n---\n### ⚠️ Falsy wartości (false)\n\n```js\nfalse\n0\n\"\"\nnull\nundefined\nNaN\n```\n\n➡️ wszystko inne = true\n\n---\n### ❗ Pułapki boolean\n\n```js\nBoolean(\"0\"); // true\nBoolean(\" \"); // true\n```\n\n👉 każda NIEPUSTA string = true\n\n---\n### 🔥 Implicit coercion (automatyczna)\n\nJavaScript sam konwertuje typy:\n\n```js\n\"5\" + 1; // \"51\" (string)\n\"5\" - 1; // 4 (number)\n```\n\n➡️ `+` jest wyjątkiem (łączenie stringów)\n\n---\n### 💡 Dobre praktyki\n- używaj jawnej konwersji (`Number`, `String`, `Boolean`)\n- unikaj niejasnych operacji typu:\n\n```js\n\"5\" + 1 // ❌ może mylić\n```\n\n- sprawdzaj NaN (np. `Number.isNaN()`)\n\n---\n### 📌 Podsumowanie\n- 3 główne konwersje: string, number, boolean\n- JS automatycznie zmienia typy\n- null ≠ undefined (różne zachowanie)\n- \"0\" i \" \" → true (częsty błąd)\n- implicit coercion to częste źródło bugów",
+      "resources": [
+        "https://javascript.info/type-conversions"
+      ],
+      "level": 1,
+      "completed": true,
+      "editDate": "21.03.2026"
+    },
+    {
+      "id": "68",
+      "category": "javascript",
+      "question": "Jakie są podstawowe operatory matematyczne w JavaScript?",
+      "answer": "+, -, *, /, %, **",
+      "description": "Operatory w JavaScript służą do wykonywania operacji na wartościach (operandach). Mogą być:\n- unarne (1 operand) → `-x`, `++x`\n- binarne (2 operandy) → `x + y`\n\n---\n### 🔹 1. Podstawowe operatory matematyczne\n\n```js\n+  // dodawanie\n-  // odejmowanie\n*  // mnożenie\n/  // dzielenie\n%  // reszta z dzielenia\n** // potęgowanie\n```\n\n```js\n5 % 2;   // 1\n2 ** 3;  // 8\n```\n\n---\n### 🔥 2. + (plus) ma specjalne zachowanie\n\n```js\n\"1\" + 2; // \"12\"\n2 + \"1\"; // \"21\"\n```\n\n➡️ jeśli jeden operand to string → wszystko staje się stringiem\n\n```js\n2 + 2 + \"1\"; // \"41\"\n```\n\n👉 inne operatory zawsze konwertują do number:\n\n```js\n\"6\" - \"2\"; // 4\n\"6\" / \"2\"; // 3\n```\n\n---\n### 🔹 3. Unary + (konwersja do number)\n\n```js\n+\"123\";  // 123\n+true;   // 1\n+\"\";     // 0\n```\n\n➡️ skrót dla `Number()`\n\n---\n### 🔹 4. Priorytet operatorów\n\n```js\n1 + 2 * 2; // 5\n(1 + 2) * 2; // 6\n```\n\n👉 ważne:\n- `*` ma wyższy priorytet niż `+`\n- nawiasy zmieniają kolejność\n- unary ma wyższy priorytet niż binary\n\n---\n### 🔹 5. Przypisanie (=)\n\n```js\nlet x = 2 * 2 + 1; // 5\n```\n\n➡️ najpierw obliczenia, potem przypisanie\n\n#### ❗ przypisanie zwraca wartość\n\n```js\nlet a;\nlet b = (a = 5);\n```\n\n---\n### 🔹 6. Łańcuchowe przypisanie\n\n```js\nlet a, b, c;\na = b = c = 2 + 2;\n```\n\n➡️ działa od prawej do lewej\n\n---\n### 🔹 7. Skrócone operatory\n\n```js\nlet n = 2;\nn += 5; // 7\nn *= 2; // 14\n```\n\n---\n### 🔹 8. Inkrementacja / dekrementacja\n\n```js\nlet i = 1;\ni++; // 2\ni--; // 1\n```\n\n#### ⚠️ prefix vs postfix\n\n```js\nlet a = 1;\nlet b = ++a; // 2 (nowa wartość)\n\nlet c = 1;\nlet d = c++; // 1 (stara wartość)\n```\n\n---\n### 🔹 9. Operatory bitowe (rzadko używane)\n\n```js\n& | ^ ~ << >> >>>\n```\n\n➡️ używane głównie w low-level / kryptografii\n\n---\n### 🔹 10. Operator przecinka (,)\n\n```js\nlet a = (1 + 2, 3 + 4); // 7\n```\n\n➡️ wykonuje wszystko, zwraca ostatnią wartość\n\n---\n### 💡 Dobre praktyki\n- uważaj na `+` (string vs number)\n- używaj nawiasów dla czytelności\n- unikaj \"sprytnych\" trików (łańcuchy przypisań, ,)\n- preferuj prosty kod zamiast skróconego\n\n---\n### 📌 Podsumowanie\n- operatory wykonują działania na danych\n- `+` może łączyć stringi\n- inne operatory konwertują do number\n- `=` zwraca wartość\n- `++` i `--` mają różne zachowanie (prefix/postfix)",
+      "resources": [
+        "https://javascript.info/operators"
+      ],
+      "level": 1,
+      "completed": false,
+      "editDate": "21.03.2026"
+    },
+    {
+      "id": "69",
+      "category": "javascript",
+      "question": "Jak działają operatory porównania w JavaScript?",
+      "answer": "Operatory porównania zwracają true lub false i mogą wykonywać konwersję typów.",
+      "description": "Operatory porównania służą do sprawdzania relacji między wartościami i zawsze zwracają boolean (`true` lub `false`).\n\n---\n### 🔹 1. Podstawowe operatory\n\n```js\n>   // większe\n<   // mniejsze\n>=  // większe lub równe\n<=  // mniejsze lub równe\n==  // równe (z konwersją)\n!=  // różne (z konwersją)\n=== // ścisłe równe (bez konwersji)\n!== // ścisłe różne\n```\n\n```js\n2 > 1;   // true\n2 == 1;  // false\n2 != 1;  // true\n```\n\n---\n### 🔹 2. Wynik to boolean\n\n```js\nlet result = 5 > 4; // true\n```\n\n---\n### 🔹 3. Porównywanie stringów\n\n```js\n\"a\" > \"b\";     // false\n\"abc\" > \"ab\"; // true\n```\n\n➡️ porównanie znak po znaku (Unicode)\n\n⚠️ wielkość liter ma znaczenie:\n\n```js\n\"a\" > \"A\"; // true\n```\n\n---\n### 🔥 4. Porównanie różnych typów\n\n```js\n\"2\" > 1;   // true\n\"01\" == 1; // true\n```\n\n➡️ JS konwertuje do number\n\n```js\ntrue == 1;  // true\nfalse == 0; // true\n```\n\n---\n### ❗ 5. Problem z == (luźne porównanie)\n\n```js\n0 == false; // true\n\"\" == false; // true\n```\n\n👉 powód: konwersja typów\n\n---\n### ✅ 6. === (ścisłe porównanie)\n\n```js\n0 === false; // false\n```\n\n➡️ brak konwersji → bezpieczniejsze\n\n👉 🔥 ZASADA: używaj zawsze `===`\n\n---\n### 🔹 7. null i undefined\n\n#### ✔️ specjalne zachowanie\n\n```js\nnull == undefined; // true\nnull === undefined; // false\n```\n\n---\n### ❗ dziwne przypadki\n\n```js\nnull > 0;   // false\nnull == 0;  // false\nnull >= 0;  // true ❗\n```\n\n👉 powód: różne zasady dla == i >\n\n---\n### ❗ undefined\n\n```js\nundefined > 0;  // false\nundefined < 0;  // false\nundefined == 0; // false\n```\n\n➡️ undefined → NaN → zawsze false\n\n---\n### 💡 Dobre praktyki\n- używaj `===` zamiast `==`\n- unikaj porównań z `null` i `undefined`\n- sprawdzaj je osobno:\n\n```js\nif (value === null || value === undefined)\n```\n\n- uważaj na string vs number\n\n---\n### 📌 Podsumowanie\n- porównania zwracają boolean\n- `==` konwertuje typy (niebezpieczne)\n- `===` nie konwertuje (zalecane)\n- null i undefined mają specjalne zachowanie\n- porównania mogą dawać nieintuicyjne wyniki",
+      "resources": [
+        "https://javascript.info/comparison"
+      ],
+      "level": 2,
+      "completed": false,
+      "editDate": "21.03.2026"
+    },
+    {
+      "id": "70",
+      "category": "javascript",
+      "question": "Jak działa instrukcja warunkowa if oraz operator ternarny (?) w JavaScript?",
+      "answer": "Instrukcja if i operator ? pozwalają wykonywać różny kod w zależności od warunku.",
+      "description": "Instrukcje warunkowe umożliwiają podejmowanie decyzji w kodzie na podstawie wartości logicznych.\n\n---\n### 🔹 1. Instrukcja if\n\n```js\nif (condition) {\n  // kod jeśli true\n}\n```\n\n```js\nlet age = 20;\n\nif (age > 18) {\n  console.log('Dorosły');\n}\n```\n\n---\n### 🔹 2. if...else\n\n```js\nif (age > 18) {\n  console.log('Dorosły');\n} else {\n  console.log('Nieletni');\n}\n```\n\n---\n### 🔹 3. else if (wiele warunków)\n\n```js\nif (age < 18) {\n  console.log('Młody');\n} else if (age < 65) {\n  console.log('Dorosły');\n} else {\n  console.log('Senior');\n}\n```\n\n---\n### 🔹 4. Konwersja do boolean\n\n```js\nif (0) { }      // false\nif (1) { }      // true\nif (\"\") { }    // false\nif (\"text\") { } // true\n```\n\n➡️ używane są wartości truthy / falsy\n\n---\n### 🔹 5. Operator ternarny ( ? )\n\nSkrócona forma if:\n\n```js\nlet result = condition ? value1 : value2;\n```\n\n```js\nlet age = 20;\nlet access = age > 18 ? true : false;\n```\n\n👉 często można uprościć:\n\n```js\nlet access = age > 18;\n```\n\n---\n### 🔹 6. Zagnieżdżony ternary\n\n```js\nlet message = age < 18 ? 'Młody' :\n              age < 65 ? 'Dorosły' :\n              'Senior';\n```\n\n➡️ działa jak if...else if\n\n---\n### ❗ Kiedy NIE używać ?\n\n```js\n// ❌ słabe\ncondition ? doSomething() : doOtherThing();\n```\n\n👉 lepiej:\n\n```js\nif (condition) {\n  doSomething();\n} else {\n  doOtherThing();\n}\n```\n\n---\n### 💡 Dobre praktyki\n- używaj `if` do logiki\n- używaj `?` tylko do przypisywania wartości\n- zawsze używaj `{}` dla czytelności\n- unikaj zbyt zagnieżdżonych ternary\n\n---\n### 📌 Podsumowanie\n- `if` → kontrola przepływu\n- `else` / `else if` → dodatkowe warunki\n- `?` → skrócony zapis zwracający wartość\n- warunki opierają się na truthy / falsy",
+      "resources": [
+        "https://javascript.info/ifelse"
+      ],
+      "level": 1,
+      "completed": false,
+      "editDate": "21.03.2026"
     }
   ]
 }

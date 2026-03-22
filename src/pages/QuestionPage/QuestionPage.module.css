@@ -1,10 +1,10 @@
 .container {
 	width: 100%;
-	max-width: 600px;
+	max-width: 750px;
 	height: max-content;
 	border-radius: 10px;
 	margin: 25px auto;
-	padding: 20px;
+	padding: 20px 24px;
 	background-color: var(--card-bg-color);
 	color: var(--text-color);
 	box-shadow: 0 0 8px 5px rgba(0, 0, 0, 0.1);
@@ -75,7 +75,7 @@
 }
 
 .cardParagraph {
-	font-size: 14px;
+	font-size: 16px;
 	font-style: italic;
 	text-align: justify;
 }
