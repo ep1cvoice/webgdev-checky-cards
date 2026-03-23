@@ -1,825 +1,774 @@
 {
-  "checkycards": [
-    {
-      "id": "1",
-      "category": "react",
-      "question": "Czym jest React?",
-      "answer": "React to biblioteka JavaScript do budowania interfejsów użytkownika.",
-      "description": "React to popularna biblioteka stworzona przez Facebooka (Meta), która umożliwia tworzenie dynamicznych i wydajnych aplikacji webowych. Opiera się na komponentach, które pozwalają dzielić interfejs na mniejsze, wielokrotnego użytku części. React wykorzystuje wirtualny DOM, co poprawia wydajność aktualizacji widoku.",
-      "resources": [
-        "https://react.dev/learn"
-      ],
-      "level": 1,
-      "completed": false,
-      "editDate": "18.03.2026"
-    },
-    {
-      "id": "2",
-      "category": "react",
-      "question": "Czym jest JSX?",
-      "answer": "JSX to rozszerzenie składni JavaScript dla Reacta.",
-      "description": "JSX pozwala pisać kod podobny do HTML w JavaScript, który następnie jest transpilowany do wywołań `React.createElement`. Ułatwia to tworzenie i wizualne przedstawienie struktury komponentów.",
-      "resources": [
-        "https://react.dev/learn/writing-markup-with-jsx"
-      ],
-      "level": 2,
-      "completed": false,
-      "editDate": "18.03.2026, 20:25"
-    },
-    {
-      "id": "3",
-      "category": "react",
-      "question": "Jaka jest główna zasada działania Reacta?",
-      "answer": "React wykorzystuje Virtual DOM do optymalizacji renderowania.",
-      "description": "React opiera się na koncepcji Virtual DOM — jest to reprezentacja rzeczywistego DOM w pamięci. Gdy stan komponentu się zmienia, React porównuje Virtual DOM z jego poprzednim stanem i aktualizuje na stronie tylko zmienione elementy.",
-      "resources": [
-        "https://react.dev/learn/render-and-commit"
-      ],
-      "level": 1,
-      "completed": false,
-      "editDate": "3/19/2026, 12:34 PM"
-    },
-    {
-      "id": "4",
-      "category": "react",
-      "question": "Jak utworzyć komponent w React?",
-      "answer": "Komponent można utworzyć jako funkcję lub klasę.",
-      "description": "Komponenty funkcyjne to funkcje, które przyjmują `props` i zwracają JSX. Komponenty klasowe to klasy dziedziczące po `React.Component`, posiadające metodę \"render\".",
-      "resources": [
-        "https://react.dev/learn/your-first-component"
-      ],
-      "level": 1,
-      "completed": false,
-      "editDate": "18.03.2026, 20:25"
-    },
-    {
-      "id": "5",
-      "category": "react",
-      "question": "Czym są props w React?",
-      "answer": "Props to parametry wejściowe komponentów.",
-      "description": "Props (właściwości) służą do przekazywania danych z komponentu nadrzędnego do komponentu potomnego. Są niemutowalne wewnątrz komponentu i pozwalają tworzyć bardziej elastyczne oraz wielokrotnego użytku komponenty.",
-      "resources": [
-        "https://react.dev/learn/passing-props-to-a-component"
-      ],
-      "level": 1,
-      "completed": false,
-      "editDate": "3/19/2026, 12:40 PM"
-    },
-    {
-      "id": "7",
-      "category": "react",
-      "question": "Jak działa useState w React?",
-      "answer": "useState to hook do zarządzania stanem w komponentach funkcyjnych.",
-      "description": "`useState` zwraca tablicę złożoną z dwóch elementów: bieżącej wartości stanu oraz funkcji do jego aktualizacji. Służy do przechowywania i zmiany danych w komponentach.",
-      "resources": [
-        "https://react.dev/reference/react/useState"
-      ],
-      "level": 2,
-      "completed": false
-    },
-    {
-      "id": "10",
-      "category": "react",
-      "question": "Jak zoptymalizować wydajność aplikacji React?",
-      "answer": "Używaj React.memo, useMemo, useCallback oraz optymalizacji renderowania.",
-      "description": "W celu zwiększenia wydajności można używać `React.memo` do memoizacji komponentów, `useMemo` i `useCallback` do zapobiegania niepotrzebnemu ponownemu tworzeniu funkcji i danych, a także Code Splitting oraz Lazy Loading.",
-      "resources": [
-        "https://react.dev/learn/keeping-components-pure"
-      ],
-      "level": 3,
-      "completed": false
-    },
-    {
-      "id": "11",
-      "category": "react",
-      "question": "Czym jest Virtual DOM w React?",
-      "answer": "Virtual DOM to reprezentacja rzeczywistego DOM w pamięci.",
-      "description": "Virtual DOM to koncepcja wykorzystywana przez React do optymalizacji aktualizacji interfejsu użytkownika. React porównuje stary i nowy Virtual DOM i zmienia tylko zmodyfikowane elementy w rzeczywistym DOM.",
-      "resources": [
-        "https://react.dev/learn/render-and-commit"
-      ],
-      "level": 2,
-      "completed": false
-    },
-    {
-      "id": "12",
-      "category": "react",
-      "question": "Jak działa React.memo?",
-      "answer": "React.memo to HOC do memoizacji komponentów funkcyjnych.",
-      "description": "React.memo zapobiega ponownemu renderowaniu komponentu, jeśli jego propsy nie uległy zmianie. Pomaga to zoptymalizować wydajność poprzez unikanie niepotrzebnych rerenderów.",
-      "resources": [
-        "https://react.dev/reference/react/memo"
-      ],
-      "level": 3,
-      "completed": false
-    },
-    {
-      "id": "13",
-      "category": "react",
-      "question": "Co robi useCallback?",
-      "answer": "useCallback memoizuje funkcję i zwraca jej niezmienioną wersję pomiędzy renderowaniami.",
-      "description": "useCallback jest używany do optymalizacji wydajności poprzez zapobieganie ponownemu tworzeniu funkcji przy każdym renderowaniu, jeśli ich zależności nie uległy zmianie.",
-      "resources": [
-        "https://react.dev/reference/react/useCallback"
-      ],
-      "level": 3,
-      "completed": false
-    },
-    {
-      "id": "14",
-      "category": "react",
-      "question": "Co robi useMemo?",
-      "answer": "useMemo memoizuje obliczaną wartość.",
-      "description": "useMemo buforuje wynik obliczeń pomiędzy renderowaniami, jeśli zależności nie uległy zmianie. Jest to przydatne do optymalizacji złożonych obliczeń.",
-      "resources": [
-        "https://react.dev/reference/react/useMemo"
-      ],
-      "level": 3,
-      "completed": false
-    },
-    {
-      "id": "15",
-      "category": "react",
-      "question": "Jak działa obsługa zdarzeń w React?",
-      "answer": "React wykorzystuje system zdarzeń syntetycznych.",
-      "description": "Zdarzenia w React działają poprzez opakowanie `SyntheticEvent`, które zapewnia kompatybilność między przeglądarkami oraz zoptymalizowaną obsługę.",
-      "resources": [
-        "https://react.dev/learn/responding-to-events"
-      ],
-      "level": 2,
-      "completed": false
-    },
-    {
-      "id": "16",
-      "category": "react",
-      "question": "Czym są portale (Portals) w React?",
-      "answer": "Portale pozwalają renderować elementy potomne poza węzłem DOM komponentu nadrzędnego.",
-      "description": "Za pomocą `ReactDOM.createPortal` można renderować elementy w innym kontenerze DOM, zachowując powiązanie z komponentem nadrzędnym.",
-      "resources": [
-        "https://react.dev/reference/react-dom/createPortal"
-      ],
-      "level": 3,
-      "completed": false
-    },
-    {
-      "id": "17",
-      "category": "react",
-      "question": "Jak zaimplementować leniwe ładowanie komponentów?",
-      "answer": "Użyj React.lazy oraz Suspense.",
-      "description": "React.lazy pozwala ładować komponenty dynamicznie, a Suspense służy do wyświetlania komponentu zastępczego podczas ładowania.",
-      "resources": [
-        "https://react.dev/reference/react/lazy"
-      ],
-      "level": 2,
-      "completed": false
-    },
-    {
-      "id": "18",
-      "category": "react",
-      "question": "Czym jest Context API?",
-      "answer": "Context API to mechanizm przekazywania danych bez konieczności przekazywania propsów przez kolejne poziomy komponentów.",
-      "description": "Context API służy do zarządzania globalnym stanem aplikacji, na przykład motywem lub językiem interfejsu.",
-      "resources": [
-        "https://react.dev/reference/react/createContext"
-      ],
-      "level": 2,
-      "completed": false
-    },
-    {
-      "id": "19",
-      "category": "react",
-      "question": "Jak używać useContext?",
-      "answer": "useContext pozwala pobierać wartości z kontekstu.",
-      "description": "useContext przyjmuje obiekt kontekstu i zwraca jego bieżącą wartość, umożliwiając dostęp do danych bez zagnieżdżonych komponentów Consumer.",
-      "resources": [
-        "https://react.dev/reference/react/useContext"
-      ],
-      "level": 2,
-      "completed": false
-    },
-    {
-      "id": "20",
-      "category": "react",
-      "question": "Czym są render props?",
-      "answer": "Render props to wzorzec polegający na przekazywaniu funkcji jako propsów.",
-      "description": "Ten wzorzec pozwala przekazywać funkcję zwracającą JSX jako props do komponentu, aby elastycznie kontrolować renderowanie komponentów potomnych.",
-      "resources": [
-        "https://react.dev/learn/render-props"
-      ],
-      "level": 3,
-      "completed": true
-    },
-    {
-      "id": "21",
-      "category": "react",
-      "question": "Jak można zaktualizować stan w komponencie klasowym?",
-      "answer": "Za pomocą metody setState.",
-      "description": "setState przyjmuje nowy obiekt stanu i aktualizuje komponent, wywołując ponowne renderowanie. Można przekazać funkcję, aby zaktualizować stan na podstawie poprzedniego stanu.",
-      "resources": [
-        "https://react.dev/reference/react/Component#setstate"
-      ],
-      "level": 1,
-      "completed": false
-    },
-    {
-      "id": "22",
-      "category": "react",
-      "question": "Jak pracować z formularzami w React?",
-      "answer": "Używaj komponentów kontrolowanych i niekontrolowanych.",
-      "description": "W komponentach kontrolowanych stan formularza jest przechowywany w state, a w niekontrolowanych — w DOM. Do pracy z formularzami stosuje się useState, onChange oraz ref.",
-      "resources": [
-        "https://react.dev/learn/sharing-state-between-components"
-      ],
-      "level": 2,
-      "completed": false
-    },
-    {
-      "id": "23",
-      "category": "react",
-      "question": "Jak przekazać ref do komponentu potomnego?",
-      "answer": "Użyj forwardRef.",
-      "description": "React.forwardRef pozwala przekazać ref do wnętrza komponentu potomnego, aby uzyskać dostęp do jego elementu DOM lub instancji.",
-      "resources": [
-        "https://react.dev/reference/react/forwardRef"
-      ],
-      "level": 3,
-      "completed": false
-    },
-    {
-      "id": "24",
-      "category": "react",
-      "question": "Jak używać kluczy (keys) w listach?",
-      "answer": "Klucze pomagają Reactowi rozróżniać elementy podczas renderowania.",
-      "description": "Klucze (`key`) są używane w listach do identyfikacji elementów. Pomagają Reactowi efektywnie aktualizować listę, unikając niepotrzebnych rerenderów.",
-      "resources": [
-        "https://react.dev/learn/rendering-lists"
-      ],
-      "level": 1,
-      "completed": false
-    },
-    {
-      "id": "25",
-      "category": "react",
-      "question": "Co robi Strict Mode?",
-      "answer": "StrictMode pomaga wykrywać potencjalne problemy w kodzie.",
-      "description": "StrictMode aktywuje dodatkowe sprawdzenia, ostrzegając o niebezpiecznych metodach cyklu życia oraz innych błędach.",
-      "resources": [
-        "https://react.dev/reference/react/StrictMode"
-      ],
-      "level": 2,
-      "completed": false
-    },
-    {
-      "id": "26",
-      "category": "react",
-      "question": "Jak działa useReducer?",
-      "answer": "useReducer zarządza stanem za pomocą funkcji reduktora.",
-      "description": "useReducer jest przydatny w przypadku złożonych stanów. Przyjmuje funkcję reduktora oraz stan początkowy, zwracając bieżący state i funkcję dispatch.",
-      "resources": [
-        "https://react.dev/reference/react/useReducer"
-      ],
-      "level": 3,
-      "completed": false
-    },
-    {
-      "id": "27",
-      "category": "react",
-      "question": "Jak przechwytywać błędy w komponentach React?",
-      "answer": "Użyj Error Boundary.",
-      "description": "Error Boundary to komponent implementujący metodę componentDidCatch. Zapobiega on awarii całej aplikacji w przypadku błędu w komponentach potomnych.",
-      "resources": [
-        "https://react.dev/learn/error-handling"
-      ],
-      "level": 3,
-      "completed": false
-    },
-    {
-      "id": "28",
-      "category": "react",
-      "question": "Co robi hook useRef?",
-      "answer": "useRef tworzy referencję, która jest zachowywana pomiędzy renderowaniami.",
-      "description": "useRef służy do uzyskiwania dostępu do elementów DOM lub przechowywania danych pomiędzy renderowaniami bez wywoływania ponownego renderowania.",
-      "resources": [
-        "https://react.dev/reference/react/useRef"
-      ],
-      "level": 2,
-      "completed": false
-    },
-    {
-      "id": "29",
-      "category": "react",
-      "question": "Jak zaimplementować renderowanie po stronie serwera (SSR) w React?",
-      "answer": "Użyj Next.js lub ReactDOMServer.",
-      "description": "SSR pozwala renderować komponenty React na serwerze, poprawiając SEO oraz szybkość ładowania. W React do tego celu używa się Next.js lub ReactDOMServer.",
-      "resources": [
-        "https://nextjs.org/docs"
-      ],
-      "level": 3,
-      "completed": false
-    },
-    {
-      "id": "30",
-      "category": "react",
-      "question": "Czym są fragmenty (React Fragments)?",
-      "answer": "Fragments pozwalają grupować elementy bez dodawania zbędnego węzła do DOM.",
-      "description": "Fragmenty (`<></>` lub `React.Fragment`) są używane, aby uniknąć zbędnych opakowujących divów, co sprawia, że struktura DOM jest bardziej przejrzysta.",
-      "resources": [
-        "https://react.dev/reference/react/Fragment"
-      ],
-      "level": 1,
-      "completed": false
-    },
-    {
-      "id": "31",
-      "category": "react",
-      "question": "Jak używać `useLayoutEffect`?",
-      "answer": "`useLayoutEffect` wykonuje się synchronicznie po renderowaniu, ale przed wyświetleniem na ekranie.",
-      "description": "Jest używany, gdy необходимо zmierzyć DOM przed jego wyświetleniem. Różni się od `useEffect`, który uruchamia się po renderowaniu.",
-      "resources": [
-        "https://react.dev/reference/react/useLayoutEffect"
-      ],
-      "level": 3,
-      "completed": false
-    },
-    {
-      "id": "32",
-      "category": "react",
-      "question": "Jak działa `useImperativeHandle`?",
-      "answer": "`useImperativeHandle` pozwala zarządzać metodami komponentu potomnego za pomocą `ref`.",
-      "description": "`useImperativeHandle` jest używany razem z `forwardRef` do kontrolowania zachowania wewnętrznego komponentu z poziomu komponentu nadrzędnego. Jest przydatny podczas pracy z zewnętrznymi bibliotekami.",
-      "resources": [
-        "https://react.dev/reference/react/useImperativeHandle"
-      ],
-      "level": 3,
-      "completed": false
-    },
-    {
-      "id": "33",
-      "category": "react",
-      "question": "Czym jest HOC (Higher-Order Component)?",
-      "answer": "HOC to funkcja, która przyjmuje komponent i zwraca nowy komponent.",
-      "description": "HOC są używane do ponownego wykorzystania logiki, na przykład autoryzacji lub przetwarzania danych. To wzorzec, który został zastąpiony przez hooki, ale czasami nadal jest przydatny.",
-      "resources": [
-        "https://react.dev/learn/reusing-logic-with-custom-hooks"
-      ],
-      "level": 3,
-      "completed": false
-    },
-    {
-      "id": "34",
-      "category": "react",
-      "question": "Jak utworzyć globalny stan w React?",
-      "answer": "Użyj Context API, Redux lub Zustand.",
-      "description": "Globalnym stanem można zarządzać za pomocą `Context API` w prostych przypadkach, `Redux` w przypadku złożonych struktur danych oraz `Zustand` jako lekkiej alternatywy.",
-      "resources": [
-        "https://react.dev/learn/passing-data-deeply-with-context",
-        "https://redux.js.org"
-      ],
-      "level": 3,
-      "completed": false
-    },
-    {
-      "id": "35",
-      "category": "react",
-      "question": "Czym jest React Fiber?",
-      "answer": "React Fiber to nowy algorytm renderowania w React.",
-      "description": "React Fiber to przepisany silnik React, który poprawia wydajność i obsługuje takie funkcje jak wstrzymywanie i wznawianie renderowania. Pozwala Reactowi działać asynchronicznie oraz nadawać priorytety zadaniom.",
-      "resources": [
-        "https://react.dev/blog/2017/09/26/react-v16.0.html"
-      ],
-      "level": 3,
-      "completed": false
-    },
-    {
-      "id": "36",
-      "category": "react",
-      "question": "Jak działa React Suspense?",
-      "answer": "Suspense pozwala odroczyć renderowanie komponentów do momentu zakończenia operacji asynchronicznych.",
-      "description": "Suspense jest używany do zarządzania operacjami asynchronicznymi, takimi jak pobieranie danych lub leniwe ładowanie komponentów. Wyświetla komponent fallback, dopóki dane nie będą gotowe.",
-      "resources": [
-        "https://react.dev/reference/react/Suspense"
-      ],
-      "level": 3,
-      "completed": false
-    },
-    {
-      "id": "37",
-      "category": "react",
-      "question": "Czym jest Concurrent Mode w React?",
-      "answer": "Concurrent Mode to zestaw funkcji poprawiających responsywność aplikacji.",
-      "description": "Concurrent Mode pozwala Reactowi pracować nad wieloma zadaniami jednocześnie, nadając im priorytety i poprawiając doświadczenie użytkownika. Obejmuje takie funkcje jak Suspense oraz priorytetyzację renderowania.",
-      "resources": [
-        "https://react.dev/blog/2021/06/08/the-plan-for-react-18"
-      ],
-      "level": 3,
-      "completed": false
-    },
-    {
-      "id": "38",
-      "category": "react",
-      "question": "Jak używać React DevTools?",
-      "answer": "React DevTools to narzędzie do debugowania aplikacji React.",
-      "description": "React DevTools pozwala inspekcjonować drzewo komponentów, przeglądać ich stan i propsy oraz analizować wydajność. Jest dostępne jako rozszerzenie do przeglądarek.",
-      "resources": [
-        "https://react.dev/learn/react-developer-tools"
-      ],
-      "level": 1,
-      "completed": false
-    },
-    {
-      "id": "39",
-      "category": "react",
-      "question": "Czym są React Server Components?",
-      "answer": "React Server Components to komponenty renderowane po stronie serwera.",
-      "description": "React Server Components pozwalają renderować komponenty na serwerze, zmniejszając rozmiar kodu po stronie klienta i poprawiając wydajność. Obsługują dane asynchroniczne i mogą być integrowane z komponentami klienckimi.",
-      "resources": [
-        "https://react.dev/blog/2020/12/21/data-fetching-with-react-server-components"
-      ],
-      "level": 3,
-      "completed": false
-    },
-    {
-      "id": "40",
-      "category": "react",
-      "question": "Jak używać React z TypeScript?",
-      "answer": "React można używać z TypeScript w celu dodania typowania.",
-      "description": "TypeScript dodaje statyczne typowanie do aplikacji React, co pomaga unikać błędów i usprawnia proces tworzenia oprogramowania. W tym celu wykorzystuje się typy dla propsów, stanu oraz hooków.",
-      "resources": [
-        "https://react.dev/learn/typescript"
-      ],
-      "level": 2,
-      "completed": false
-    },
-    {
-      "id": "41",
-      "category": "react",
-      "question": "Czym są React Hooks?",
-      "answer": "React Hooks to funkcje, które pozwalają używać stanu i innych możliwości React w komponentach funkcyjnych.",
-      "description": "Hooki, takie jak `useState`, `useEffect`, `useContext`, pozwalają zarządzać stanem, efektami ubocznymi oraz kontekstem w komponentach funkcyjnych bez używania klas.",
-      "resources": [
-        "https://react.dev/reference/react"
-      ],
-      "level": 2,
-      "completed": false
-    },
-    {
-      "id": "42",
-      "category": "react",
-      "question": "Jak używać React z Redux?",
-      "answer": "React można zintegrować z Redux w celu zarządzania globalnym stanem.",
-      "description": "Redux to biblioteka do zarządzania stanem aplikacji. React-Redux udostępnia hooki, takie jak `useSelector` oraz `useDispatch`, do pracy z Redux w komponentach React.",
-      "resources": [
-        "https://react-redux.js.org"
-      ],
-      "level": 3,
-      "completed": false
-    },
-    {
-      "id": "43",
-      "category": "react",
-      "question": "Czym jest React Testing Library?",
-      "answer": "React Testing Library to narzędzie do testowania komponentów React.",
-      "description": "React Testing Library pozwala testować komponenty tak, jak używają ich użytkownicy. Skupia się na testowaniu zachowania, a nie implementacji.",
-      "resources": [
-        "https://testing-library.com/docs/react-testing-library/intro"
-      ],
-      "level": 2,
-      "completed": false
-    },
-    {
-      "id": "44",
-      "category": "react",
-      "question": "Jak używać React z GraphQL?",
-      "answer": "React można zintegrować z GraphQL za pomocą Apollo Client lub Relay.",
-      "description": "GraphQL to język zapytań do API. Apollo Client oraz Relay udostępniają narzędzia do pracy z GraphQL w aplikacjach React, w tym buforowanie oraz zarządzanie stanem.",
-      "resources": [
-        "https://www.apollographql.com/docs/react"
-      ],
-      "level": 3,
-      "completed": false
-    },
-    {
-      "id": "45",
-      "category": "react",
-      "question": "Czym jest React Native?",
-      "answer": "React Native to framework do tworzenia aplikacji mobilnych z wykorzystaniem React.",
-      "description": "React Native pozwala tworzyć wieloplatformowe aplikacje mobilne przy użyciu JavaScript i React. Kompiluje się do natywnych komponentów dla iOS oraz Androida.",
-      "resources": [
-        "https://reactnative.dev"
-      ],
-      "level": 2,
-      "completed": false
-    },
-    {
-      "id": "46",
-      "category": "react",
-      "question": "Jak używać React z Webpack?",
-      "answer": "Webpack jest używany do budowania aplikacji React.",
-      "description": "Webpack to bundler modułów, który pozwala łączyć JavaScript, CSS oraz inne zasoby w bundel. W przypadku React konfiguruje się loadery (loaders) oraz wtyczki, takie jak Babel.",
-      "resources": [
-        "https://webpack.js.org/guides/getting-started"
-      ],
-      "level": 3,
-      "completed": false
-    },
-    {
-      "id": "47",
-      "category": "react",
-      "question": "Czym są React Error Boundaries?",
-      "answer": "Error Boundaries to komponenty służące do obsługi błędów w React.",
-      "description": "Error Boundaries przechwytują błędy w komponentach potomnych, logują je oraz wyświetlają zapasowy interfejs użytkownika. Są implementowane za pomocą metod `getDerivedStateFromError` oraz `componentDidCatch`.",
-      "resources": [
-        "https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary"
-      ],
-      "level": 3,
-      "completed": false
-    },
-    {
-      "id": "48",
-      "category": "react",
-      "question": "Jak używać React z CSS-in-JS?",
-      "answer": "CSS-in-JS pozwala pisać style bezpośrednio w JavaScript.",
-      "description": "Biblioteki, takie jak styled-components lub Emotion, pozwalają pisać style wewnątrz komponentów, co poprawia modularność oraz izolację stylów.",
-      "resources": [
-        "https://styled-components.com"
-      ],
-      "level": 2,
-      "completed": false
-    },
-    {
-      "id": "49",
-      "category": "react",
-      "question": "Czym jest React Concurrent Rendering?",
-      "answer": "Concurrent Rendering to możliwość pracy React nad wieloma zadaniami jednocześnie.",
-      "description": "Concurrent Rendering pozwala React wstrzymywać i wznawiać renderowanie, aby zapewnić płynniejsze doświadczenie użytkownika. Jest to szczególnie przydatne w aplikacjach o dużym obciążeniu.",
-      "resources": [
-        "https://react.dev/blog/2021/06/08/the-plan-for-react-18"
-      ],
-      "level": 3,
-      "completed": false
-    },
-    {
-      "id": "50",
-      "category": "react",
-      "question": "Jak używać React z SSR i CSR?",
-      "answer": "SSR (Server-Side Rendering) oraz CSR (Client-Side Rendering) można łączyć w React.",
-      "description": "SSR jest używany do renderowania po stronie serwera, co poprawia SEO oraz szybkość ładowania. CSR pozwala dynamicznie aktualizować interfejs po stronie klienta. Next.js to popularny framework do SSR i CSR.",
-      "resources": [
-        "https://nextjs.org/docs"
-      ],
-      "level": 3,
-      "completed": false
-    },
-    {
-      "id": "51",
-      "category": "react",
-      "question": "Jak działa proces Reconciliation w React?",
-      "answer": "Reconciliation to proces porównywania poprzedniego i nowego drzewa elementów w celu zminimalizowania zmian w DOM.",
-      "description": "Podczas aktualizacji React tworzy nowe drzewo elementów i porównuje je z poprzednim (diffing algorithm). Na podstawie różnic aktualizuje tylko zmienione elementy w rzeczywistym DOM. Klucze (`key`) pomagają Reactowi identyfikować elementy na listach, zapobiegając niepotrzebnemu usuwaniu i ponownemu tworzeniu komponentów.",
-      "resources": [
-        "https://react.dev/learn/render-and-commit"
-      ],
-      "level": 4,
-      "completed": false
-    },
-    {
-      "id": "52",
-      "category": "react",
-      "question": "Jak odwzorować cykl życia komponentu w komponentach funkcyjnych?",
-      "answer": "Cykl życia w komponentach funkcyjnych odwzorowuje się za pomocą hooka `useEffect`.",
-      "description": "`useEffect` może symulować fazy mount, update i unmount. Wywołanie z pustą tablicą zależności (`[]`) odpowiada fazie mount. Cleanup function odpowiada fazie unmount. Zależności w tablicy kontrolują, kiedy efekt wykona się ponownie podczas aktualizacji.",
-      "resources": [
-        "https://react.dev/reference/react/useEffect"
-      ],
-      "level": 4,
-      "completed": false
-    },
-    {
-      "id": "53",
-      "category": "react",
-      "question": "Jak działa dependency array w useEffect?",
-      "answer": "Dependency array kontroluje, kiedy `useEffect` zostanie ponownie wykonany.",
-      "description": "React porównuje wartości z dependency array przy użyciu porównania referencyjnego. Jeśli którakolwiek zależność ulegnie zmianie, efekt zostanie ponownie wykonany. Niepoprawne zarządzanie zależnościami może prowadzić do stale closures, nieskończonych pętli lub błędnych danych. Zaleca się używanie eslint-plugin-react-hooks do kontroli poprawności zależności.",
-      "resources": [
-        "https://react.dev/reference/react/useEffect"
-      ],
-      "level": 4,
-      "completed": false
-    },
-    {
-      "id": "54",
-      "category": "react",
-      "question": "Czym jest referential equality i jak wpływa na React?",
-      "answer": "Referential equality oznacza porównywanie wartości przez referencję, a nie przez zawartość.",
-      "description": "W React porównanie zależności w hookach oraz propsów w `React.memo` odbywa się przez porównanie referencji. Nowo utworzone funkcje i obiekty mają inną referencję przy każdym renderze, co może powodować niepotrzebne re-renderowanie komponentów. Hooki `useMemo` i `useCallback` pomagają utrzymać stabilne referencje.",
-      "resources": [
-        "https://react.dev/reference/react/useMemo"
-      ],
-      "level": 4,
-      "completed": false
-    },
-    {
-      "id": "55",
-      "category": "react",
-      "question": "Czym jest automatic batching w React 18?",
-      "answer": "Automatic batching to mechanizm łączenia wielu aktualizacji stanu w jedno renderowanie.",
-      "description": "W React 18 aktualizacje stanu wykonywane w zdarzeniach asynchronicznych (np. setTimeout, Promise) są automatycznie batchowane. Oznacza to, że wiele wywołań `setState` skutkuje jednym renderem, co poprawia wydajność aplikacji.",
-      "resources": [
-        "https://react.dev/blog/2022/03/29/react-v18"
-      ],
-      "level": 4,
-      "completed": false
-    },
-    {
-      "id": "56",
-      "category": "react",
-      "question": "Do czego służą startTransition i useTransition?",
-      "answer": "startTransition i useTransition pozwalają oznaczać aktualizacje jako niepilne.",
-      "description": "Aktualizacje oznaczone jako transition mogą zostać przerwane lub opóźnione na rzecz bardziej pilnych aktualizacji, takich jak interakcje użytkownika. Mechanizm ten poprawia responsywność aplikacji w trybie concurrent rendering.",
-      "resources": [
-        "https://react.dev/reference/react/useTransition"
-      ],
-      "level": 4,
-      "completed": false
-    },
-    {
-      "id": "57",
-      "category": "react",
-      "question": "Jak powstają memory leaks w React i jak im zapobiegać?",
-      "answer": "Memory leaks powstają, gdy zasoby nie są czyszczone po unmountowaniu komponentu.",
-      "description": "Najczęstsze przyczyny to brak cleanup w `useEffect`, nieusunięte event listenery, nieczyszczone timery oraz niezakończone zapytania asynchroniczne. Aby zapobiec wyciekom pamięci, należy zwracać funkcję cleanup w `useEffect` i anulować operacje asynchroniczne.",
-      "resources": [
-        "https://react.dev/reference/react/useEffect"
-      ],
-      "level": 4,
-      "completed": false
-    },
-    {
-      "id": "58",
-      "category": "react",
-      "question": "Jak projektować custom hooki w React?",
-      "answer": "Custom hooki powinny enkapsulować logikę i zwracać czytelne API.",
-      "description": "Custom hooki pozwalają współdzielić logikę pomiędzy komponentami. Powinny przestrzegać zasad hooków (wywoływanie na najwyższym poziomie), unikać efektów ubocznych poza hookiem oraz zwracać stabilne referencje tam, gdzie to konieczne. Dobrą praktyką jest oddzielenie logiki od warstwy UI.",
-      "resources": [
-        "https://react.dev/learn/reusing-logic-with-custom-hooks"
-      ],
-      "level": 4,
-      "completed": false
-    },
-    {
-      "id": "59",
-      "category": "react",
-      "question": "Jak zaprojektować strukturę większej aplikacji React?",
-      "answer": "Struktura powinna być oparta na funkcjonalnościach (feature-based structure).",
-      "description": "W większych aplikacjach zaleca się organizowanie kodu według funkcjonalności zamiast typu pliku. Każda funkcjonalność może zawierać komponenty, hooki, style i logikę biznesową. Ułatwia to skalowanie projektu oraz utrzymanie czytelności kodu.",
-      "resources": [
-        "https://react.dev/learn/scaling-up-with-reducer-and-context"
-      ],
-      "level": 4,
-      "completed": false
-    },
-    {
-      "id": "60",
-      "category": "react",
-      "question": "Co powoduje ponowne renderowanie komponentu w React?",
-      "answer": "Komponent renderuje się ponownie, gdy zmieni się jego state, props, context lub gdy renderuje się komponent nadrzędny.",
-      "description": "Zmiana stanu (`setState`), zmiana propsów, zmiana wartości kontekstu lub ponowne renderowanie komponentu nadrzędnego powodują re-render. Można to kontrolować za pomocą `React.memo`, `useMemo` oraz `useCallback`, aby ograniczyć niepotrzebne aktualizacje.",
-      "resources": [
-        "https://react.dev/learn/render-and-commit"
-      ],
-      "level": 4,
-      "completed": false,
-      "editDate": "3/19/2026, 12:38 PM"
-    },
-    {
-      "id": "61",
-      "category": "javascript",
-      "question": "Jak dodać JavaScript do strony HTML?",
-      "answer": "JavaScript dodaje się do HTML za pomocą tagu <script>.",
-      "description": "JavaScript można uruchomić w przeglądarce poprzez dodanie go do dokumentu HTML za pomocą tagu `<script>`. Kod umieszczony w tym tagu zostanie automatycznie wykonany podczas ładowania strony.\n\n---\n### 🔹 1. Skrypt wewnątrz HTML\nNajprostszy sposób to umieszczenie kodu bezpośrednio w pliku HTML:\n\n```html\n<script>\n  alert('Hello world');\n</script>\n```\n\nKod wykona się w momencie, gdy przeglądarka natrafi na ten tag.\n\n---\n### 🔹 2. Skrypt w osobnym pliku (zalecane)\n\n```html\n<script src=\"script.js\"></script>\n```\n\nPlik `script.js`:\n```js\nconsole.log('Hello world');\n```\n\n✅ Zalety:\n- lepsza organizacja kodu\n- możliwość ponownego użycia\n- przeglądarka może кешować plik (lepsza wydajność)\n\n---\n### 🔹 3. Ścieżki do pliku\n- względna: `./script.js`\n- absolutna: `/js/script.js`\n- pełny URL:\n```html\n<script src=\"https://cdn.jsdelivr.net/.../lodash.js\"></script>\n```\n\n---\n### ⚠️ Ważne zasady\n- Jeśli używasz `src`, zawartość `<script>` jest ignorowana:\n\n❌ NIE:\n```html\n<script src=\"file.js\">\n  alert(1);\n</script>\n```\n\n✅ TAK:\n```html\n<script src=\"file.js\"></script>\n<script>\n  alert(1);\n</script>\n```\n\n- Jeden tag = albo `src`, albo kod\n\n---\n### 🧠 Dodatkowe informacje\n- Dawniej używano atrybutów `type=\"text/javascript\"` i `language`, ale dziś nie są potrzebne\n- Stare hacki typu komentarze HTML w `<script>` są już przestarzałe\n\n---\n### 📌 Kontekst\nKażda aplikacja frontendowa (np. React) finalnie działa jako JavaScript w przeglądarce — dlatego zrozumienie `<script>` to absolutna podstawa.",
-      "resources": [
-        "https://javascript.info/hello-world"
-      ],
-      "level": 1,
-      "completed": true,
-      "editDate": "21.03.2026"
-    },
-    {
-      "id": "62",
-      "category": "javascript",
-      "question": "Jak wygląda podstawowa struktura kodu w JS?",
-      "answer": "Kod JavaScript składa się z instrukcji oddzielonych średnikami oraz komentarzy.",
-      "description": "Podstawą kodu JavaScript są instrukcje (statements), które wykonują określone działania.\n\n---\n### 🔹 1. Instrukcje (statements)\nInstrukcja to pojedyncze polecenie dla silnika JavaScript.\n\n```js\nalert('Hello');\n```\n\nMożemy mieć wiele instrukcji:\n\n```js\nalert('Hello');\nalert('World');\n```\n\nDla czytelności każdą instrukcję zapisuje się w nowej linii.\n\n---\n### 🔹 2. Średnik (semicolon)\nInstrukcje zazwyczaj oddziela się średnikiem `;`.\n\n```js\nalert('Hello');\nalert('World');\n```\n\nJavaScript posiada mechanizm **Automatic Semicolon Insertion (ASI)**, który w wielu przypadkach automatycznie wstawia średnik:\n\n```js\nalert('Hello')\nalert('World')\n```\n\n⚠️ Problem: to nie działa zawsze poprawnie.\n\n---\n### ❗ Pułapka z brakiem średnika\n\n```js\nalert('Hello')\n[1, 2].forEach(alert)\n```\n\nJavaScript interpretuje to jako:\n\n```js\nalert('Hello')[1, 2].forEach(alert)\n```\n\n➡️ Efekt: błąd\n\n👉 Dlatego dobra praktyka: **zawsze używaj średników**\n\n---\n### 🔹 3. Komentarze\nKomentarze służą do opisywania kodu i są ignorowane przez JavaScript.\n\n#### 🟢 Jednoliniowe\n```js\n// To jest komentarz\nalert('Hello');\n\nalert('World'); // komentarz na końcu linii\n```\n\n#### 🟢 Wieloliniowe\n```js\n/*\n  To jest komentarz\n  wieloliniowy\n*/\nalert('Hello');\n```\n\n---\n### ⚠️ Ważne zasady komentarzy\n- Kod w komentarzu nie jest wykonywany\n- Można używać ich do tymczasowego wyłączania kodu:\n\n```js\n/*\nalert('Hello');\n*/\nalert('World');\n```\n\n- ❌ Nie można zagnieżdżać komentarzy:\n\n```js\n/*\n  /* błąd */\n*/\n```\n\n---\n### 💡 Dobre praktyki\n- Zawsze używaj średników (unikasz trudnych bugów)\n- Pisz czytelny kod — jedna instrukcja na linię\n- Używaj komentarzy do wyjaśniania \"dlaczego\", nie \"co\"\n\n---\n### 📌 Podsumowanie\n- Kod = instrukcje + komentarze\n- Instrukcje wykonują akcje\n- Średniki oddzielają instrukcje (warto używać zawsze)\n- Komentarze pomagają w zrozumieniu kodu i nie wpływają na jego działanie",
-      "resources": [
-        "https://javascript.info/structure"
-      ],
-      "level": 1,
-      "completed": true,
-      "editDate": "21.03.2026"
-    },
-    {
-      "id": "63",
-      "category": "javascript",
-      "question": "Czym jest tryb ścisły (\"use strict\") w JavaScript?",
-      "answer": "\"use strict\" to tryb, który włącza bardziej rygorystyczne zasady działania JavaScript.",
-      "description": "Tryb ścisły (strict mode) został wprowadzony w ES5, aby naprawić błędy i niedoskonałości starszego JavaScript.\n\nDomyślnie JavaScript działa w trybie \"luźnym\" (sloppy mode), który dopuszcza pewne niebezpieczne zachowania. \"use strict\" wymusza bardziej przewidywalne i bezpieczne działanie kodu.\n\n---\n### 🔹 Jak włączyć tryb ścisły\n\nNa początku pliku:\n\n```js\n'use strict';\n\nlet x = 10;\n```\n\nLub w funkcji:\n\n```js\nfunction test() {\n  'use strict';\n  // kod w trybie ścisłym\n}\n```\n\n---\n### ⚠️ Ważne zasady\n- \"use strict\" musi być **na początku pliku lub funkcji**\n- Mogą być przed nim tylko komentarze\n- Nie da się go wyłączyć po włączeniu\n\n❌ Nie zadziała:\n```js\nalert('test');\n'use strict';\n```\n\n---\n### 🔥 Co zmienia \"use strict\"\nTryb ścisły eliminuje ciche błędy i wymusza lepsze praktyki:\n\n#### 1. Zakaz używania niezadeklarowanych zmiennych\n```js\n'use strict';\nx = 10; // ❌ błąd\n```\n\n#### 2. Lepsze wykrywanie błędów\nNiektóre operacje, które wcześniej \"działały\", teraz rzucają błędy.\n\n#### 3. Bezpieczniejsze \"this\"\nZachowanie `this` jest bardziej przewidywalne (nie wskazuje globalnego obiektu domyślnie).\n\n---\n### 🧪 Tryb ścisły w konsoli\n- W konsoli przeglądarki często NIE jest włączony domyślnie\n- Można go wymusić:\n\n```js\n'use strict';\n// kod\n```\n\nLub użyć IIFE:\n\n```js\n(function() {\n  'use strict';\n  // kod\n})();\n```\n\n---\n### 🧠 Czy zawsze trzeba używać?\n👉 Tak — w zwykłym JS warto\n\nALE:\n- moduły ES (`import/export`) → mają strict mode automatycznie\n- klasy (`class`) → też automatycznie\n\n---\n### 💡 Dobre praktyki\n- Zawsze dodawaj \"use strict\" w prostych skryptach\n- W nowoczesnych projektach (React, Vite, Node z modułami) często nie trzeba\n\n---\n### 📌 Podsumowanie\n- \"use strict\" = bezpieczniejszy JavaScript\n- eliminuje stare błędy języka\n- pomaga szybciej wykrywać problemy\n- w nowoczesnym JS często jest domyślny",
-      "resources": [
-        "https://javascript.info/strict-mode"
-      ],
-      "level": 1,
-      "completed": true,
-      "editDate": "21.03.2026"
-    },
-    {
-      "id": "64",
-      "category": "javascript",
-      "question": "Czym są zmienne w JavaScript i jak ich używać?",
-      "answer": "Zmienne to nazwane miejsca w pamięci służące do przechowywania danych.",
-      "description": "Zmienne w JavaScript pozwalają przechowywać i manipulować danymi, takimi jak tekst, liczby czy obiekty.\n\n---\n### 🔹 1. Tworzenie zmiennych\nZmienne deklarujemy za pomocą `let`, `const` lub (rzadziej) `var`.\n\n```js\nlet message;\nmessage = 'Hello';\n```\n\nLub krócej:\n\n```js\nlet message = 'Hello';\n```\n\n---\n### 🔹 2. Odczyt i zmiana wartości\n\n```js\nlet message = 'Hello';\nmessage = 'World';\n\nconsole.log(message); // World\n```\n\n➡️ Nowa wartość nadpisuje starą\n\n---\n### 🔹 3. Kopiowanie wartości\n\n```js\nlet hello = 'Hello world';\nlet message = hello;\n```\n\n➡️ Obie zmienne mają teraz tę samą wartość\n\n---\n### 🔹 4. Deklarowanie wielu zmiennych\n\n```js\nlet user = 'John';\nlet age = 25;\n```\n\nMożliwe też:\n\n```js\nlet user = 'John', age = 25;\n```\n\n👉 Zalecenie: jedna zmienna na linię (czytelność)\n\n---\n### 🔹 5. let vs const vs var\n\n#### ✅ let (najczęściej używane)\n```js\nlet count = 0;\ncount = 1;\n```\n\n#### ✅ const (stała — nie można zmienić)\n```js\nconst PI = 3.14;\n// PI = 4; ❌ błąd\n```\n\n#### ⚠️ var (przestarzałe)\n```js\nvar name = 'John';\n```\n\n👉 `var` ma inne zachowanie (scope, hoisting) — dziś raczej się go nie używa\n\n---\n### 🔹 6. Zasady nazywania zmiennych\n\n✅ Dozwolone:\n```js\nlet userName;\nlet test123;\nlet $ = 1;\nlet _ = 2;\n```\n\n❌ Niedozwolone:\n```js\nlet 1name;     // nie może zaczynać się od liczby\nlet my-name;   // brak myślników\n```\n\n👉 Dobre praktyki:\n- camelCase → `userName`\n- opisowe nazwy → `shoppingCart`, nie `data`\n- język angielski (standard branżowy)\n\n---\n### 🔹 7. Wielkość liter ma znaczenie\n\n```js\nlet user;\nlet USER;\n```\n\n➡️ To są dwie różne zmienne\n\n---\n### 🔹 8. Zakazane nazwy (reserved words)\n\nNie można używać słów kluczowych:\n\n```js\nlet let = 5;     // ❌\nlet return = 5;  // ❌\n```\n\n---\n### 🔹 9. \"use strict\" a zmienne\n\nBez strict mode:\n\n```js\nnum = 5; // ❗ tworzy zmienną (zła praktyka)\n```\n\nZ strict mode:\n\n```js\n'use strict';\nnum = 5; // ❌ błąd\n```\n\n👉 Zawsze deklaruj zmienne (`let` / `const`)\n\n---\n### 🔹 10. Stałe (const) — dobre praktyki\n\nStałe znane wcześniej często zapisuje się wielkimi literami:\n\n```js\nconst COLOR_RED = '#F00';\n```\n\nAle jeśli wartość powstaje w trakcie działania:\n\n```js\nconst pageLoadTime = 123;\n```\n\n---\n### 💡 Dobre praktyki\n- używaj `const` domyślnie\n- używaj `let`, gdy wartość się zmienia\n- unikaj `var`\n- dawaj sensowne nazwy\n- nie nadpisuj jednej zmiennej różnymi typami danych\n\n---\n### 📌 Podsumowanie\n- zmienne = przechowywanie danych\n- `let` → zmienna\n- `const` → stała\n- `var` → przestarzałe\n- dobre nazwy = czytelny kod",
-      "resources": [
-        "https://javascript.info/variables"
-      ],
-      "level": 1,
-      "completed": true,
-      "editDate": "21.03.2026"
-    },
-    {
-      "id": "65",
-      "category": "javascript",
-      "question": "Jakie są typy danych w JavaScript?",
-      "answer": "JavaScript ma 7 prymitywnych(bool, string, number, bigInt, null, undefined, symbol i 1 złożony (object).",
-      "description": "Każda wartość w JavaScript ma określony typ danych. JavaScript jest językiem dynamicznie typowanym, co oznacza, że zmienna może zmieniać typ w trakcie działania programu.\n\n```js\nlet value = 'hello';\nvalue = 123; // OK\n```\n\n---\n### 🔹 1. Typy prymitywne (7)\n\n#### 🟢 number\nReprezentuje liczby całkowite i zmiennoprzecinkowe:\n\n```js\nlet n = 123;\nlet x = 12.34;\n```\n\nSpecjalne wartości:\n```js\nInfinity;\n-Infinity;\nNaN;\n```\n\n```js\nconsole.log(1 / 0); // Infinity\nconsole.log('text' / 2); // NaN\n```\n\n---\n#### 🟢 bigint\nDla bardzo dużych liczb:\n\n```js\nconst big = 123456789012345678901234567890n;\n```\n\n---\n#### 🟢 string\nTekst w cudzysłowie:\n\n```js\nlet str = \"Hello\";\nlet str2 = 'World';\nlet name = 'Jan';\n\nlet msg = `Cześć ${name}`;\n```\n\n➡️ backticki (`` ` ``) pozwalają wstawiać zmienne (`${}`)\n\n---\n#### 🟢 boolean\nLogiczne true / false:\n\n```js\nlet isActive = true;\nlet isGreater = 4 > 1; // true\n```\n\n---\n#### 🟢 null\n\"Brak wartości\" / \"nieznane\":\n\n```js\nlet age = null;\n```\n\n---\n#### 🟢 undefined\nZmienna bez przypisanej wartości:\n\n```js\nlet x;\nconsole.log(x); // undefined\n```\n\n👉 różnica:\n- null → ustawiasz sam\n- undefined → brak przypisania\n\n---\n#### 🟢 symbol\nUnikalne identyfikatory (rzadziej używane):\n\n```js\nconst id = Symbol('id');\n```\n\n---\n### 🔹 2. Typ złożony\n\n#### 🟡 object\nPrzechowuje bardziej złożone dane:\n\n```js\nlet user = {\n  name: 'Jan',\n  age: 30\n};\n```\n\n➡️ wszystko co nie jest prymitywem → object\n\n---\n### 🔹 3. typeof — sprawdzanie typu\n\n```js\ntypeof 123;        // \"number\"\ntypeof \"text\";     // \"string\"\ntypeof true;       // \"boolean\"\ntypeof undefined;  // \"undefined\"\ntypeof null;       // \"object\" ❗ bug w JS\n```\n\n⚠️ ważne:\n```js\ntypeof null === \"object\" // historyczny błąd\n```\n\n---\n### 🔥 Ważne cechy JavaScript\n\n#### ✅ Dynamiczne typowanie\n```js\nlet value = 'text';\nvalue = 100; // OK\n```\n\n#### ✅ Operacje matematyczne są \"bezpieczne\"\n```js\n\"abc\" / 2; // NaN (brak crasha)\n```\n\n---\n### 💡 Dobre praktyki\n- rozum różnicę między null i undefined\n- używaj typeof do debugowania\n- uważaj na NaN (rozlewa się w obliczeniach)\n- używaj backticków do stringów z danymi\n\n---\n### 📌 Podsumowanie\n- 8 typów danych w JS\n- 7 prymitywów + object\n- JS jest dynamicznie typowany\n- typeof pomaga sprawdzić typ\n- null to specjalny przypadek (historyczny bug)",
-      "resources": [
-        "https://javascript.info/types"
-      ],
-      "level": 1,
-      "completed": true,
-      "editDate": "3/22/2026, 11:55 AM"
-    },
-    {
-      "id": "66",
-      "category": "javascript",
-      "question": "Jak działa interakcja z userem w JS (alert, prompt, confirm)?",
-      "answer": "JavaScript oferuje alert, prompt i confirm do prostej interakcji z użytkownikiem w przeglądarce.",
-      "description": "JavaScript w przeglądarce udostępnia trzy podstawowe funkcje do komunikacji z użytkownikiem: `alert`, `prompt` i `confirm`. Są to tzw. **okna modalne** — blokują interakcję ze stroną do momentu zamknięcia.\n\n---\n### 🔹 1. alert\nWyświetla komunikat i czeka na kliknięcie \"OK\".\n\n```js\nalert('Hello');\n```\n\n➡️ Nie zwraca żadnej wartości\n➡️ Używane głównie do debugowania lub prostych komunikatów\n\n---\n### 🔹 2. prompt\nSłuży do pobierania danych od użytkownika.\n\n```js\nlet age = prompt('Ile masz lat?', '18');\n```\n\nParametry:\n- `title` → tekst pytania\n- `default` → domyślna wartość (opcjonalna)\n\n➡️ Zwraca:\n- wpisany tekst (string)\n- `null`, jeśli użytkownik kliknie \"Anuluj\"\n\n```js\nlet name = prompt('Jak masz na imię?', 'Jan');\n\nif (name !== null) {\n  alert(`Cześć ${name}`);\n}\n```\n\n---\n### 🔹 3. confirm\nSłuży do potwierdzenia (tak/nie).\n\n```js\nlet isAdmin = confirm('Czy jesteś adminem?');\n```\n\n➡️ Zwraca:\n- `true` → OK\n- `false` → Anuluj\n\n```js\nif (isAdmin) {\n  alert('Dostęp przyznany');\n}\n```\n\n---\n### ⚠️ Cechy wspólne (modalność)\n- blokują działanie strony\n- użytkownik nie może nic kliknąć w tle\n- zatrzymują wykonywanie kodu\n\n---\n### ❗ Ograniczenia\n- wygląd zależy od przeglądarki (brak stylowania)\n- pozycja okna jest ustalana automatycznie\n- nie nadają się do nowoczesnych UI\n\n---\n### 💡 Dobre praktyki\n- używaj tylko do nauki lub debugowania\n- w prawdziwych aplikacjach używaj własnych komponentów (np. modale w React)\n- zawsze obsługuj `null` z prompt\n\n---\n### 📌 Podsumowanie\n- `alert` → pokazuje komunikat\n- `prompt` → pobiera dane\n- `confirm` → zwraca true/false\n- wszystkie są modalne i blokujące",
-      "resources": [
-        "https://javascript.info/alert-prompt-confirm"
-      ],
-      "level": 1,
-      "completed": true,
-      "editDate": "21.03.2026"
-    },
-    {
-      "id": "67",
-      "category": "javascript",
-      "question": "Jak działa konwersja typów (type coercion) w JavaScript?",
-      "answer": "JavaScript automatycznie lub jawnie konwertuje wartości między typami (string, number, boolean).",
-      "description": "Konwersja typów (type coercion) to proces zmiany jednego typu danych na inny. Może być:\n- automatyczna (implicit)\n- jawna (explicit)\n\n---\n### 🔹 1. Konwersja do string\n\nZachodzi np. przy wyświetlaniu:\n\n```js\nalert(true); // \"true\"\n```\n\nJawnie:\n\n```js\nlet value = true;\nvalue = String(value); // \"true\"\n```\n\n➡️ Zasada: wszystko da się zamienić na string w oczywisty sposób\n\n---\n### 🔹 2. Konwersja do number\n\nZachodzi w operacjach matematycznych:\n\n```js\n\"6\" / \"2\"; // 3\n```\n\nJawnie:\n\n```js\nNumber(\"123\"); // 123\nNumber(\"abc\"); // NaN\n```\n\n---\n### ⚠️ Najważniejsze reguły\n\n```js\nNumber(undefined); // NaN\nNumber(null);      // 0\nNumber(true);      // 1\nNumber(false);     // 0\nNumber(\" 123 \");  // 123\nNumber(\"\");       // 0\nNumber(\"abc\");    // NaN\n```\n\n👉 Kluczowe pułapki:\n- `undefined → NaN`\n- `null → 0`\n\n---\n### 🔹 3. Konwersja do boolean\n\nJawnie:\n\n```js\nBoolean(1); // true\nBoolean(0); // false\n```\n\n---\n### ⚠️ Falsy wartości (false)\n\n```js\nfalse\n0\n\"\"\nnull\nundefined\nNaN\n```\n\n➡️ wszystko inne = true\n\n---\n### ❗ Pułapki boolean\n\n```js\nBoolean(\"0\"); // true\nBoolean(\" \"); // true\n```\n\n👉 każda NIEPUSTA string = true\n\n---\n### 🔥 Implicit coercion (automatyczna)\n\nJavaScript sam konwertuje typy:\n\n```js\n\"5\" + 1; // \"51\" (string)\n\"5\" - 1; // 4 (number)\n```\n\n➡️ `+` jest wyjątkiem (łączenie stringów)\n\n---\n### 💡 Dobre praktyki\n- używaj jawnej konwersji (`Number`, `String`, `Boolean`)\n- unikaj niejasnych operacji typu:\n\n```js\n\"5\" + 1 // ❌ może mylić\n```\n\n- sprawdzaj NaN (np. `Number.isNaN()`)\n\n---\n### 📌 Podsumowanie\n- 3 główne konwersje: string, number, boolean\n- JS automatycznie zmienia typy\n- null ≠ undefined (różne zachowanie)\n- \"0\" i \" \" → true (częsty błąd)\n- implicit coercion to częste źródło bugów",
-      "resources": [
-        "https://javascript.info/type-conversions"
-      ],
-      "level": 1,
-      "completed": true,
-      "editDate": "21.03.2026"
-    },
-    {
-      "id": "68",
-      "category": "javascript",
-      "question": "Jakie są podstawowe operatory matematyczne w JavaScript?",
-      "answer": "+, -, *, /, %, **",
-      "description": "Operatory w JavaScript służą do wykonywania operacji na wartościach (operandach). Mogą być:\n- unarne (1 operand) → `-x`, `++x`\n- binarne (2 operandy) → `x + y`\n\n---\n### 🔹 1. Podstawowe operatory matematyczne\n\n```js\n+  // dodawanie\n-  // odejmowanie\n*  // mnożenie\n/  // dzielenie\n%  // reszta z dzielenia\n** // potęgowanie\n```\n\n```js\n5 % 2;   // 1\n2 ** 3;  // 8\n```\n\n---\n### 🔥 2. + (plus) ma specjalne zachowanie\n\n```js\n\"1\" + 2; // \"12\"\n2 + \"1\"; // \"21\"\n```\n\n➡️ jeśli jeden operand to string → wszystko staje się stringiem\n\n```js\n2 + 2 + \"1\"; // \"41\"\n```\n\n👉 inne operatory zawsze konwertują do number:\n\n```js\n\"6\" - \"2\"; // 4\n\"6\" / \"2\"; // 3\n```\n\n---\n### 🔹 3. Unary + (konwersja do number)\n\n```js\n+\"123\";  // 123\n+true;   // 1\n+\"\";     // 0\n```\n\n➡️ skrót dla `Number()`\n\n---\n### 🔹 4. Priorytet operatorów\n\n```js\n1 + 2 * 2; // 5\n(1 + 2) * 2; // 6\n```\n\n👉 ważne:\n- `*` ma wyższy priorytet niż `+`\n- nawiasy zmieniają kolejność\n- unary ma wyższy priorytet niż binary\n\n---\n### 🔹 5. Przypisanie (=)\n\n```js\nlet x = 2 * 2 + 1; // 5\n```\n\n➡️ najpierw obliczenia, potem przypisanie\n\n#### ❗ przypisanie zwraca wartość\n\n```js\nlet a;\nlet b = (a = 5);\n```\n\n---\n### 🔹 6. Łańcuchowe przypisanie\n\n```js\nlet a, b, c;\na = b = c = 2 + 2;\n```\n\n➡️ działa od prawej do lewej\n\n---\n### 🔹 7. Skrócone operatory\n\n```js\nlet n = 2;\nn += 5; // 7\nn *= 2; // 14\n```\n\n---\n### 🔹 8. Inkrementacja / dekrementacja\n\n```js\nlet i = 1;\ni++; // 2\ni--; // 1\n```\n\n#### ⚠️ prefix vs postfix\n\n```js\nlet a = 1;\nlet b = ++a; // 2 (nowa wartość)\n\nlet c = 1;\nlet d = c++; // 1 (stara wartość)\n```\n\n---\n### 🔹 9. Operatory bitowe (rzadko używane)\n\n```js\n& | ^ ~ << >> >>>\n```\n\n➡️ używane głównie w low-level / kryptografii\n\n---\n### 🔹 10. Operator przecinka (,)\n\n```js\nlet a = (1 + 2, 3 + 4); // 7\n```\n\n➡️ wykonuje wszystko, zwraca ostatnią wartość\n\n---\n### 💡 Dobre praktyki\n- uważaj na `+` (string vs number)\n- używaj nawiasów dla czytelności\n- unikaj \"sprytnych\" trików (łańcuchy przypisań, ,)\n- preferuj prosty kod zamiast skróconego\n\n---\n### 📌 Podsumowanie\n- operatory wykonują działania na danych\n- `+` może łączyć stringi\n- inne operatory konwertują do number\n- `=` zwraca wartość\n- `++` i `--` mają różne zachowanie (prefix/postfix)",
-      "resources": [
-        "https://javascript.info/operators"
-      ],
-      "level": 1,
-      "completed": false,
-      "editDate": "21.03.2026"
-    },
-    {
-      "id": "69",
-      "category": "javascript",
-      "question": "Jak działają operatory porównania w JavaScript?",
-      "answer": "Operatory porównania zwracają true lub false i mogą wykonywać konwersję typów.",
-      "description": "Operatory porównania służą do sprawdzania relacji między wartościami i zawsze zwracają boolean (`true` lub `false`).\n\n---\n### 🔹 1. Podstawowe operatory\n\n```js\n>   // większe\n<   // mniejsze\n>=  // większe lub równe\n<=  // mniejsze lub równe\n==  // równe (z konwersją)\n!=  // różne (z konwersją)\n=== // ścisłe równe (bez konwersji)\n!== // ścisłe różne\n```\n\n```js\n2 > 1;   // true\n2 == 1;  // false\n2 != 1;  // true\n```\n\n---\n### 🔹 2. Wynik to boolean\n\n```js\nlet result = 5 > 4; // true\n```\n\n---\n### 🔹 3. Porównywanie stringów\n\n```js\n\"a\" > \"b\";     // false\n\"abc\" > \"ab\"; // true\n```\n\n➡️ porównanie znak po znaku (Unicode)\n\n⚠️ wielkość liter ma znaczenie:\n\n```js\n\"a\" > \"A\"; // true\n```\n\n---\n### 🔥 4. Porównanie różnych typów\n\n```js\n\"2\" > 1;   // true\n\"01\" == 1; // true\n```\n\n➡️ JS konwertuje do number\n\n```js\ntrue == 1;  // true\nfalse == 0; // true\n```\n\n---\n### ❗ 5. Problem z == (luźne porównanie)\n\n```js\n0 == false; // true\n\"\" == false; // true\n```\n\n👉 powód: konwersja typów\n\n---\n### ✅ 6. === (ścisłe porównanie)\n\n```js\n0 === false; // false\n```\n\n➡️ brak konwersji → bezpieczniejsze\n\n👉 🔥 ZASADA: używaj zawsze `===`\n\n---\n### 🔹 7. null i undefined\n\n#### ✔️ specjalne zachowanie\n\n```js\nnull == undefined; // true\nnull === undefined; // false\n```\n\n---\n### ❗ dziwne przypadki\n\n```js\nnull > 0;   // false\nnull == 0;  // false\nnull >= 0;  // true ❗\n```\n\n👉 powód: różne zasady dla == i >\n\n---\n### ❗ undefined\n\n```js\nundefined > 0;  // false\nundefined < 0;  // false\nundefined == 0; // false\n```\n\n➡️ undefined → NaN → zawsze false\n\n---\n### 💡 Dobre praktyki\n- używaj `===` zamiast `==`\n- unikaj porównań z `null` i `undefined`\n- sprawdzaj je osobno:\n\n```js\nif (value === null || value === undefined)\n```\n\n- uważaj na string vs number\n\n---\n### 📌 Podsumowanie\n- porównania zwracają boolean\n- `==` konwertuje typy (niebezpieczne)\n- `===` nie konwertuje (zalecane)\n- null i undefined mają specjalne zachowanie\n- porównania mogą dawać nieintuicyjne wyniki",
-      "resources": [
-        "https://javascript.info/comparison"
-      ],
-      "level": 2,
-      "completed": false,
-      "editDate": "21.03.2026"
-    },
-    {
-      "id": "70",
-      "category": "javascript",
-      "question": "Jak działa instrukcja warunkowa if oraz operator ternarny (?) w JavaScript?",
-      "answer": "Instrukcja if i operator ? pozwalają wykonywać różny kod w zależności od warunku.",
-      "description": "Instrukcje warunkowe umożliwiają podejmowanie decyzji w kodzie na podstawie wartości logicznych.\n\n---\n### 🔹 1. Instrukcja if\n\n```js\nif (condition) {\n  // kod jeśli true\n}\n```\n\n```js\nlet age = 20;\n\nif (age > 18) {\n  console.log('Dorosły');\n}\n```\n\n---\n### 🔹 2. if...else\n\n```js\nif (age > 18) {\n  console.log('Dorosły');\n} else {\n  console.log('Nieletni');\n}\n```\n\n---\n### 🔹 3. else if (wiele warunków)\n\n```js\nif (age < 18) {\n  console.log('Młody');\n} else if (age < 65) {\n  console.log('Dorosły');\n} else {\n  console.log('Senior');\n}\n```\n\n---\n### 🔹 4. Konwersja do boolean\n\n```js\nif (0) { }      // false\nif (1) { }      // true\nif (\"\") { }    // false\nif (\"text\") { } // true\n```\n\n➡️ używane są wartości truthy / falsy\n\n---\n### 🔹 5. Operator ternarny ( ? )\n\nSkrócona forma if:\n\n```js\nlet result = condition ? value1 : value2;\n```\n\n```js\nlet age = 20;\nlet access = age > 18 ? true : false;\n```\n\n👉 często można uprościć:\n\n```js\nlet access = age > 18;\n```\n\n---\n### 🔹 6. Zagnieżdżony ternary\n\n```js\nlet message = age < 18 ? 'Młody' :\n              age < 65 ? 'Dorosły' :\n              'Senior';\n```\n\n➡️ działa jak if...else if\n\n---\n### ❗ Kiedy NIE używać ?\n\n```js\n// ❌ słabe\ncondition ? doSomething() : doOtherThing();\n```\n\n👉 lepiej:\n\n```js\nif (condition) {\n  doSomething();\n} else {\n  doOtherThing();\n}\n```\n\n---\n### 💡 Dobre praktyki\n- używaj `if` do logiki\n- używaj `?` tylko do przypisywania wartości\n- zawsze używaj `{}` dla czytelności\n- unikaj zbyt zagnieżdżonych ternary\n\n---\n### 📌 Podsumowanie\n- `if` → kontrola przepływu\n- `else` / `else if` → dodatkowe warunki\n- `?` → skrócony zapis zwracający wartość\n- warunki opierają się na truthy / falsy",
-      "resources": [
-        "https://javascript.info/ifelse"
-      ],
-      "level": 1,
-      "completed": false,
-      "editDate": "21.03.2026"
-    }
-  ]
+	"checkycards": [
+		{
+			"id": "1",
+			"category": "react",
+			"question": "Czym jest React?",
+			"answer": "React to biblioteka JavaScript do budowania interfejsów użytkownika.",
+			"description": "React to popularna biblioteka stworzona przez Facebooka (Meta), która umożliwia tworzenie dynamicznych i wydajnych aplikacji webowych. Opiera się na komponentach, które pozwalają dzielić interfejs na mniejsze, wielokrotnego użytku części. React wykorzystuje wirtualny DOM, co poprawia wydajność aktualizacji widoku.",
+			"resources": ["https://react.dev/learn"],
+			"level": 1,
+			"completed": false,
+			"editDate": "18.03.2026"
+		},
+		{
+			"id": "2",
+			"category": "react",
+			"question": "Czym jest JSX?",
+			"answer": "JSX to rozszerzenie składni JavaScript dla Reacta.",
+			"description": "JSX pozwala pisać kod podobny do HTML w JavaScript, który następnie jest transpilowany do wywołań `React.createElement`. Ułatwia to tworzenie i wizualne przedstawienie struktury komponentów.",
+			"resources": ["https://react.dev/learn/writing-markup-with-jsx"],
+			"level": 2,
+			"completed": false,
+			"editDate": "18.03.2026, 20:25"
+		},
+		{
+			"id": "3",
+			"category": "react",
+			"question": "Jaka jest główna zasada działania Reacta?",
+			"answer": "React wykorzystuje Virtual DOM do optymalizacji renderowania.",
+			"description": "React opiera się na koncepcji Virtual DOM — jest to reprezentacja rzeczywistego DOM w pamięci. Gdy stan komponentu się zmienia, React porównuje Virtual DOM z jego poprzednim stanem i aktualizuje na stronie tylko zmienione elementy.",
+			"resources": ["https://react.dev/learn/render-and-commit"],
+			"level": 1,
+			"completed": false,
+			"editDate": "3/19/2026, 12:34 PM"
+		},
+		{
+			"id": "4",
+			"category": "react",
+			"question": "Jak utworzyć komponent w React?",
+			"answer": "Komponent można utworzyć jako funkcję lub klasę.",
+			"description": "Komponenty funkcyjne to funkcje, które przyjmują `props` i zwracają JSX. Komponenty klasowe to klasy dziedziczące po `React.Component`, posiadające metodę \"render\".",
+			"resources": ["https://react.dev/learn/your-first-component"],
+			"level": 1,
+			"completed": false,
+			"editDate": "18.03.2026, 20:25"
+		},
+		{
+			"id": "5",
+			"category": "react",
+			"question": "Czym są props w React?",
+			"answer": "Props to parametry wejściowe komponentów.",
+			"description": "Props (właściwości) służą do przekazywania danych z komponentu nadrzędnego do komponentu potomnego. Są niemutowalne wewnątrz komponentu i pozwalają tworzyć bardziej elastyczne oraz wielokrotnego użytku komponenty.",
+			"resources": ["https://react.dev/learn/passing-props-to-a-component"],
+			"level": 1,
+			"completed": false,
+			"editDate": "3/19/2026, 12:40 PM"
+		},
+		{
+			"id": "7",
+			"category": "react",
+			"question": "Jak działa useState w React?",
+			"answer": "useState to hook do zarządzania stanem w komponentach funkcyjnych.",
+			"description": "`useState` zwraca tablicę złożoną z dwóch elementów: bieżącej wartości stanu oraz funkcji do jego aktualizacji. Służy do przechowywania i zmiany danych w komponentach.",
+			"resources": ["https://react.dev/reference/react/useState"],
+			"level": 2,
+			"completed": false
+		},
+		{
+			"id": "10",
+			"category": "react",
+			"question": "Jak zoptymalizować wydajność aplikacji React?",
+			"answer": "Używaj React.memo, useMemo, useCallback oraz optymalizacji renderowania.",
+			"description": "W celu zwiększenia wydajności można używać `React.memo` do memoizacji komponentów, `useMemo` i `useCallback` do zapobiegania niepotrzebnemu ponownemu tworzeniu funkcji i danych, a także Code Splitting oraz Lazy Loading.",
+			"resources": ["https://react.dev/learn/keeping-components-pure"],
+			"level": 3,
+			"completed": false
+		},
+		{
+			"id": "11",
+			"category": "react",
+			"question": "Czym jest Virtual DOM w React?",
+			"answer": "Virtual DOM to reprezentacja rzeczywistego DOM w pamięci.",
+			"description": "Virtual DOM to koncepcja wykorzystywana przez React do optymalizacji aktualizacji interfejsu użytkownika. React porównuje stary i nowy Virtual DOM i zmienia tylko zmodyfikowane elementy w rzeczywistym DOM.",
+			"resources": ["https://react.dev/learn/render-and-commit"],
+			"level": 2,
+			"completed": false
+		},
+		{
+			"id": "12",
+			"category": "react",
+			"question": "Jak działa React.memo?",
+			"answer": "React.memo to HOC do memoizacji komponentów funkcyjnych.",
+			"description": "React.memo zapobiega ponownemu renderowaniu komponentu, jeśli jego propsy nie uległy zmianie. Pomaga to zoptymalizować wydajność poprzez unikanie niepotrzebnych rerenderów.",
+			"resources": ["https://react.dev/reference/react/memo"],
+			"level": 3,
+			"completed": false
+		},
+		{
+			"id": "13",
+			"category": "react",
+			"question": "Co robi useCallback?",
+			"answer": "useCallback memoizuje funkcję i zwraca jej niezmienioną wersję pomiędzy renderowaniami.",
+			"description": "useCallback jest używany do optymalizacji wydajności poprzez zapobieganie ponownemu tworzeniu funkcji przy każdym renderowaniu, jeśli ich zależności nie uległy zmianie.",
+			"resources": ["https://react.dev/reference/react/useCallback"],
+			"level": 3,
+			"completed": false
+		},
+		{
+			"id": "14",
+			"category": "react",
+			"question": "Co robi useMemo?",
+			"answer": "useMemo memoizuje obliczaną wartość.",
+			"description": "useMemo buforuje wynik obliczeń pomiędzy renderowaniami, jeśli zależności nie uległy zmianie. Jest to przydatne do optymalizacji złożonych obliczeń.",
+			"resources": ["https://react.dev/reference/react/useMemo"],
+			"level": 3,
+			"completed": false
+		},
+		{
+			"id": "15",
+			"category": "react",
+			"question": "Jak działa obsługa zdarzeń w React?",
+			"answer": "React wykorzystuje system zdarzeń syntetycznych.",
+			"description": "Zdarzenia w React działają poprzez opakowanie `SyntheticEvent`, które zapewnia kompatybilność między przeglądarkami oraz zoptymalizowaną obsługę.",
+			"resources": ["https://react.dev/learn/responding-to-events"],
+			"level": 2,
+			"completed": false
+		},
+		{
+			"id": "16",
+			"category": "react",
+			"question": "Czym są portale (Portals) w React?",
+			"answer": "Portale pozwalają renderować elementy potomne poza węzłem DOM komponentu nadrzędnego.",
+			"description": "Za pomocą `ReactDOM.createPortal` można renderować elementy w innym kontenerze DOM, zachowując powiązanie z komponentem nadrzędnym.",
+			"resources": ["https://react.dev/reference/react-dom/createPortal"],
+			"level": 3,
+			"completed": false
+		},
+		{
+			"id": "17",
+			"category": "react",
+			"question": "Jak zaimplementować leniwe ładowanie komponentów?",
+			"answer": "Użyj React.lazy oraz Suspense.",
+			"description": "React.lazy pozwala ładować komponenty dynamicznie, a Suspense służy do wyświetlania komponentu zastępczego podczas ładowania.",
+			"resources": ["https://react.dev/reference/react/lazy"],
+			"level": 2,
+			"completed": false
+		},
+		{
+			"id": "18",
+			"category": "react",
+			"question": "Czym jest Context API?",
+			"answer": "Context API to mechanizm przekazywania danych bez konieczności przekazywania propsów przez kolejne poziomy komponentów.",
+			"description": "Context API służy do zarządzania globalnym stanem aplikacji, na przykład motywem lub językiem interfejsu.",
+			"resources": ["https://react.dev/reference/react/createContext"],
+			"level": 2,
+			"completed": false
+		},
+		{
+			"id": "19",
+			"category": "react",
+			"question": "Jak używać useContext?",
+			"answer": "useContext pozwala pobierać wartości z kontekstu.",
+			"description": "useContext przyjmuje obiekt kontekstu i zwraca jego bieżącą wartość, umożliwiając dostęp do danych bez zagnieżdżonych komponentów Consumer.",
+			"resources": ["https://react.dev/reference/react/useContext"],
+			"level": 2,
+			"completed": false
+		},
+		{
+			"id": "20",
+			"category": "react",
+			"question": "Czym są render props?",
+			"answer": "Render props to wzorzec polegający na przekazywaniu funkcji jako propsów.",
+			"description": "Ten wzorzec pozwala przekazywać funkcję zwracającą JSX jako props do komponentu, aby elastycznie kontrolować renderowanie komponentów potomnych.",
+			"resources": ["https://react.dev/learn/render-props"],
+			"level": 3,
+			"completed": true
+		},
+		{
+			"id": "21",
+			"category": "react",
+			"question": "Jak można zaktualizować stan w komponencie klasowym?",
+			"answer": "Za pomocą metody setState.",
+			"description": "setState przyjmuje nowy obiekt stanu i aktualizuje komponent, wywołując ponowne renderowanie. Można przekazać funkcję, aby zaktualizować stan na podstawie poprzedniego stanu.",
+			"resources": ["https://react.dev/reference/react/Component#setstate"],
+			"level": 1,
+			"completed": false
+		},
+		{
+			"id": "22",
+			"category": "react",
+			"question": "Jak pracować z formularzami w React?",
+			"answer": "Używaj komponentów kontrolowanych i niekontrolowanych.",
+			"description": "W komponentach kontrolowanych stan formularza jest przechowywany w state, a w niekontrolowanych — w DOM. Do pracy z formularzami stosuje się useState, onChange oraz ref.",
+			"resources": ["https://react.dev/learn/sharing-state-between-components"],
+			"level": 2,
+			"completed": false
+		},
+		{
+			"id": "23",
+			"category": "react",
+			"question": "Jak przekazać ref do komponentu potomnego?",
+			"answer": "Użyj forwardRef.",
+			"description": "React.forwardRef pozwala przekazać ref do wnętrza komponentu potomnego, aby uzyskać dostęp do jego elementu DOM lub instancji.",
+			"resources": ["https://react.dev/reference/react/forwardRef"],
+			"level": 3,
+			"completed": false
+		},
+		{
+			"id": "24",
+			"category": "react",
+			"question": "Jak używać kluczy (keys) w listach?",
+			"answer": "Klucze pomagają Reactowi rozróżniać elementy podczas renderowania.",
+			"description": "Klucze (`key`) są używane w listach do identyfikacji elementów. Pomagają Reactowi efektywnie aktualizować listę, unikając niepotrzebnych rerenderów.",
+			"resources": ["https://react.dev/learn/rendering-lists"],
+			"level": 1,
+			"completed": false
+		},
+		{
+			"id": "25",
+			"category": "react",
+			"question": "Co robi Strict Mode?",
+			"answer": "StrictMode pomaga wykrywać potencjalne problemy w kodzie.",
+			"description": "StrictMode aktywuje dodatkowe sprawdzenia, ostrzegając o niebezpiecznych metodach cyklu życia oraz innych błędach.",
+			"resources": ["https://react.dev/reference/react/StrictMode"],
+			"level": 2,
+			"completed": false
+		},
+		{
+			"id": "26",
+			"category": "react",
+			"question": "Jak działa useReducer?",
+			"answer": "useReducer zarządza stanem za pomocą funkcji reduktora.",
+			"description": "useReducer jest przydatny w przypadku złożonych stanów. Przyjmuje funkcję reduktora oraz stan początkowy, zwracając bieżący state i funkcję dispatch.",
+			"resources": ["https://react.dev/reference/react/useReducer"],
+			"level": 3,
+			"completed": false
+		},
+		{
+			"id": "27",
+			"category": "react",
+			"question": "Jak przechwytywać błędy w komponentach React?",
+			"answer": "Użyj Error Boundary.",
+			"description": "Error Boundary to komponent implementujący metodę componentDidCatch. Zapobiega on awarii całej aplikacji w przypadku błędu w komponentach potomnych.",
+			"resources": ["https://react.dev/learn/error-handling"],
+			"level": 3,
+			"completed": false
+		},
+		{
+			"id": "28",
+			"category": "react",
+			"question": "Co robi hook useRef?",
+			"answer": "useRef tworzy referencję, która jest zachowywana pomiędzy renderowaniami.",
+			"description": "useRef służy do uzyskiwania dostępu do elementów DOM lub przechowywania danych pomiędzy renderowaniami bez wywoływania ponownego renderowania.",
+			"resources": ["https://react.dev/reference/react/useRef"],
+			"level": 2,
+			"completed": false
+		},
+		{
+			"id": "29",
+			"category": "react",
+			"question": "Jak zaimplementować renderowanie po stronie serwera (SSR) w React?",
+			"answer": "Użyj Next.js lub ReactDOMServer.",
+			"description": "SSR pozwala renderować komponenty React na serwerze, poprawiając SEO oraz szybkość ładowania. W React do tego celu używa się Next.js lub ReactDOMServer.",
+			"resources": ["https://nextjs.org/docs"],
+			"level": 3,
+			"completed": false
+		},
+		{
+			"id": "30",
+			"category": "react",
+			"question": "Czym są fragmenty (React Fragments)?",
+			"answer": "Fragments pozwalają grupować elementy bez dodawania zbędnego węzła do DOM.",
+			"description": "Fragmenty (`<></>` lub `React.Fragment`) są używane, aby uniknąć zbędnych opakowujących divów, co sprawia, że struktura DOM jest bardziej przejrzysta.",
+			"resources": ["https://react.dev/reference/react/Fragment"],
+			"level": 1,
+			"completed": false
+		},
+		{
+			"id": "31",
+			"category": "react",
+			"question": "Jak używać `useLayoutEffect`?",
+			"answer": "`useLayoutEffect` wykonuje się synchronicznie po renderowaniu, ale przed wyświetleniem na ekranie.",
+			"description": "Jest używany, gdy необходимо zmierzyć DOM przed jego wyświetleniem. Różni się od `useEffect`, który uruchamia się po renderowaniu.",
+			"resources": ["https://react.dev/reference/react/useLayoutEffect"],
+			"level": 3,
+			"completed": false
+		},
+		{
+			"id": "32",
+			"category": "react",
+			"question": "Jak działa `useImperativeHandle`?",
+			"answer": "`useImperativeHandle` pozwala zarządzać metodami komponentu potomnego za pomocą `ref`.",
+			"description": "`useImperativeHandle` jest używany razem z `forwardRef` do kontrolowania zachowania wewnętrznego komponentu z poziomu komponentu nadrzędnego. Jest przydatny podczas pracy z zewnętrznymi bibliotekami.",
+			"resources": ["https://react.dev/reference/react/useImperativeHandle"],
+			"level": 3,
+			"completed": false
+		},
+		{
+			"id": "33",
+			"category": "react",
+			"question": "Czym jest HOC (Higher-Order Component)?",
+			"answer": "HOC to funkcja, która przyjmuje komponent i zwraca nowy komponent.",
+			"description": "HOC są używane do ponownego wykorzystania logiki, na przykład autoryzacji lub przetwarzania danych. To wzorzec, który został zastąpiony przez hooki, ale czasami nadal jest przydatny.",
+			"resources": ["https://react.dev/learn/reusing-logic-with-custom-hooks"],
+			"level": 3,
+			"completed": false
+		},
+		{
+			"id": "34",
+			"category": "react",
+			"question": "Jak utworzyć globalny stan w React?",
+			"answer": "Użyj Context API, Redux lub Zustand.",
+			"description": "Globalnym stanem można zarządzać za pomocą `Context API` w prostych przypadkach, `Redux` w przypadku złożonych struktur danych oraz `Zustand` jako lekkiej alternatywy.",
+			"resources": ["https://react.dev/learn/passing-data-deeply-with-context", "https://redux.js.org"],
+			"level": 3,
+			"completed": false
+		},
+		{
+			"id": "35",
+			"category": "react",
+			"question": "Czym jest React Fiber?",
+			"answer": "React Fiber to nowy algorytm renderowania w React.",
+			"description": "React Fiber to przepisany silnik React, który poprawia wydajność i obsługuje takie funkcje jak wstrzymywanie i wznawianie renderowania. Pozwala Reactowi działać asynchronicznie oraz nadawać priorytety zadaniom.",
+			"resources": ["https://react.dev/blog/2017/09/26/react-v16.0.html"],
+			"level": 3,
+			"completed": false
+		},
+		{
+			"id": "36",
+			"category": "react",
+			"question": "Jak działa React Suspense?",
+			"answer": "Suspense pozwala odroczyć renderowanie komponentów do momentu zakończenia operacji asynchronicznych.",
+			"description": "Suspense jest używany do zarządzania operacjami asynchronicznymi, takimi jak pobieranie danych lub leniwe ładowanie komponentów. Wyświetla komponent fallback, dopóki dane nie będą gotowe.",
+			"resources": ["https://react.dev/reference/react/Suspense"],
+			"level": 3,
+			"completed": false
+		},
+		{
+			"id": "37",
+			"category": "react",
+			"question": "Czym jest Concurrent Mode w React?",
+			"answer": "Concurrent Mode to zestaw funkcji poprawiających responsywność aplikacji.",
+			"description": "Concurrent Mode pozwala Reactowi pracować nad wieloma zadaniami jednocześnie, nadając im priorytety i poprawiając doświadczenie użytkownika. Obejmuje takie funkcje jak Suspense oraz priorytetyzację renderowania.",
+			"resources": ["https://react.dev/blog/2021/06/08/the-plan-for-react-18"],
+			"level": 3,
+			"completed": false
+		},
+		{
+			"id": "38",
+			"category": "react",
+			"question": "Jak używać React DevTools?",
+			"answer": "React DevTools to narzędzie do debugowania aplikacji React.",
+			"description": "React DevTools pozwala inspekcjonować drzewo komponentów, przeglądać ich stan i propsy oraz analizować wydajność. Jest dostępne jako rozszerzenie do przeglądarek.",
+			"resources": ["https://react.dev/learn/react-developer-tools"],
+			"level": 1,
+			"completed": false
+		},
+		{
+			"id": "39",
+			"category": "react",
+			"question": "Czym są React Server Components?",
+			"answer": "React Server Components to komponenty renderowane po stronie serwera.",
+			"description": "React Server Components pozwalają renderować komponenty na serwerze, zmniejszając rozmiar kodu po stronie klienta i poprawiając wydajność. Obsługują dane asynchroniczne i mogą być integrowane z komponentami klienckimi.",
+			"resources": ["https://react.dev/blog/2020/12/21/data-fetching-with-react-server-components"],
+			"level": 3,
+			"completed": false
+		},
+		{
+			"id": "40",
+			"category": "react",
+			"question": "Jak używać React z TypeScript?",
+			"answer": "React można używać z TypeScript w celu dodania typowania.",
+			"description": "TypeScript dodaje statyczne typowanie do aplikacji React, co pomaga unikać błędów i usprawnia proces tworzenia oprogramowania. W tym celu wykorzystuje się typy dla propsów, stanu oraz hooków.",
+			"resources": ["https://react.dev/learn/typescript"],
+			"level": 2,
+			"completed": false
+		},
+		{
+			"id": "41",
+			"category": "react",
+			"question": "Czym są React Hooks?",
+			"answer": "React Hooks to funkcje, które pozwalają używać stanu i innych możliwości React w komponentach funkcyjnych.",
+			"description": "Hooki, takie jak `useState`, `useEffect`, `useContext`, pozwalają zarządzać stanem, efektami ubocznymi oraz kontekstem w komponentach funkcyjnych bez używania klas.",
+			"resources": ["https://react.dev/reference/react"],
+			"level": 2,
+			"completed": false
+		},
+		{
+			"id": "42",
+			"category": "react",
+			"question": "Jak używać React z Redux?",
+			"answer": "React można zintegrować z Redux w celu zarządzania globalnym stanem.",
+			"description": "Redux to biblioteka do zarządzania stanem aplikacji. React-Redux udostępnia hooki, takie jak `useSelector` oraz `useDispatch`, do pracy z Redux w komponentach React.",
+			"resources": ["https://react-redux.js.org"],
+			"level": 3,
+			"completed": false
+		},
+		{
+			"id": "43",
+			"category": "react",
+			"question": "Czym jest React Testing Library?",
+			"answer": "React Testing Library to narzędzie do testowania komponentów React.",
+			"description": "React Testing Library pozwala testować komponenty tak, jak używają ich użytkownicy. Skupia się na testowaniu zachowania, a nie implementacji.",
+			"resources": ["https://testing-library.com/docs/react-testing-library/intro"],
+			"level": 2,
+			"completed": false
+		},
+		{
+			"id": "44",
+			"category": "react",
+			"question": "Jak używać React z GraphQL?",
+			"answer": "React można zintegrować z GraphQL za pomocą Apollo Client lub Relay.",
+			"description": "GraphQL to język zapytań do API. Apollo Client oraz Relay udostępniają narzędzia do pracy z GraphQL w aplikacjach React, w tym buforowanie oraz zarządzanie stanem.",
+			"resources": ["https://www.apollographql.com/docs/react"],
+			"level": 3,
+			"completed": false
+		},
+		{
+			"id": "45",
+			"category": "react",
+			"question": "Czym jest React Native?",
+			"answer": "React Native to framework do tworzenia aplikacji mobilnych z wykorzystaniem React.",
+			"description": "React Native pozwala tworzyć wieloplatformowe aplikacje mobilne przy użyciu JavaScript i React. Kompiluje się do natywnych komponentów dla iOS oraz Androida.",
+			"resources": ["https://reactnative.dev"],
+			"level": 2,
+			"completed": false
+		},
+		{
+			"id": "46",
+			"category": "react",
+			"question": "Jak używać React z Webpack?",
+			"answer": "Webpack jest używany do budowania aplikacji React.",
+			"description": "Webpack to bundler modułów, który pozwala łączyć JavaScript, CSS oraz inne zasoby w bundel. W przypadku React konfiguruje się loadery (loaders) oraz wtyczki, takie jak Babel.",
+			"resources": ["https://webpack.js.org/guides/getting-started"],
+			"level": 3,
+			"completed": false
+		},
+		{
+			"id": "47",
+			"category": "react",
+			"question": "Czym są React Error Boundaries?",
+			"answer": "Error Boundaries to komponenty służące do obsługi błędów w React.",
+			"description": "Error Boundaries przechwytują błędy w komponentach potomnych, logują je oraz wyświetlają zapasowy interfejs użytkownika. Są implementowane za pomocą metod `getDerivedStateFromError` oraz `componentDidCatch`.",
+			"resources": ["https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary"],
+			"level": 3,
+			"completed": false
+		},
+		{
+			"id": "48",
+			"category": "react",
+			"question": "Jak używać React z CSS-in-JS?",
+			"answer": "CSS-in-JS pozwala pisać style bezpośrednio w JavaScript.",
+			"description": "Biblioteki, takie jak styled-components lub Emotion, pozwalają pisać style wewnątrz komponentów, co poprawia modularność oraz izolację stylów.",
+			"resources": ["https://styled-components.com"],
+			"level": 2,
+			"completed": false
+		},
+		{
+			"id": "49",
+			"category": "react",
+			"question": "Czym jest React Concurrent Rendering?",
+			"answer": "Concurrent Rendering to możliwość pracy React nad wieloma zadaniami jednocześnie.",
+			"description": "Concurrent Rendering pozwala React wstrzymywać i wznawiać renderowanie, aby zapewnić płynniejsze doświadczenie użytkownika. Jest to szczególnie przydatne w aplikacjach o dużym obciążeniu.",
+			"resources": ["https://react.dev/blog/2021/06/08/the-plan-for-react-18"],
+			"level": 3,
+			"completed": false
+		},
+		{
+			"id": "50",
+			"category": "react",
+			"question": "Jak używać React z SSR i CSR?",
+			"answer": "SSR (Server-Side Rendering) oraz CSR (Client-Side Rendering) można łączyć w React.",
+			"description": "SSR jest używany do renderowania po stronie serwera, co poprawia SEO oraz szybkość ładowania. CSR pozwala dynamicznie aktualizować interfejs po stronie klienta. Next.js to popularny framework do SSR i CSR.",
+			"resources": ["https://nextjs.org/docs"],
+			"level": 3,
+			"completed": false
+		},
+		{
+			"id": "51",
+			"category": "react",
+			"question": "Jak działa proces Reconciliation w React?",
+			"answer": "Reconciliation to proces porównywania poprzedniego i nowego drzewa elementów w celu zminimalizowania zmian w DOM.",
+			"description": "Podczas aktualizacji React tworzy nowe drzewo elementów i porównuje je z poprzednim (diffing algorithm). Na podstawie różnic aktualizuje tylko zmienione elementy w rzeczywistym DOM. Klucze (`key`) pomagają Reactowi identyfikować elementy na listach, zapobiegając niepotrzebnemu usuwaniu i ponownemu tworzeniu komponentów.",
+			"resources": ["https://react.dev/learn/render-and-commit"],
+			"level": 4,
+			"completed": false
+		},
+		{
+			"id": "52",
+			"category": "react",
+			"question": "Jak odwzorować cykl życia komponentu w komponentach funkcyjnych?",
+			"answer": "Cykl życia w komponentach funkcyjnych odwzorowuje się za pomocą hooka `useEffect`.",
+			"description": "`useEffect` może symulować fazy mount, update i unmount. Wywołanie z pustą tablicą zależności (`[]`) odpowiada fazie mount. Cleanup function odpowiada fazie unmount. Zależności w tablicy kontrolują, kiedy efekt wykona się ponownie podczas aktualizacji.",
+			"resources": ["https://react.dev/reference/react/useEffect"],
+			"level": 4,
+			"completed": false
+		},
+		{
+			"id": "53",
+			"category": "react",
+			"question": "Jak działa dependency array w useEffect?",
+			"answer": "Dependency array kontroluje, kiedy `useEffect` zostanie ponownie wykonany.",
+			"description": "React porównuje wartości z dependency array przy użyciu porównania referencyjnego. Jeśli którakolwiek zależność ulegnie zmianie, efekt zostanie ponownie wykonany. Niepoprawne zarządzanie zależnościami może prowadzić do stale closures, nieskończonych pętli lub błędnych danych. Zaleca się używanie eslint-plugin-react-hooks do kontroli poprawności zależności.",
+			"resources": ["https://react.dev/reference/react/useEffect"],
+			"level": 4,
+			"completed": false
+		},
+		{
+			"id": "54",
+			"category": "react",
+			"question": "Czym jest referential equality i jak wpływa na React?",
+			"answer": "Referential equality oznacza porównywanie wartości przez referencję, a nie przez zawartość.",
+			"description": "W React porównanie zależności w hookach oraz propsów w `React.memo` odbywa się przez porównanie referencji. Nowo utworzone funkcje i obiekty mają inną referencję przy każdym renderze, co może powodować niepotrzebne re-renderowanie komponentów. Hooki `useMemo` i `useCallback` pomagają utrzymać stabilne referencje.",
+			"resources": ["https://react.dev/reference/react/useMemo"],
+			"level": 4,
+			"completed": false
+		},
+		{
+			"id": "55",
+			"category": "react",
+			"question": "Czym jest automatic batching w React 18?",
+			"answer": "Automatic batching to mechanizm łączenia wielu aktualizacji stanu w jedno renderowanie.",
+			"description": "W React 18 aktualizacje stanu wykonywane w zdarzeniach asynchronicznych (np. setTimeout, Promise) są automatycznie batchowane. Oznacza to, że wiele wywołań `setState` skutkuje jednym renderem, co poprawia wydajność aplikacji.",
+			"resources": ["https://react.dev/blog/2022/03/29/react-v18"],
+			"level": 4,
+			"completed": false
+		},
+		{
+			"id": "56",
+			"category": "react",
+			"question": "Do czego służą startTransition i useTransition?",
+			"answer": "startTransition i useTransition pozwalają oznaczać aktualizacje jako niepilne.",
+			"description": "Aktualizacje oznaczone jako transition mogą zostać przerwane lub opóźnione na rzecz bardziej pilnych aktualizacji, takich jak interakcje użytkownika. Mechanizm ten poprawia responsywność aplikacji w trybie concurrent rendering.",
+			"resources": ["https://react.dev/reference/react/useTransition"],
+			"level": 4,
+			"completed": false
+		},
+		{
+			"id": "57",
+			"category": "react",
+			"question": "Jak powstają memory leaks w React i jak im zapobiegać?",
+			"answer": "Memory leaks powstają, gdy zasoby nie są czyszczone po unmountowaniu komponentu.",
+			"description": "Najczęstsze przyczyny to brak cleanup w `useEffect`, nieusunięte event listenery, nieczyszczone timery oraz niezakończone zapytania asynchroniczne. Aby zapobiec wyciekom pamięci, należy zwracać funkcję cleanup w `useEffect` i anulować operacje asynchroniczne.",
+			"resources": ["https://react.dev/reference/react/useEffect"],
+			"level": 4,
+			"completed": false
+		},
+		{
+			"id": "58",
+			"category": "react",
+			"question": "Jak projektować custom hooki w React?",
+			"answer": "Custom hooki powinny enkapsulować logikę i zwracać czytelne API.",
+			"description": "Custom hooki pozwalają współdzielić logikę pomiędzy komponentami. Powinny przestrzegać zasad hooków (wywoływanie na najwyższym poziomie), unikać efektów ubocznych poza hookiem oraz zwracać stabilne referencje tam, gdzie to konieczne. Dobrą praktyką jest oddzielenie logiki od warstwy UI.",
+			"resources": ["https://react.dev/learn/reusing-logic-with-custom-hooks"],
+			"level": 4,
+			"completed": false
+		},
+		{
+			"id": "59",
+			"category": "react",
+			"question": "Jak zaprojektować strukturę większej aplikacji React?",
+			"answer": "Struktura powinna być oparta na funkcjonalnościach (feature-based structure).",
+			"description": "W większych aplikacjach zaleca się organizowanie kodu według funkcjonalności zamiast typu pliku. Każda funkcjonalność może zawierać komponenty, hooki, style i logikę biznesową. Ułatwia to skalowanie projektu oraz utrzymanie czytelności kodu.",
+			"resources": ["https://react.dev/learn/scaling-up-with-reducer-and-context"],
+			"level": 4,
+			"completed": false
+		},
+		{
+			"id": "60",
+			"category": "react",
+			"question": "Co powoduje ponowne renderowanie komponentu w React?",
+			"answer": "Komponent renderuje się ponownie, gdy zmieni się jego state, props, context lub gdy renderuje się komponent nadrzędny.",
+			"description": "Zmiana stanu (`setState`), zmiana propsów, zmiana wartości kontekstu lub ponowne renderowanie komponentu nadrzędnego powodują re-render. Można to kontrolować za pomocą `React.memo`, `useMemo` oraz `useCallback`, aby ograniczyć niepotrzebne aktualizacje.",
+			"resources": ["https://react.dev/learn/render-and-commit"],
+			"level": 4,
+			"completed": false,
+			"editDate": "3/19/2026, 12:38 PM"
+		},
+		{
+			"id": "61",
+			"category": "javascript",
+			"question": "Jak dodać JavaScript do strony HTML?",
+			"answer": "JavaScript dodaje się do HTML za pomocą tagu <script>.",
+			"description": "JavaScript można uruchomić w przeglądarce poprzez dodanie go do dokumentu HTML za pomocą tagu `<script>`. Kod umieszczony w tym tagu zostanie automatycznie wykonany podczas ładowania strony.\n\n---\n### 🔹 1. Skrypt wewnątrz HTML\nNajprostszy sposób to umieszczenie kodu bezpośrednio w pliku HTML:\n\n```html\n<script>\n  alert('Hello world');\n</script>\n```\n\nKod wykona się w momencie, gdy przeglądarka natrafi na ten tag.\n\n---\n### 🔹 2. Skrypt w osobnym pliku (zalecane)\n\n```html\n<script src=\"script.js\"></script>\n```\n\nPlik `script.js`:\n```js\nconsole.log('Hello world');\n```\n\n✅ Zalety:\n- lepsza organizacja kodu\n- możliwość ponownego użycia\n- przeglądarka może кешować plik (lepsza wydajność)\n\n---\n### 🔹 3. Ścieżki do pliku\n- względna: `./script.js`\n- absolutna: `/js/script.js`\n- pełny URL:\n```html\n<script src=\"https://cdn.jsdelivr.net/.../lodash.js\"></script>\n```\n\n---\n### ⚠️ Ważne zasady\n- Jeśli używasz `src`, zawartość `<script>` jest ignorowana:\n\n❌ NIE:\n```html\n<script src=\"file.js\">\n  alert(1);\n</script>\n```\n\n✅ TAK:\n```html\n<script src=\"file.js\"></script>\n<script>\n  alert(1);\n</script>\n```\n\n- Jeden tag = albo `src`, albo kod\n\n---\n### 🧠 Dodatkowe informacje\n- Dawniej używano atrybutów `type=\"text/javascript\"` i `language`, ale dziś nie są potrzebne\n- Stare hacki typu komentarze HTML w `<script>` są już przestarzałe\n\n---\n### 📌 Kontekst\nKażda aplikacja frontendowa (np. React) finalnie działa jako JavaScript w przeglądarce — dlatego zrozumienie `<script>` to absolutna podstawa.",
+			"resources": ["https://javascript.info/hello-world"],
+			"level": 1,
+			"completed": true,
+			"editDate": "21.03.2026"
+		},
+		{
+			"id": "62",
+			"category": "javascript",
+			"question": "Jak wygląda podstawowa struktura kodu w JS?",
+			"answer": "Kod JavaScript składa się z instrukcji oddzielonych średnikami oraz komentarzy.",
+			"description": "Podstawą kodu JavaScript są instrukcje (statements), które wykonują określone działania.\n\n---\n### 🔹 1. Instrukcje (statements)\nInstrukcja to pojedyncze polecenie dla silnika JavaScript.\n\n```js\nalert('Hello');\n```\n\nMożemy mieć wiele instrukcji:\n\n```js\nalert('Hello');\nalert('World');\n```\n\nDla czytelności każdą instrukcję zapisuje się w nowej linii.\n\n---\n### 🔹 2. Średnik (semicolon)\nInstrukcje zazwyczaj oddziela się średnikiem `;`.\n\n```js\nalert('Hello');\nalert('World');\n```\n\nJavaScript posiada mechanizm **Automatic Semicolon Insertion (ASI)**, który w wielu przypadkach automatycznie wstawia średnik:\n\n```js\nalert('Hello')\nalert('World')\n```\n\n⚠️ Problem: to nie działa zawsze poprawnie.\n\n---\n### ❗ Pułapka z brakiem średnika\n\n```js\nalert('Hello')\n[1, 2].forEach(alert)\n```\n\nJavaScript interpretuje to jako:\n\n```js\nalert('Hello')[1, 2].forEach(alert)\n```\n\n➡️ Efekt: błąd\n\n👉 Dlatego dobra praktyka: **zawsze używaj średników**\n\n---\n### 🔹 3. Komentarze\nKomentarze służą do opisywania kodu i są ignorowane przez JavaScript.\n\n#### 🟢 Jednoliniowe\n```js\n// To jest komentarz\nalert('Hello');\n\nalert('World'); // komentarz na końcu linii\n```\n\n#### 🟢 Wieloliniowe\n```js\n/*\n  To jest komentarz\n  wieloliniowy\n*/\nalert('Hello');\n```\n\n---\n### ⚠️ Ważne zasady komentarzy\n- Kod w komentarzu nie jest wykonywany\n- Można używać ich do tymczasowego wyłączania kodu:\n\n```js\n/*\nalert('Hello');\n*/\nalert('World');\n```\n\n- ❌ Nie można zagnieżdżać komentarzy:\n\n```js\n/*\n  /* błąd */\n*/\n```\n\n---\n### 💡 Dobre praktyki\n- Zawsze używaj średników (unikasz trudnych bugów)\n- Pisz czytelny kod — jedna instrukcja na linię\n- Używaj komentarzy do wyjaśniania \"dlaczego\", nie \"co\"\n\n---\n### 📌 Podsumowanie\n- Kod = instrukcje + komentarze\n- Instrukcje wykonują akcje\n- Średniki oddzielają instrukcje (warto używać zawsze)\n- Komentarze pomagają w zrozumieniu kodu i nie wpływają na jego działanie",
+			"resources": ["https://javascript.info/structure"],
+			"level": 1,
+			"completed": true,
+			"editDate": "21.03.2026"
+		},
+		{
+			"id": "63",
+			"category": "javascript",
+			"question": "Czym jest tryb ścisły (\"use strict\") w JavaScript?",
+			"answer": "\"use strict\" to tryb, który włącza bardziej rygorystyczne zasady działania JavaScript.",
+			"description": "Tryb ścisły (strict mode) został wprowadzony w ES5, aby naprawić błędy i niedoskonałości starszego JavaScript.\n\nDomyślnie JavaScript działa w trybie \"luźnym\" (sloppy mode), który dopuszcza pewne niebezpieczne zachowania. \"use strict\" wymusza bardziej przewidywalne i bezpieczne działanie kodu.\n\n---\n### 🔹 Jak włączyć tryb ścisły\n\nNa początku pliku:\n\n```js\n'use strict';\n\nlet x = 10;\n```\n\nLub w funkcji:\n\n```js\nfunction test() {\n  'use strict';\n  // kod w trybie ścisłym\n}\n```\n\n---\n### ⚠️ Ważne zasady\n- \"use strict\" musi być **na początku pliku lub funkcji**\n- Mogą być przed nim tylko komentarze\n- Nie da się go wyłączyć po włączeniu\n\n❌ Nie zadziała:\n```js\nalert('test');\n'use strict';\n```\n\n---\n### 🔥 Co zmienia \"use strict\"\nTryb ścisły eliminuje ciche błędy i wymusza lepsze praktyki:\n\n#### 1. Zakaz używania niezadeklarowanych zmiennych\n```js\n'use strict';\nx = 10; // ❌ błąd\n```\n\n#### 2. Lepsze wykrywanie błędów\nNiektóre operacje, które wcześniej \"działały\", teraz rzucają błędy.\n\n#### 3. Bezpieczniejsze \"this\"\nZachowanie `this` jest bardziej przewidywalne (nie wskazuje globalnego obiektu domyślnie).\n\n---\n### 🧪 Tryb ścisły w konsoli\n- W konsoli przeglądarki często NIE jest włączony domyślnie\n- Można go wymusić:\n\n```js\n'use strict';\n// kod\n```\n\nLub użyć IIFE:\n\n```js\n(function() {\n  'use strict';\n  // kod\n})();\n```\n\n---\n### 🧠 Czy zawsze trzeba używać?\n👉 Tak — w zwykłym JS warto\n\nALE:\n- moduły ES (`import/export`) → mają strict mode automatycznie\n- klasy (`class`) → też automatycznie\n\n---\n### 💡 Dobre praktyki\n- Zawsze dodawaj \"use strict\" w prostych skryptach\n- W nowoczesnych projektach (React, Vite, Node z modułami) często nie trzeba\n\n---\n### 📌 Podsumowanie\n- \"use strict\" = bezpieczniejszy JavaScript\n- eliminuje stare błędy języka\n- pomaga szybciej wykrywać problemy\n- w nowoczesnym JS często jest domyślny",
+			"resources": ["https://javascript.info/strict-mode"],
+			"level": 1,
+			"completed": true,
+			"editDate": "21.03.2026"
+		},
+		{
+			"id": "64",
+			"category": "javascript",
+			"question": "Czym są zmienne w JavaScript i jak ich używać?",
+			"answer": "Zmienne to nazwane miejsca w pamięci służące do przechowywania danych.",
+			"description": "Zmienne w JavaScript pozwalają przechowywać i manipulować danymi, takimi jak tekst, liczby czy obiekty.\n\n---\n### 🔹 1. Tworzenie zmiennych\nZmienne deklarujemy za pomocą `let`, `const` lub (rzadziej) `var`.\n\n```js\nlet message;\nmessage = 'Hello';\n```\n\nLub krócej:\n\n```js\nlet message = 'Hello';\n```\n\n---\n### 🔹 2. Odczyt i zmiana wartości\n\n```js\nlet message = 'Hello';\nmessage = 'World';\n\nconsole.log(message); // World\n```\n\n➡️ Nowa wartość nadpisuje starą\n\n---\n### 🔹 3. Kopiowanie wartości\n\n```js\nlet hello = 'Hello world';\nlet message = hello;\n```\n\n➡️ Obie zmienne mają teraz tę samą wartość\n\n---\n### 🔹 4. Deklarowanie wielu zmiennych\n\n```js\nlet user = 'John';\nlet age = 25;\n```\n\nMożliwe też:\n\n```js\nlet user = 'John', age = 25;\n```\n\n👉 Zalecenie: jedna zmienna na linię (czytelność)\n\n---\n### 🔹 5. let vs const vs var\n\n#### ✅ let (najczęściej używane)\n```js\nlet count = 0;\ncount = 1;\n```\n\n#### ✅ const (stała — nie można zmienić)\n```js\nconst PI = 3.14;\n// PI = 4; ❌ błąd\n```\n\n#### ⚠️ var (przestarzałe)\n```js\nvar name = 'John';\n```\n\n👉 `var` ma inne zachowanie (scope, hoisting) — dziś raczej się go nie używa\n\n---\n### 🔹 6. Zasady nazywania zmiennych\n\n✅ Dozwolone:\n```js\nlet userName;\nlet test123;\nlet $ = 1;\nlet _ = 2;\n```\n\n❌ Niedozwolone:\n```js\nlet 1name;     // nie może zaczynać się od liczby\nlet my-name;   // brak myślników\n```\n\n👉 Dobre praktyki:\n- camelCase → `userName`\n- opisowe nazwy → `shoppingCart`, nie `data`\n- język angielski (standard branżowy)\n\n---\n### 🔹 7. Wielkość liter ma znaczenie\n\n```js\nlet user;\nlet USER;\n```\n\n➡️ To są dwie różne zmienne\n\n---\n### 🔹 8. Zakazane nazwy (reserved words)\n\nNie można używać słów kluczowych:\n\n```js\nlet let = 5;     // ❌\nlet return = 5;  // ❌\n```\n\n---\n### 🔹 9. \"use strict\" a zmienne\n\nBez strict mode:\n\n```js\nnum = 5; // ❗ tworzy zmienną (zła praktyka)\n```\n\nZ strict mode:\n\n```js\n'use strict';\nnum = 5; // ❌ błąd\n```\n\n👉 Zawsze deklaruj zmienne (`let` / `const`)\n\n---\n### 🔹 10. Stałe (const) — dobre praktyki\n\nStałe znane wcześniej często zapisuje się wielkimi literami:\n\n```js\nconst COLOR_RED = '#F00';\n```\n\nAle jeśli wartość powstaje w trakcie działania:\n\n```js\nconst pageLoadTime = 123;\n```\n\n---\n### 💡 Dobre praktyki\n- używaj `const` domyślnie\n- używaj `let`, gdy wartość się zmienia\n- unikaj `var`\n- dawaj sensowne nazwy\n- nie nadpisuj jednej zmiennej różnymi typami danych\n\n---\n### 📌 Podsumowanie\n- zmienne = przechowywanie danych\n- `let` → zmienna\n- `const` → stała\n- `var` → przestarzałe\n- dobre nazwy = czytelny kod",
+			"resources": ["https://javascript.info/variables"],
+			"level": 1,
+			"completed": true,
+			"editDate": "21.03.2026"
+		},
+		{
+			"id": "65",
+			"category": "javascript",
+			"question": "Jakie są typy danych w JavaScript?",
+			"answer": "JavaScript ma 7 prymitywnych(bool, string, number, bigInt, null, undefined, symbol i 1 złożony (object).",
+			"description": "Każda wartość w JavaScript ma określony typ danych. JavaScript jest językiem dynamicznie typowanym, co oznacza, że zmienna może zmieniać typ w trakcie działania programu.\n\n```js\nlet value = 'hello';\nvalue = 123; // OK\n```\n\n---\n### 🔹 1. Typy prymitywne (7)\n\n#### 🟢 number\nReprezentuje liczby całkowite i zmiennoprzecinkowe:\n\n```js\nlet n = 123;\nlet x = 12.34;\n```\n\nSpecjalne wartości:\n```js\nInfinity;\n-Infinity;\nNaN;\n```\n\n```js\nconsole.log(1 / 0); // Infinity\nconsole.log('text' / 2); // NaN\n```\n\n---\n#### 🟢 bigint\nDla bardzo dużych liczb:\n\n```js\nconst big = 123456789012345678901234567890n;\n```\n\n---\n#### 🟢 string\nTekst w cudzysłowie:\n\n```js\nlet str = \"Hello\";\nlet str2 = 'World';\nlet name = 'Jan';\n\nlet msg = `Cześć ${name}`;\n```\n\n➡️ backticki (`` ` ``) pozwalają wstawiać zmienne (`${}`)\n\n---\n#### 🟢 boolean\nLogiczne true / false:\n\n```js\nlet isActive = true;\nlet isGreater = 4 > 1; // true\n```\n\n---\n#### 🟢 null\n\"Brak wartości\" / \"nieznane\":\n\n```js\nlet age = null;\n```\n\n---\n#### 🟢 undefined\nZmienna bez przypisanej wartości:\n\n```js\nlet x;\nconsole.log(x); // undefined\n```\n\n👉 różnica:\n- null → ustawiasz sam\n- undefined → brak przypisania\n\n---\n#### 🟢 symbol\nUnikalne identyfikatory (rzadziej używane):\n\n```js\nconst id = Symbol('id');\n```\n\n---\n### 🔹 2. Typ złożony\n\n#### 🟡 object\nPrzechowuje bardziej złożone dane:\n\n```js\nlet user = {\n  name: 'Jan',\n  age: 30\n};\n```\n\n➡️ wszystko co nie jest prymitywem → object\n\n---\n### 🔹 3. typeof — sprawdzanie typu\n\n```js\ntypeof 123;        // \"number\"\ntypeof \"text\";     // \"string\"\ntypeof true;       // \"boolean\"\ntypeof undefined;  // \"undefined\"\ntypeof null;       // \"object\" ❗ bug w JS\n```\n\n⚠️ ważne:\n```js\ntypeof null === \"object\" // historyczny błąd\n```\n\n---\n### 🔥 Ważne cechy JavaScript\n\n#### ✅ Dynamiczne typowanie\n```js\nlet value = 'text';\nvalue = 100; // OK\n```\n\n#### ✅ Operacje matematyczne są \"bezpieczne\"\n```js\n\"abc\" / 2; // NaN (brak crasha)\n```\n\n---\n### 💡 Dobre praktyki\n- rozum różnicę między null i undefined\n- używaj typeof do debugowania\n- uważaj na NaN (rozlewa się w obliczeniach)\n- używaj backticków do stringów z danymi\n\n---\n### 📌 Podsumowanie\n- 8 typów danych w JS\n- 7 prymitywów + object\n- JS jest dynamicznie typowany\n- typeof pomaga sprawdzić typ\n- null to specjalny przypadek (historyczny bug)",
+			"resources": ["https://javascript.info/types"],
+			"level": 1,
+			"completed": true,
+			"editDate": "3/22/2026, 11:55 AM"
+		},
+		{
+			"id": "66",
+			"category": "javascript",
+			"question": "Jak działa interakcja z userem w JS (alert, prompt, confirm)?",
+			"answer": "JavaScript oferuje alert, prompt i confirm do prostej interakcji z użytkownikiem w przeglądarce.",
+			"description": "JavaScript w przeglądarce udostępnia trzy podstawowe funkcje do komunikacji z użytkownikiem: `alert`, `prompt` i `confirm`. Są to tzw. **okna modalne** — blokują interakcję ze stroną do momentu zamknięcia.\n\n---\n### 🔹 1. alert\nWyświetla komunikat i czeka na kliknięcie \"OK\".\n\n```js\nalert('Hello');\n```\n\n➡️ Nie zwraca żadnej wartości\n➡️ Używane głównie do debugowania lub prostych komunikatów\n\n---\n### 🔹 2. prompt\nSłuży do pobierania danych od użytkownika.\n\n```js\nlet age = prompt('Ile masz lat?', '18');\n```\n\nParametry:\n- `title` → tekst pytania\n- `default` → domyślna wartość (opcjonalna)\n\n➡️ Zwraca:\n- wpisany tekst (string)\n- `null`, jeśli użytkownik kliknie \"Anuluj\"\n\n```js\nlet name = prompt('Jak masz na imię?', 'Jan');\n\nif (name !== null) {\n  alert(`Cześć ${name}`);\n}\n```\n\n---\n### 🔹 3. confirm\nSłuży do potwierdzenia (tak/nie).\n\n```js\nlet isAdmin = confirm('Czy jesteś adminem?');\n```\n\n➡️ Zwraca:\n- `true` → OK\n- `false` → Anuluj\n\n```js\nif (isAdmin) {\n  alert('Dostęp przyznany');\n}\n```\n\n---\n### ⚠️ Cechy wspólne (modalność)\n- blokują działanie strony\n- użytkownik nie może nic kliknąć w tle\n- zatrzymują wykonywanie kodu\n\n---\n### ❗ Ograniczenia\n- wygląd zależy od przeglądarki (brak stylowania)\n- pozycja okna jest ustalana automatycznie\n- nie nadają się do nowoczesnych UI\n\n---\n### 💡 Dobre praktyki\n- używaj tylko do nauki lub debugowania\n- w prawdziwych aplikacjach używaj własnych komponentów (np. modale w React)\n- zawsze obsługuj `null` z prompt\n\n---\n### 📌 Podsumowanie\n- `alert` → pokazuje komunikat\n- `prompt` → pobiera dane\n- `confirm` → zwraca true/false\n- wszystkie są modalne i blokujące",
+			"resources": ["https://javascript.info/alert-prompt-confirm"],
+			"level": 1,
+			"completed": true,
+			"editDate": "21.03.2026"
+		},
+		{
+			"id": "67",
+			"category": "javascript",
+			"question": "Jak działa konwersja typów (type coercion) w JavaScript?",
+			"answer": "JavaScript automatycznie lub jawnie konwertuje wartości między typami (string, number, boolean).",
+			"description": "Konwersja typów (type coercion) to proces zmiany jednego typu danych na inny. Może być:\n- automatyczna (implicit)\n- jawna (explicit)\n\n---\n### 🔹 1. Konwersja do string\n\nZachodzi np. przy wyświetlaniu:\n\n```js\nalert(true); // \"true\"\n```\n\nJawnie:\n\n```js\nlet value = true;\nvalue = String(value); // \"true\"\n```\n\n➡️ Zasada: wszystko da się zamienić na string w oczywisty sposób\n\n---\n### 🔹 2. Konwersja do number\n\nZachodzi w operacjach matematycznych:\n\n```js\n\"6\" / \"2\"; // 3\n```\n\nJawnie:\n\n```js\nNumber(\"123\"); // 123\nNumber(\"abc\"); // NaN\n```\n\n---\n### ⚠️ Najważniejsze reguły\n\n```js\nNumber(undefined); // NaN\nNumber(null);      // 0\nNumber(true);      // 1\nNumber(false);     // 0\nNumber(\" 123 \");  // 123\nNumber(\"\");       // 0\nNumber(\"abc\");    // NaN\n```\n\n👉 Kluczowe pułapki:\n- `undefined → NaN`\n- `null → 0`\n\n---\n### 🔹 3. Konwersja do boolean\n\nJawnie:\n\n```js\nBoolean(1); // true\nBoolean(0); // false\n```\n\n---\n### ⚠️ Falsy wartości (false)\n\n```js\nfalse\n0\n\"\"\nnull\nundefined\nNaN\n```\n\n➡️ wszystko inne = true\n\n---\n### ❗ Pułapki boolean\n\n```js\nBoolean(\"0\"); // true\nBoolean(\" \"); // true\n```\n\n👉 każda NIEPUSTA string = true\n\n---\n### 🔥 Implicit coercion (automatyczna)\n\nJavaScript sam konwertuje typy:\n\n```js\n\"5\" + 1; // \"51\" (string)\n\"5\" - 1; // 4 (number)\n```\n\n➡️ `+` jest wyjątkiem (łączenie stringów)\n\n---\n### 💡 Dobre praktyki\n- używaj jawnej konwersji (`Number`, `String`, `Boolean`)\n- unikaj niejasnych operacji typu:\n\n```js\n\"5\" + 1 // ❌ może mylić\n```\n\n- sprawdzaj NaN (np. `Number.isNaN()`)\n\n---\n### 📌 Podsumowanie\n- 3 główne konwersje: string, number, boolean\n- JS automatycznie zmienia typy\n- null ≠ undefined (różne zachowanie)\n- \"0\" i \" \" → true (częsty błąd)\n- implicit coercion to częste źródło bugów",
+			"resources": ["https://javascript.info/type-conversions"],
+			"level": 1,
+			"completed": true,
+			"editDate": "21.03.2026"
+		},
+		{
+			"id": "68",
+			"category": "javascript",
+			"question": "Jakie są podstawowe operatory matematyczne w JavaScript?",
+			"answer": "+, -, *, /, %, **",
+			"description": "Operatory w JavaScript służą do wykonywania operacji na wartościach (operandach). Mogą być:\n- unarne (1 operand) → `-x`, `++x`\n- binarne (2 operandy) → `x + y`\n\n---\n### 🔹 1. Podstawowe operatory matematyczne\n\n```js\n+  // dodawanie\n-  // odejmowanie\n*  // mnożenie\n/  // dzielenie\n%  // reszta z dzielenia\n** // potęgowanie\n```\n\n```js\n5 % 2;   // 1\n2 ** 3;  // 8\n```\n\n---\n### 🔥 2. + (plus) ma specjalne zachowanie\n\n```js\n\"1\" + 2; // \"12\"\n2 + \"1\"; // \"21\"\n```\n\n➡️ jeśli jeden operand to string → wszystko staje się stringiem\n\n```js\n2 + 2 + \"1\"; // \"41\"\n```\n\n👉 inne operatory zawsze konwertują do number:\n\n```js\n\"6\" - \"2\"; // 4\n\"6\" / \"2\"; // 3\n```\n\n---\n### 🔹 3. Unary + (konwersja do number)\n\n```js\n+\"123\";  // 123\n+true;   // 1\n+\"\";     // 0\n```\n\n➡️ skrót dla `Number()`\n\n---\n### 🔹 4. Priorytet operatorów\n\n```js\n1 + 2 * 2; // 5\n(1 + 2) * 2; // 6\n```\n\n👉 ważne:\n- `*` ma wyższy priorytet niż `+`\n- nawiasy zmieniają kolejność\n- unary ma wyższy priorytet niż binary\n\n---\n### 🔹 5. Przypisanie (=)\n\n```js\nlet x = 2 * 2 + 1; // 5\n```\n\n➡️ najpierw obliczenia, potem przypisanie\n\n#### ❗ przypisanie zwraca wartość\n\n```js\nlet a;\nlet b = (a = 5);\n```\n\n---\n### 🔹 6. Łańcuchowe przypisanie\n\n```js\nlet a, b, c;\na = b = c = 2 + 2;\n```\n\n➡️ działa od prawej do lewej\n\n---\n### 🔹 7. Skrócone operatory\n\n```js\nlet n = 2;\nn += 5; // 7\nn *= 2; // 14\n```\n\n---\n### 🔹 8. Inkrementacja / dekrementacja\n\n```js\nlet i = 1;\ni++; // 2\ni--; // 1\n```\n\n#### ⚠️ prefix vs postfix\n\n```js\nlet a = 1;\nlet b = ++a; // 2 (nowa wartość)\n\nlet c = 1;\nlet d = c++; // 1 (stara wartość)\n```\n\n---\n### 🔹 9. Operatory bitowe (rzadko używane)\n\n```js\n& | ^ ~ << >> >>>\n```\n\n➡️ używane głównie w low-level / kryptografii\n\n---\n### 🔹 10. Operator przecinka (,)\n\n```js\nlet a = (1 + 2, 3 + 4); // 7\n```\n\n➡️ wykonuje wszystko, zwraca ostatnią wartość\n\n---\n### 💡 Dobre praktyki\n- uważaj na `+` (string vs number)\n- używaj nawiasów dla czytelności\n- unikaj \"sprytnych\" trików (łańcuchy przypisań, ,)\n- preferuj prosty kod zamiast skróconego\n\n---\n### 📌 Podsumowanie\n- operatory wykonują działania na danych\n- `+` może łączyć stringi\n- inne operatory konwertują do number\n- `=` zwraca wartość\n- `++` i `--` mają różne zachowanie (prefix/postfix)",
+			"resources": ["https://javascript.info/operators"],
+			"level": 1,
+			"completed": true,
+			"editDate": "21.03.2026"
+		},
+		{
+			"id": "69",
+			"category": "javascript",
+			"question": "Jak działają operatory porównania w JavaScript?",
+			"answer": "Operatory porównania zwracają true lub false i mogą wykonywać konwersję typów.",
+			"description": "Operatory porównania służą do sprawdzania relacji między wartościami i zawsze zwracają boolean (`true` lub `false`).\n\n---\n### 🔹 1. Podstawowe operatory\n\n```js\n>   // większe\n<   // mniejsze\n>=  // większe lub równe\n<=  // mniejsze lub równe\n==  // równe (z konwersją)\n!=  // różne (z konwersją)\n=== // ścisłe równe (bez konwersji)\n!== // ścisłe różne\n```\n\n```js\n2 > 1;   // true\n2 == 1;  // false\n2 != 1;  // true\n```\n\n---\n### 🔹 2. Wynik to boolean\n\n```js\nlet result = 5 > 4; // true\n```\n\n---\n### 🔹 3. Porównywanie stringów\n\n```js\n\"a\" > \"b\";     // false\n\"abc\" > \"ab\"; // true\n```\n\n➡️ porównanie znak po znaku (Unicode)\n\n⚠️ wielkość liter ma znaczenie:\n\n```js\n\"a\" > \"A\"; // true\n```\n\n---\n### 🔥 4. Porównanie różnych typów\n\n```js\n\"2\" > 1;   // true\n\"01\" == 1; // true\n```\n\n➡️ JS konwertuje do number\n\n```js\ntrue == 1;  // true\nfalse == 0; // true\n```\n\n---\n### ❗ 5. Problem z == (luźne porównanie)\n\n```js\n0 == false; // true\n\"\" == false; // true\n```\n\n👉 powód: konwersja typów\n\n---\n### ✅ 6. === (ścisłe porównanie)\n\n```js\n0 === false; // false\n```\n\n➡️ brak konwersji → bezpieczniejsze\n\n👉 🔥 ZASADA: używaj zawsze `===`\n\n---\n### 🔹 7. null i undefined\n\n#### ✔️ specjalne zachowanie\n\n```js\nnull == undefined; // true\nnull === undefined; // false\n```\n\n---\n### ❗ dziwne przypadki\n\n```js\nnull > 0;   // false\nnull == 0;  // false\nnull >= 0;  // true ❗\n```\n\n👉 powód: różne zasady dla == i >\n\n---\n### ❗ undefined\n\n```js\nundefined > 0;  // false\nundefined < 0;  // false\nundefined == 0; // false\n```\n\n➡️ undefined → NaN → zawsze false\n\n---\n### 💡 Dobre praktyki\n- używaj `===` zamiast `==`\n- unikaj porównań z `null` i `undefined`\n- sprawdzaj je osobno:\n\n```js\nif (value === null || value === undefined)\n```\n\n- uważaj na string vs number\n\n---\n### 📌 Podsumowanie\n- porównania zwracają boolean\n- `==` konwertuje typy (niebezpieczne)\n- `===` nie konwertuje (zalecane)\n- null i undefined mają specjalne zachowanie\n- porównania mogą dawać nieintuicyjne wyniki",
+			"resources": ["https://javascript.info/comparison"],
+			"level": 2,
+			"completed": true,
+			"editDate": "21.03.2026"
+		},
+		{
+			"id": "70",
+			"category": "javascript",
+			"question": "Jak działa instrukcja warunkowa if oraz operator ternarny (?) w JavaScript?",
+			"answer": "Instrukcja if i operator ? pozwalają wykonywać różny kod w zależności od warunku.",
+			"description": "Instrukcje warunkowe umożliwiają podejmowanie decyzji w kodzie na podstawie wartości logicznych.\n\n---\n### 🔹 1. Instrukcja if\n\n```js\nif (condition) {\n  // kod jeśli true\n}\n```\n\n```js\nlet age = 20;\n\nif (age > 18) {\n  console.log('Dorosły');\n}\n```\n\n---\n### 🔹 2. if...else\n\n```js\nif (age > 18) {\n  console.log('Dorosły');\n} else {\n  console.log('Nieletni');\n}\n```\n\n---\n### 🔹 3. else if (wiele warunków)\n\n```js\nif (age < 18) {\n  console.log('Młody');\n} else if (age < 65) {\n  console.log('Dorosły');\n} else {\n  console.log('Senior');\n}\n```\n\n---\n### 🔹 4. Konwersja do boolean\n\n```js\nif (0) { }      // false\nif (1) { }      // true\nif (\"\") { }    // false\nif (\"text\") { } // true\n```\n\n➡️ używane są wartości truthy / falsy\n\n---\n### 🔹 5. Operator ternarny ( ? )\n\nSkrócona forma if:\n\n```js\nlet result = condition ? value1 : value2;\n```\n\n```js\nlet age = 20;\nlet access = age > 18 ? true : false;\n```\n\n👉 często można uprościć:\n\n```js\nlet access = age > 18;\n```\n\n---\n### 🔹 6. Zagnieżdżony ternary\n\n```js\nlet message = age < 18 ? 'Młody' :\n              age < 65 ? 'Dorosły' :\n              'Senior';\n```\n\n➡️ działa jak if...else if\n\n---\n### ❗ Kiedy NIE używać ?\n\n```js\n// ❌ słabe\ncondition ? doSomething() : doOtherThing();\n```\n\n👉 lepiej:\n\n```js\nif (condition) {\n  doSomething();\n} else {\n  doOtherThing();\n}\n```\n\n---\n### 💡 Dobre praktyki\n- używaj `if` do logiki\n- używaj `?` tylko do przypisywania wartości\n- zawsze używaj `{}` dla czytelności\n- unikaj zbyt zagnieżdżonych ternary\n\n---\n### 📌 Podsumowanie\n- `if` → kontrola przepływu\n- `else` / `else if` → dodatkowe warunki\n- `?` → skrócony zapis zwracający wartość\n- warunki opierają się na truthy / falsy",
+			"resources": ["https://javascript.info/ifelse"],
+			"level": 1,
+			"completed": true,
+			"editDate": "21.03.2026"
+		},
+		{
+			"id": "71",
+			"category": "javascript",
+			"question": "Jak działają operatory logiczne w JavaScript (||, &&, !, ||=, &&=)?",
+			"answer": "Operatory logiczne pozwalają łączyć warunki, zwracać wartości na podstawie truthy/falsy oraz wykonywać skrócone przypisania.",
+			"description": "Operatory logiczne w JavaScript służą do pracy z warunkami i wartościami logicznymi, ale działają także na innych typach (np. liczbach czy stringach).\n\n---\n### 🔹 1. Operator OR (||)\n\n```js\nlet result = a || b;\n```\n\n➡️ Zwraca **pierwszą wartość truthy** lub ostatnią, jeśli wszystkie są falsy\n\n```js\nalert(1 || 0); // 1\nalert(null || 0 || 5); // 5\nalert(undefined || null || 0); // 0\n```\n\n👉 zastosowanie:\n\n```js\nlet name = firstName || lastName || \"Anonim\";\n```\n\n---\n### 🔹 2. Short-circuit (skrócone wykonanie)\n\n```js\ntrue || alert(\"nie wykona się\");\nfalse || alert(\"wykona się\");\n```\n\n➡️ wykonanie zatrzymuje się na pierwszym truthy\n\n---\n### 🔹 3. Operator OR assignment (||=)\n\n```js\na ||= b;\n```\n\n➡️ przypisuje `b` do `a` tylko jeśli `a` jest falsy\n\n```js\nlet name = \"\";\nname ||= \"Anonim\";\n```\n\n👉 odpowiednik:\n\n```js\nif (!a) {\n  a = b;\n}\n```\n\n---\n### 🔹 4. Operator AND (&&)\n\n```js\nlet result = a && b;\n```\n\n➡️ Zwraca **pierwszą wartość falsy** lub ostatnią jeśli wszystkie są truthy\n\n```js\nalert(1 && 0); // 0\nalert(1 && 5); // 5\nalert(null && 5); // null\n```\n\n---\n### 🔹 5. AND – short-circuit\n\n➡️ jeśli znajdzie falsy → przerywa\n\n```js\nfalse && alert(\"nie wykona się\");\n```\n\n---\n### 🔹 6. Operator AND assignment (&&=)\n\n```js\na &&= b;\n```\n\n➡️ przypisuje `b` do `a` tylko jeśli `a` jest truthy\n\n```js\nlet text = \"Hello\";\ntext &&= text + \"!\";\n```\n\n---\n### 🔹 7. Operator NOT (!)\n\n```js\n!value\n```\n\n➡️ zamienia wartość na przeciwną logiczną\n\n```js\nalert(!true); // false\nalert(!0); // true\n```\n\n---\n### 🔹 8. Konwersja do boolean (!!)\n\n```js\n!!\"tekst\"; // true\n!!null; // false\n```\n\n👉 alternatywa:\n\n```js\nBoolean(value);\n```\n\n---\n### 🔹 9. Priorytet operatorów\n\n- `!` → najwyższy\n- `&&`\n- `||` → najniższy\n\n```js\na && b || c\n// = (a && b) || c\n```\n\n---\n### ❗ Dobre praktyki\n- `||` → do wartości domyślnych\n- `&&` → do warunków\n- nie zastępuj `if` operatorami logicznymi\n- unikaj nadużywania skróconych zapisów\n\n---\n### 📌 Podsumowanie\n- `||` → pierwsza truthy wartość\n- `&&` → pierwsza falsy wartość\n- `!` → negacja\n- `||=` → przypisanie jeśli falsy\n- `&&=` → przypisanie jeśli truthy\n- działa na truthy / falsy, nie tylko booleanach",
+			"resources": ["https://javascript.info/logical-operators"],
+			"level": 1,
+			"completed": false,
+			"editDate": "23.03.2026"
+		},
+		{
+			"id": "72",
+			"category": "javascript",
+			"question": "Jak działają operatory (??) oraz (??=) w JavaScript?",
+			"answer": "Operator ?? zwraca pierwszą wartość, która nie jest null ani undefined, a ??= przypisuje wartość tylko wtedy, gdy zmienna jest null/undefined.",
+			"description": "Operatory `??` i `??=` służą do pracy z wartościami, które mogą być **niezdefiniowane (null lub undefined)**.\n\n---\n### 🔹 1. Operator nullish coalescing (??)\n\n```js\nlet result = a ?? b;\n```\n\n➡️ zwraca:\n- `a`, jeśli **nie jest null/undefined**\n- `b`, jeśli `a` jest null lub undefined\n\n```js\nlet user = null;\nalert(user ?? \"Anonim\"); // \"Anonim\"\n\nlet user2 = \"Jan\";\nalert(user2 ?? \"Anonim\"); // \"Jan\"\n```\n\n---\n### 🔹 2. Łańcuchowanie ??\n\n➡️ wybiera pierwszą \"zdefiniowaną\" wartość\n\n```js\nlet firstName = null;\nlet lastName = null;\nlet nick = \"Coder\";\n\nalert(firstName ?? lastName ?? nick ?? \"Anonim\"); // \"Coder\"\n```\n\n---\n### 🔹 3. Różnica między ?? a ||\n\n```js\nlet height = 0;\n\nalert(height || 100); // 100\nalert(height ?? 100); // 0\n```\n\n👉 różnica:\n- `||` → traktuje 0, \"\", false jako falsy\n- `??` → sprawdza tylko null i undefined\n\n➡️ dlatego `??` jest bezpieczniejszy dla wartości typu 0 lub \"\"\n\n---\n### 🔹 4. Priorytet operatora\n\n- podobny do `||`\n- niższy niż `*`, `+`\n\n```js\nlet area = (height ?? 100) * (width ?? 50);\n```\n\n❗ bez nawiasów może dać błędny wynik\n\n---\n### 🔹 5. Zakaz mieszania z && i ||\n\n```js\n// ❌ błąd\nlet x = 1 && 2 ?? 3;\n\n// ✅ poprawnie\nlet x = (1 && 2) ?? 3;\n```\n\n---\n### 🔹 6. Operator nullish assignment (??=)\n\n```js\nx ??= y;\n```\n\n➡️ przypisuje `y` do `x` tylko jeśli `x` jest null/undefined\n\n```js\nlet age = null;\nage ??= 18;\n\nalert(age); // 18\n```\n\n👉 odpowiednik:\n\n```js\nif (x === null || x === undefined) {\n  x = y;\n}\n```\n\n---\n### 🔹 7. Short-circuit\n\n➡️ prawa strona wykona się tylko jeśli potrzeba\n\n```js\nlet age = 18;\nage ??= alert(\"nie wykona się\");\n```\n\n---\n### ❗ Dobre praktyki\n- używaj `??` zamiast `||` dla wartości domyślnych\n- stosuj nawiasy w złożonych wyrażeniach\n- unikaj mieszania z `&&` i `||` bez nawiasów\n\n---\n### 📌 Podsumowanie\n- `??` → pierwsza wartość ≠ null/undefined\n- `??=` → przypisanie tylko gdy null/undefined\n- lepsze niż `||` dla wartości typu `0`, `\"\"`, `false`\n- wspiera short-circuit",
+			"resources": ["https://javascript.info/nullish-coalescing-operator"],
+			"level": 1,
+			"completed": false,
+			"editDate": "23.03.2026"
+		},
+		{
+			"id": "73",
+			"category": "javascript",
+			"question": "Jak działają pętle w JavaScript?",
+			"answer": "Pętle pozwalają wielokrotnie wykonywać kod – while i for sprawdzają warunek przed iteracją, a do...while wykonuje kod co najmniej raz.",
+			"description": "Pętle w JavaScript służą do wielokrotnego wykonywania tego samego fragmentu kodu – np. iterowania po liczbach, tablicach lub wykonywania powtarzalnych operacji.\n\n---\n### 🔹 1. Pętla while\n\n```js\nwhile (condition) {\n  // kod\n}\n```\n\n➡️ działa tak długo, jak warunek jest **true**\n\n```js\nlet i = 0;\n\nwhile (i < 3) {\n  console.log(i); // 0, 1, 2\n  i++;\n}\n```\n\n👉 ważne:\n- każda iteracja to jedno wykonanie pętli\n- jeśli zapomnisz zmienić warunek → powstanie **nieskończona pętla**\n\n```js\nwhile (i) {\n  // skrót: działa dopóki i != 0\n}\n```\n\n---\n### 🔹 2. Pętla do...while\n\n```js\ndo {\n  // kod\n} while (condition);\n```\n\n➡️ zawsze wykona się **co najmniej raz**, bo warunek jest sprawdzany po wykonaniu\n\n```js\nlet i = 0;\n\ndo {\n  console.log(i);\n  i++;\n} while (i < 3);\n```\n\n👉 używaj, gdy kod musi wykonać się przynajmniej raz\n\n---\n### 🔹 3. Pętla for\n\n```js\nfor (start; condition; step) {\n  // kod\n}\n```\n\n```js\nfor (let i = 0; i < 3; i++) {\n  console.log(i); // 0, 1, 2\n}\n```\n\n➡️ elementy:\n- `start` → wykonuje się raz\n- `condition` → sprawdzany przed każdą iteracją\n- `step` → wykonywany po każdej iteracji\n\n👉 najczęściej używana pętla\n\n---\n### 🔹 4. Zakres zmiennych\n\n```js\nfor (let i = 0; i < 3; i++) {}\n\nconsole.log(i); // ❌ błąd\n```\n\n➡️ zmienna z `let` istnieje tylko w pętli\n\n---\n### 🔹 5. Pomijanie elementów for\n\n```js\nlet i = 0;\n\nfor (; i < 3; i++) {}\n```\n\n```js\nfor (;;) {\n  // nieskończona pętla\n}\n```\n\n---\n### 🔹 6. break – przerwanie pętli\n\n```js\nwhile (true) {\n  let value = prompt(\"Podaj liczbę\");\n\n  if (!value) break;\n}\n```\n\n➡️ natychmiast kończy pętlę\n\n---\n### 🔹 7. continue – pominięcie iteracji\n\n```js\nfor (let i = 0; i < 10; i++) {\n  if (i % 2 === 0) continue;\n\n  console.log(i); // tylko nieparzyste\n}\n```\n\n➡️ pomija aktualną iterację i przechodzi dalej\n\n👉 poprawia czytelność (mniej zagnieżdżeń)\n\n---\n### 🔹 8. Etykiety (labels)\n\n➡️ pozwalają sterować zagnieżdżonymi pętlami\n\n```js\nouter: for (let i = 0; i < 3; i++) {\n  for (let j = 0; j < 3; j++) {\n    break outer;\n  }\n}\n```\n\n➡️ przerywa zewnętrzną pętlę\n\n---\n### ❗ Ważne ograniczenia\n- `break` i `continue` działają tylko w pętlach\n- nie można ich używać w operatorze ternarnym `?`\n\n---\n### ❗ Dobre praktyki\n- używaj `for` gdy znasz liczbę iteracji\n- używaj `while` gdy warunek jest dynamiczny\n- unikaj nieskończonych pętli bez `break`\n- używaj `continue`, by uprościć kod\n\n---\n### 📌 Podsumowanie\n- `while` → sprawdza warunek przed iteracją\n- `do...while` → wykona się przynajmniej raz\n- `for` → najbardziej uniwersalna pętla\n- `break` → przerywa pętlę\n- `continue` → pomija iterację\n- pętle są podstawą pracy z danymi i logiką w JS",
+			"resources": ["https://javascript.info/while-for"],
+			"level": 1,
+			"completed": false,
+			"editDate": "23.03.2026"
+		},
+		{
+			"id": "74",
+			"category": "javascript",
+			"question": "Jak działa instrukcja switch w JavaScript?",
+			"answer": "Instrukcja switch pozwala porównać jedną wartość z wieloma przypadkami i wykonać odpowiedni blok kodu.",
+			"description": "Instrukcja `switch` to alternatywa dla wielu `if...else`, która pozwala czytelnie sprawdzić jedną wartość względem wielu możliwych przypadków.\n\n---\n### 🔹 1. Podstawowa składnia\n\n```js\nswitch (value) {\n  case 'a':\n    // kod\n    break;\n\n  case 'b':\n    // kod\n    break;\n\n  default:\n    // kod\n}\n```\n\n➡️ jak to działa:\n- wartość `value` jest porównywana z każdym `case`\n- porównanie odbywa się przez **ścisłe porównanie (===)**\n- gdy znajdzie dopasowanie → wykonuje kod\n- `break` zatrzymuje dalsze wykonywanie\n\n---\n### 🔹 2. Przykład\n\n```js\nlet a = 2 + 2;\n\nswitch (a) {\n  case 3:\n    console.log(\"Za mało\");\n    break;\n\n  case 4:\n    console.log(\"Idealnie\");\n    break;\n\n  default:\n    console.log(\"Nieznana wartość\");\n}\n```\n\n➡️ wynik: `Idealnie`\n\n---\n### 🔹 3. Brak break (fall-through)\n\n```js\nlet a = 4;\n\nswitch (a) {\n  case 3:\n    console.log(\"3\");\n\n  case 4:\n    console.log(\"4\");\n\n  case 5:\n    console.log(\"5\");\n}\n```\n\n➡️ wynik:\n```\n4\n5\n```\n\n👉 bez `break` wykonują się kolejne case!\n\n---\n### 🔹 4. Grupowanie case\n\n```js\nlet a = 3;\n\nswitch (a) {\n  case 3:\n  case 5:\n    console.log(\"Błąd\");\n    break;\n\n  case 4:\n    console.log(\"OK\");\n    break;\n}\n```\n\n➡️ jeden kod dla wielu wartości\n\n---\n### 🔹 5. Dowolne wyrażenia\n\n```js\nlet a = \"1\";\nlet b = 0;\n\nswitch (+a) {\n  case b + 1:\n    console.log(\"Zadziała\");\n}\n```\n\n👉 `switch` i `case` mogą zawierać wyrażenia\n\n---\n### 🔹 6. Typy mają znaczenie (===)\n\n```js\nlet value = \"3\";\n\nswitch (value) {\n  case 3:\n    console.log(\"liczba\");\n    break;\n\n  default:\n    console.log(\"nie pasuje\");\n}\n```\n\n➡️ wynik: `nie pasuje`\n\n👉 bo:\n- `\"3\" !== 3`\n- `switch` używa **ścisłego porównania**\n\n---\n### 🔹 7. default\n\n➡️ działa jak `else`\n\n```js\nswitch (value) {\n  case 1:\n    break;\n  default:\n    console.log(\"brak dopasowania\");\n}\n```\n\n---\n### ❗ Dobre praktyki\n- zawsze używaj `break`, chyba że świadomie chcesz fall-through\n- używaj `switch`, gdy porównujesz jedną wartość z wieloma opcjami\n- uważaj na typy (`===`!)\n\n---\n### 📌 Podsumowanie\n- `switch` → zamienia wiele `if...else`\n- `case` → konkretna wartość\n- `break` → zatrzymuje wykonanie\n- `default` → gdy brak dopasowania\n- porównanie działa jak `===` (typ ma znaczenie)\n- brak `break` powoduje wykonanie kolejnych case",
+			"level": 1,
+			"completed": false,
+			"editDate": "23.03.2026"
+		},
+		{
+			"id": "75",
+			"category": "javascript",
+			"question": "Jak działają funkcje w JavaScript i do czego służą?",
+			"answer": "Funkcje pozwalają wielokrotnie używać tego samego kodu, przyjmować dane (parametry) i zwracać wynik.",
+			"description": "Funkcje to jeden z najważniejszych elementów JavaScript – pozwalają organizować kod, unikać powtórzeń i tworzyć logiczne „bloki” programu.\n\n---\n### 🔹 1. Tworzenie funkcji\n\n```js\nfunction showMessage() {\n  console.log(\"Witaj!\");\n}\n```\n\n➡️ aby uruchomić funkcję:\n\n```js\nshowMessage();\n```\n\n👉 funkcję można wywołać wiele razy bez powielania kodu\n\n---\n### 🔹 2. Parametry i argumenty\n\n```js\nfunction showMessage(from, text) {\n  console.log(from + \": \" + text);\n}\n\nshowMessage(\"Ania\", \"Cześć\");\n```\n\n➡️ ważne pojęcia:\n- **parametr** → zmienna w definicji funkcji\n- **argument** → wartość przekazana przy wywołaniu\n\n---\n### 🔹 3. Lokalne zmienne\n\n```js\nfunction test() {\n  let message = \"Hello\";\n}\n\nconsole.log(message); // ❌ błąd\n```\n\n➡️ zmienne w funkcji są widoczne tylko w niej\n\n---\n### 🔹 4. Zmienne zewnętrzne (globalne)\n\n```js\nlet name = \"Jan\";\n\nfunction show() {\n  console.log(name);\n}\n```\n\n➡️ funkcja ma dostęp do zmiennych spoza niej\n\n❗ ale:\n- może je zmieniać (co bywa niebezpieczne)\n- lepiej ograniczać użycie zmiennych globalnych\n\n---\n### 🔹 5. Nadpisywanie zmiennych\n\n```js\nlet name = \"Jan\";\n\nfunction show() {\n  let name = \"Anna\";\n  console.log(name);\n}\n```\n\n➡️ lokalna zmienna \"przykrywa\" globalną\n\n---\n### 🔹 6. Parametry domyślne\n\n```js\nfunction showMessage(text = \"Brak wiadomości\") {\n  console.log(text);\n}\n\nshowMessage();\n```\n\n➡️ używane, gdy argument nie został podany\n\n---\n### 🔹 7. Alternatywy (starsze podejście)\n\n```js\ntext = text || \"Brak\";\n```\n\n👉 lepiej dziś używać:\n\n```js\ntext = text ?? \"Brak\";\n```\n\n➡️ bo `??` nie nadpisze np. `0` lub `\"\"`\n\n---\n### 🔹 8. Zwracanie wartości (return)\n\n```js\nfunction sum(a, b) {\n  return a + b;\n}\n\nlet result = sum(2, 3);\n```\n\n➡️ `return`:\n- kończy działanie funkcji\n- zwraca wynik\n\n---\n### 🔹 9. Wczesny return\n\n```js\nfunction checkAge(age) {\n  if (age < 18) return false;\n  return true;\n}\n```\n\n👉 upraszcza kod i eliminuje zbędne `else`\n\n---\n### 🔹 10. Brak return\n\n```js\nfunction test() {}\n\nconsole.log(test()); // undefined\n```\n\n➡️ każda funkcja coś zwraca – jeśli nic, to `undefined`\n\n---\n### 🔹 11. Uwaga na return i nową linię\n\n```js\nreturn\n  5;\n```\n\n❌ zwróci `undefined`\n\n👉 poprawnie:\n\n```js\nreturn 5;\n```\n\n---\n### 🔹 12. Nazewnictwo funkcji\n\n➡️ funkcja powinna być:\n- krótka\n- konkretna\n- opisywać działanie (czasownik)\n\nPrzykłady:\n- `getAge()` → zwraca wartość\n- `calcSum()` → oblicza\n- `createUser()` → tworzy\n- `checkAccess()` → zwraca true/false\n\n---\n### 🔹 13. Jedna funkcja = jedna odpowiedzialność\n\n❌ źle:\n- funkcja robi kilka rzeczy naraz\n\n✅ dobrze:\n- funkcja robi jedną konkretną rzecz\n\n➡️ dzięki temu kod jest czytelniejszy i łatwiejszy w utrzymaniu\n\n---\n### 🔹 14. Funkcje jako \"komentarze\"\n\nZamiast:\n\n```js\nif (n % 2 === 0) { ... }\n```\n\nlepiej:\n\n```js\nif (isEven(n)) { ... }\n```\n\n➡️ kod staje się bardziej zrozumiały\n\n---\n### ❗ Dobre praktyki\n- unikaj zmiennych globalnych\n- używaj parametrów zamiast modyfikować dane z zewnątrz\n- stosuj krótkie, jasne funkcje\n- używaj `return` zamiast zagnieżdżonych `if`\n\n---\n### 📌 Podsumowanie\n- funkcje to podstawowe „klocki” programu\n- przyjmują dane (parametry)\n- mogą zwracać wynik (return)\n- mają własny zakres zmiennych\n- poprawiają czytelność i reużywalność kodu",
+			"level": 1,
+			"completed": false,
+			"editDate": "23.03.2026"
+		},
+		{
+			"id": "76",
+			"category": "javascript",
+			"question": "Czym jest Function Expression i czym różni się od Function Declaration w JS?",
+			"answer": "Function Expression to funkcja przypisana do zmiennej jako wartość, a w przeciwieństwie do Function Declaration nie jest dostępna przed jej utworzeniem.",
+			"description": "W JavaScript funkcje są **wartościami**, co oznacza, że można je przypisywać do zmiennych, przekazywać jako argumenty i używać jak innych typów danych.\n\n---\n### 🔹 1. Function Declaration (przypomnienie)\n\n```js\nfunction sayHi() {\n  console.log(\"Cześć\");\n}\n```\n\n➡️ klasyczna deklaracja funkcji\n\n---\n### 🔹 2. Function Expression\n\n```js\nlet sayHi = function() {\n  console.log(\"Cześć\");\n};\n```\n\n➡️ funkcja jest:\n- tworzona jako **wartość**\n- przypisana do zmiennej\n\n👉 często jest anonimowa (bez nazwy)\n\n---\n### 🔹 3. Funkcja jako wartość\n\n```js\nfunction sayHi() {\n  console.log(\"Hi\");\n}\n\nlet func = sayHi;\n\nfunc();   // działa\nsayHi();  // też działa\n```\n\n➡️ ważne:\n- `sayHi` → referencja do funkcji\n- `sayHi()` → wywołanie funkcji\n\n---\n### 🔹 4. Function Expression i średnik\n\n```js\nlet sayHi = function() {};\n```\n\n➡️ średnik wynika z przypisania (jak `let x = 5;`), a nie z samej funkcji\n\n---\n### 🔹 5. Funkcje jako argumenty (callbacki)\n\n```js\nfunction ask(question, yes, no) {\n  if (confirm(question)) yes();\n  else no();\n}\n\nask(\n  \"Zgadzasz się?\",\n  function() { console.log(\"Tak\"); },\n  function() { console.log(\"Nie\"); }\n);\n```\n\n➡️ funkcje przekazane jako argumenty to **callbacki**\n\n👉 są wywoływane później\n\n---\n### 🔹 6. Kluczowa różnica – kiedy funkcja istnieje\n\n#### ✅ Function Declaration\n\n```js\nsayHi(); // działa\n\nfunction sayHi() {\n  console.log(\"Hi\");\n}\n```\n\n➡️ działa, bo:\n- funkcja jest tworzona przed wykonaniem kodu (hoisting)\n\n---\n#### ❌ Function Expression\n\n```js\nsayHi(); // błąd\n\nlet sayHi = function() {\n  console.log(\"Hi\");\n};\n```\n\n➡️ nie działa, bo:\n- funkcja powstaje dopiero w trakcie wykonywania kodu\n\n---\n### 🔹 7. Zakres (scope) w blokach\n\n```js\nif (true) {\n  function test() {}\n}\n\n// test(); ❌ może nie działać poza blokiem\n```\n\n👉 Function Declaration w blokach ma ograniczony zakres\n\n➡️ rozwiązanie:\n\n```js\nlet test;\n\nif (true) {\n  test = function() {};\n}\n```\n\n---\n### 🔹 8. Dynamiczne tworzenie funkcji\n\n```js\nlet age = 20;\n\nlet welcome = (age < 18)\n  ? function() { console.log(\"Hej\"); }\n  : function() { console.log(\"Witaj\"); };\n```\n\n➡️ Function Expression pozwala tworzyć funkcje warunkowo\n\n---\n### 🔹 9. Kiedy używać czego?\n\n👉 używaj **Function Declaration**, gdy:\n- funkcja jest główna\n- chcesz ją wywołać wcześniej\n- zależy Ci na czytelności\n\n👉 używaj **Function Expression**, gdy:\n- przypisujesz funkcję do zmiennej\n- używasz callbacków\n- tworzysz funkcję warunkowo\n\n---\n### ❗ Dobre praktyki\n- traktuj funkcje jak wartości\n- nie myl `func` z `func()`\n- używaj Function Declaration jako domyślnej\n- Function Expression używaj świadomie\n\n---\n### 📌 Podsumowanie\n- funkcje w JS to wartości\n- Function Declaration → dostępna przed definicją\n- Function Expression → tworzona w trakcie działania\n- Function Expression często używana jako callback\n- wybór zależy od kontekstu i potrzeb",
+			"level": 1,
+			"completed": false,
+			"editDate": "23.03.2026"
+		},
+		{
+			"id": "77",
+			"category": "javascript",
+			"question": "Czym są funkcje strzałkowe (()=> {}) w JavaScript?",
+			"answer": "Funkcje strzałkowe to skrócony zapis funkcji, który pozwala tworzyć krótszy i bardziej czytelny kod, zwłaszcza dla prostych operacji.",
+			"description": "Funkcje strzałkowe (arrow functions) to nowocześniejszy i krótszy sposób zapisu funkcji w JavaScript. Są szczególnie przydatne przy prostych operacjach i callbackach.\n\n---\n### 🔹 1. Podstawowa składnia\n\n```js\nlet func = (arg1, arg2) => expression;\n```\n\n➡️ to skrócona wersja:\n\n```js\nlet func = function(arg1, arg2) {\n  return expression;\n};\n```\n\n---\n### 🔹 2. Przykład\n\n```js\nlet sum = (a, b) => a + b;\n\nconsole.log(sum(2, 3)); // 5\n```\n\n➡️ funkcja:\n- przyjmuje argumenty\n- zwraca wynik wyrażenia po prawej stronie\n\n---\n### 🔹 3. Jeden argument\n\n```js\nlet double = n => n * 2;\n```\n\n➡️ nawiasy można pominąć przy jednym parametrze\n\n---\n### 🔹 4. Brak argumentów\n\n```js\nlet sayHi = () => console.log(\"Hi\");\n```\n\n➡️ nawiasy `()` są wymagane\n\n---\n### 🔹 5. Wiele instrukcji (ciało funkcji)\n\n```js\nlet sum = (a, b) => {\n  let result = a + b;\n  return result;\n};\n```\n\n➡️ jeśli używasz `{}`:\n- musisz użyć `return`\n\n👉 bez `{}` return jest automatyczny\n\n---\n### 🔹 6. Użycie w praktyce (callbacki)\n\n```js\nlet numbers = [1, 2, 3];\n\nlet doubled = numbers.map(n => n * 2);\n```\n\n➡️ bardzo często używane w:\n- `map()`\n- `filter()`\n- `forEach()`\n\n---\n### 🔹 7. Funkcje tworzone dynamicznie\n\n```js\nlet age = 20;\n\nlet welcome = age < 18\n  ? () => console.log(\"Hej\")\n  : () => console.log(\"Witaj\");\n```\n\n➡️ można łatwo tworzyć funkcje warunkowo\n\n---\n### 🔹 8. Kiedy używać?\n\n👉 używaj arrow functions gdy:\n- funkcja jest krótka\n- to callback\n- nie potrzebujesz rozbudowanej logiki\n\n👉 unikaj gdy:\n- funkcja jest długa i skomplikowana\n- potrzebujesz klasycznej struktury (czytelność spada)\n\n---\n### ❗ Najważniejsze zasady\n- `() => expression` → automatyczny return\n- `() => {}` → potrzebny return\n- 1 argument → bez nawiasów\n- 0 argumentów → `()` wymagane\n\n---\n### 📌 Podsumowanie\n- arrow functions to skrócony zapis funkcji\n- idealne do prostych operacji i callbacków\n- mogą zwracać wartość automatycznie\n- zwiększają czytelność przy krótkim kodzie\n- są bardzo często używane w nowoczesnym JavaScript",
+			"level": 1,
+			"completed": false,
+			"editDate": "23.03.2026"
+		},
+		{
+			"id": "78",
+			"category": "javascript",
+			"question": "Jakie są najważniejsze podstawy i cechy JS?",
+			"answer": "JavaScript opiera się na zmiennych, typach danych, operatorach, funkcjach i pętlach, a jego zachowanie obejmuje m.in. dynamiczne typowanie i automatyczne konwersje.",
+			"description": "To podsumowanie najważniejszych podstaw JavaScript – rzeczy, które musisz dobrze rozumieć, żeby iść dalej.\n\n---\n### 🔹 1. Struktura kodu\n\n```js\nalert(\"Hello\");\nalert(\"World\");\n```\n\n➡️ instrukcje oddzielamy średnikiem `;`\n\n👉 JavaScript czasem dodaje je automatycznie (ASI), ale:\n\n```js\nalert(\"Test\")\n[1,2].forEach(alert)\n```\n\n❌ może powodować błędy\n\n➡️ dlatego **zawsze warto używać `;`**\n\n---\n### 🔹 2. Tryb ścisły (\"use strict\")\n\n```js\n\"use strict\";\n```\n\n➡️ włącza nowoczesne zasady JS\n- eliminuje stare błędy\n- wymusza lepsze praktyki\n\n👉 zalecane na początku każdego pliku\n\n---\n### 🔹 3. Zmienne\n\n```js\nlet x = 5;\nconst y = 10;\nvar z = 3; // ❌ przestarzałe\n```\n\n➡️ używaj:\n- `let` → zmienna\n- `const` → stała\n\n👉 JS ma **dynamiczne typowanie**:\n\n```js\nlet x = 5;\nx = \"tekst\";\n```\n\n---\n### 🔹 4. Typy danych\n\nPodstawowe:\n- `number`\n- `bigint`\n- `string`\n- `boolean`\n- `null`\n- `undefined`\n- `object`\n- `symbol`\n\n```js\ntypeof \"abc\"; // \"string\"\ntypeof null;   // \"object\" ❗ błąd w języku\n```\n\n---\n### 🔹 5. Interakcja z użytkownikiem\n\n```js\nalert(\"Hi\");\nprompt(\"Imię?\");\nconfirm(\"OK?\");\n```\n\n➡️ wszystkie są **modalne** (blokują kod)\n\n---\n### 🔹 6. Operatory\n\n#### ➤ Matematyczne\n```js\n+ - * / % **\n```\n\n#### ➤ Łączenie stringów\n```js\n\"1\" + 2 // \"12\"\n```\n\n#### ➤ Warunkowy (ternary)\n```js\ncond ? a : b\n```\n\n#### ➤ Logiczne\n```js\n&& || !\n```\n\n➡️ działają na truthy/falsy i zwracają wartości\n\n#### ➤ Nullish\n```js\na ?? b\n```\n\n➡️ tylko dla `null` i `undefined`\n\n---\n### 🔹 7. Porównania\n\n```js\n0 == false  // true\n0 === false // false\n```\n\n➡️ różnica:\n- `==` → konwersja typów\n- `===` → bez konwersji (zalecane)\n\n👉 specjalne:\n- `null == undefined` → true\n\n---\n### 🔹 8. Pętle\n\n```js\nwhile (...) {}\ndo {} while (...)\nfor (...) {}\n```\n\n➡️ sterowanie:\n- `break` → kończy pętlę\n- `continue` → pomija iterację\n\n---\n### 🔹 9. switch\n\n```js\nswitch(value) {\n  case 1:\n    break;\n  default:\n}\n```\n\n➡️ używa `===`\n\n---\n### 🔹 10. Funkcje\n\n#### ➤ Declaration\n```js\nfunction sum(a, b) {}\n```\n\n#### ➤ Expression\n```js\nlet sum = function(a, b) {};\n```\n\n#### ➤ Arrow\n```js\nlet sum = (a, b) => a + b;\n```\n\n➡️ funkcje:\n- mają własny zakres\n- mogą mieć parametry domyślne\n- zwracają wartość (`return`)\n\n```js\nfunction test() {}\n// zwraca undefined\n```\n\n---\n### ❗ Najważniejsze rzeczy do zapamiętania\n- JS ma dynamiczne typy\n- `===` zamiast `==`\n- `??` zamiast `||` do wartości domyślnych\n- funkcje to wartości\n- pętle i warunki to podstawa logiki\n\n---\n### 📌 Podsumowanie\n- JavaScript to język dynamiczny i elastyczny\n- posiada różne typy danych i operatory\n- obsługuje funkcje, pętle i warunki\n- wiele rzeczy działa automatycznie (konwersje), co bywa pułapką\n- znajomość podstaw to klucz do dalszej nauki",
+			"resources": ["https://javascript.info/intro"],
+			"level": 1,
+			"completed": false,
+			"editDate": "23.03.2026"
+		}
+	]
 }
