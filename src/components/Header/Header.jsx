@@ -5,7 +5,6 @@ import { useAuth } from '../../hooks/useAuth';
 import { AUTH_STORAGE } from '../../constants';
 
 import Button from '../Button';
-import SettingsPage from '../../pages/SettingsPage/SettingsPage';
 
 import htmlLogo from '../../assets/HTML5.png';
 import cssLogo from '../../assets/CSS3.png';

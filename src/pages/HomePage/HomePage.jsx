@@ -9,12 +9,14 @@ import SearchInput from '../../components/SearchInput';
 import styles from './HomePage.module.css';
 
 const HomePage = () => {
-	const [questions, setQuestions] = useState([]);
-	const [searchValue, setSearchValue] = useState('');
-	const [sortSelectValue, setSortSelectValue] = useState('');
-	const [page, setPage] = useState(1);
-	const [totalPages, setTotalPages] = useState(1);
 	const [searchParams, setSearchParams] = useSearchParams();
+	const [questions, setQuestions] = useState([]);
+
+	const searchValue = searchParams.get('q') || '';
+	const sortSelectValue = searchParams.get('sort') || '';
+	const page = Number(searchParams.get('page')) || 1;
+
+	const [totalPages, setTotalPages] = useState(1);
 	const technology = searchParams.get('technology') || '';
 	const getLimit = () => {
 		if (window.innerWidth >= 1500) return 10;
@@ -32,7 +34,7 @@ const HomePage = () => {
 		setQuestions(data);
 
 		if (total) {
-			setTotalPages(Math.ceil(total / limit));
+			setTotalPages(Math.ceil(total / Number(limit)));
 		}
 
 		return data;
@@ -65,16 +67,48 @@ const HomePage = () => {
 		getQuestions(`checkycards${queryString}`);
 	}, [searchValue, technology, sortSelectValue, page, limit]);
 
-	useEffect(() => {
-		setPage(1);
-	}, [searchValue, technology, sortSelectValue, limit]);
-
 	const onSearchChangeHandler = (e) => {
-		setSearchValue(e.target.value);
+		const value = e.target.value;
+
+		setSearchParams((prev) => {
+			const params = new URLSearchParams(prev);
+
+			if (value) {
+				params.set('technology', value);
+			} else {
+				params.delete('technology');
+			}
+
+			params.set('page', 1);
+
+			return params;
+		});
 	};
 
 	const onSortSelectChangeHandler = (e) => {
-		setSortSelectValue(e.target.value);
+		const value = e.target.value;
+
+		setSearchParams((prev) => {
+			const params = new URLSearchParams(prev);
+
+			if (value) {
+				params.set('sort', value);
+			} else {
+				params.delete('sort');
+			}
+
+			params.set('page', 1);
+
+			return params;
+		});
+	};
+
+	const handlePageChange = (newPage) => {
+		setSearchParams((prev) => {
+			const params = new URLSearchParams(prev);
+			params.set('page', newPage);
+			return params;
+		});
 	};
 
 	useEffect(() => {
@@ -106,7 +140,7 @@ const HomePage = () => {
 									params.delete('technology');
 								}
 
-								return params;
+								params.set('page', 1);
 							});
 						}}
 						className={styles.select}>
@@ -147,7 +181,7 @@ const HomePage = () => {
 				{Array.from({ length: totalPages }, (_, i) => (
 					<button
 						key={i}
-						onClick={() => setPage(i + 1)}
+						onClick={() => handlePageChange(i + 1)}
 						className={`${styles.pageButton} ${page === i + 1 ? styles.active : ''}`}>
 						{i + 1}
 					</button>

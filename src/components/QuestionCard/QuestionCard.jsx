@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useState, useRef } from 'react';
 import { useRevealAnswer } from '../../context/RevealAnswerContext';
 import Button from '../Button';
@@ -17,6 +17,7 @@ import styles from './QuestionCard.module.css';
 
 const QuestionCard = ({ card }) => {
 	const navigate = useNavigate();
+	const location = useLocation();
 
 	const categoryIcons = {
 		html: htmlLogo,
@@ -89,7 +90,7 @@ const QuestionCard = ({ card }) => {
 				</p>
 			</div>
 
-			<Button onClick={() => navigate(`/question/${card.id}`)}>
+			<Button onClick={() => navigate(`/question/${card.id}${location.search}`)}>
 				{' '}
 				View <Expand size={18} />
 			</Button>

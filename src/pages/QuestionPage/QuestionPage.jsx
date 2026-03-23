@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import { useEffect, useId, useState } from 'react';
 import { useFetch } from '../../hooks/useFetch';
 import { useAuth } from '../../hooks/useAuth';
@@ -23,6 +23,7 @@ import styles from './QuestionPage.module.css';
 const QuestionPage = () => {
 	const navigate = useNavigate();
 	const { isAuth } = useAuth();
+	const location = useLocation();
 
 	const checkboxId = useId();
 	const { id } = useParams();
@@ -146,7 +147,7 @@ const QuestionPage = () => {
 				</label>
 
 				<div className={styles.buttonsContainer}>
-					<Button onClick={() => navigate('/')} isDisabled={isCardUpdating}>
+					<Button onClick={() => navigate(`/${location.search}`)} isDisabled={isCardUpdating}>
 						{' '}
 						<ArrowLeft size={18} /> Go Back{' '}
 					</Button>
