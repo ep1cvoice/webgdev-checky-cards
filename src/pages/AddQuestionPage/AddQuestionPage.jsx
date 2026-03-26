@@ -23,6 +23,7 @@ const AddQuestionPage = () => {
 				question: newQuestion.question.trim(),
 				category: newQuestion.category.trim(),
 				level: Number(newQuestion.level),
+				priority: Number(newQuestion.priority),
 				answer: newQuestion.answer.trim(),
 				description: newQuestion.description.trim(),
 				resources: newQuestion.resources.length ? resources.split(',').map((r) => r.trim()) : [],
@@ -49,7 +50,7 @@ const AddQuestionPage = () => {
 						<ArrowLeft size={18} /> Go Back{' '}
 					</Button>
 					<div className={styles.containerRight}>
-						<PenLine size={26}/>
+						<PenLine size={26} />
 						<h2 className={styles.formTitle}>Add New Card</h2>
 					</div>
 				</div>

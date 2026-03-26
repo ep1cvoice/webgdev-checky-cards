@@ -33,6 +33,7 @@ const editCardAction = async (_prevState, formData) => {
 			question: newQuestion.question.trim(),
 			category: newQuestion.category.trim(),
 			level: Number(newQuestion.level),
+			priority: Number(newQuestion.priority),
 			answer: newQuestion.answer.trim(),
 			description: newQuestion.description.trim(),
 			resources: newQuestion.resources.length ? resources.split(',').map((r) => r.trim()) : [],
