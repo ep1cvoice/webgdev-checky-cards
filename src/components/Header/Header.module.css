@@ -89,6 +89,7 @@
 
 .burger:hover {
 	background-color: var(--btn-hover-bg);
+	color: var(--btn-text-color);
 }
 
 .desktopBurger {

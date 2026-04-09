@@ -27,14 +27,10 @@ const HomePage = () => {
 	const [limit, setLimit] = useState(getLimit());
 
 	const [getQuestions, isLoading, error] = useFetch(async ({ search, category, sort, currentPage, currentLimit }) => {
-		let query = supabase
-			.from('checkycards')
-			.select('*', { count: 'exact' });
+		let query = supabase.from('checkycards').select('*', { count: 'exact' });
 
 		if (search) {
-			query = query.or(
-				`question.ilike.%${search}%,answer.ilike.%${search}%,description.ilike.%${search}%`,
-			);
+			query = query.or(`question.ilike.%${search}%,answer.ilike.%${search}%,description.ilike.%${search}%`);
 		}
 
 		if (category) {
@@ -162,6 +158,8 @@ const HomePage = () => {
 					</select>
 					<select value={sortSelectValue} onChange={onSortSelectChangeHandler} className={styles.select}>
 						<option value=''>Sort By</option>
+						<option value='priority'>Priority ↑</option>
+						<option value='-priority'>Priority ↓</option>
 						<option value='level'>Level ↑</option>
 						<option value='-level'>Level ↓</option>
 						<option value='completed'>Completed ↑</option>

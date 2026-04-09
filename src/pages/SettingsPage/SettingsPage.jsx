@@ -1,10 +1,8 @@
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
 import { useTheme } from '../../context/ThemeContext';
 import { useRevealAnswer } from '../../context/RevealAnswerContext';
 import Button from '../../components/Button';
 import Switch from 'react-switch';
-import { supabase } from '../../lib/supabase';
 
 import { ArrowLeft, Settings } from 'lucide-react';
 import styles from './SettingsPage.module.css';
@@ -14,24 +12,6 @@ const SettingsPage = () => {
 	const { theme, setTheme } = useTheme();
 	const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
 	const { revealMode, setRevealMode } = useRevealAnswer();
-	const [showModal, setShowModal] = useState(false);
-	const [confirmText, setConfirmText] = useState('');
-
-	const handleDeleteAll = async () => {
-		try {
-			const { error } = await supabase
-				.from('checkycards')
-				.delete()
-				.not('id', 'is', null);
-
-			if (error) throw error;
-
-			setShowModal(false);
-			setConfirmText('');
-		} catch (err) {
-			console.error(err);
-		}
-	};
 
 	return (
 		<>
@@ -97,49 +77,7 @@ const SettingsPage = () => {
 						</button>
 					</div>
 				</div>
-				<div className={styles.dangerSection}>
-					<p className={styles.dangerTitle}>Danger Zone</p>
-					<div className={styles.dangerBox}>
-						<div>
-							<p className={styles.infoTitle}>Delete all cards</p>
-							<p className={styles.subText}>This action cannot be undone.</p>
-						</div>
-
-						<button className={styles.dangerButton} onClick={() => setShowModal(true)}>
-							Delete All
-						</button>
-					</div>
-				</div>
 			</div>
-
-			{showModal && (
-				<div className={styles.modalOverlay}>
-					<div className={styles.modal}>
-						<h3 className={styles.modalTitle}>Confirm deletion</h3>
-						<p>
-							Type <b>Yes, delete all cards</b> to confirm.
-						</p>
-
-						<input
-							type='text'
-							value={confirmText}
-							onChange={(e) => setConfirmText(e.target.value)}
-							className={styles.modalInput}
-						/>
-
-						<div className={styles.modalActions}>
-							<button onClick={() => setShowModal(false)}>Cancel</button>
-
-							<button
-								className={styles.dangerButton}
-								disabled={confirmText !== 'Yes, delete all cards'}
-								onClick={handleDeleteAll}>
-								Delete
-							</button>
-						</div>
-					</div>
-				</div>
-			)}
 		</>
 	);
 };
