@@ -2,7 +2,7 @@ import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import { useEffect, useId, useState } from 'react';
 import { useFetch } from '../../hooks/useFetch';
 import { useAuth } from '../../hooks/useAuth';
-import { API_URL } from '../../constants';
+import { supabase } from '../../lib/supabase';
 
 import Button from '../../components/Button';
 import Badge from '../../components/Badge';
@@ -31,27 +31,27 @@ const QuestionPage = () => {
 	const [isChecked, setIsChecked] = useState(false);
 
 	const [fetchCard, isCardLoading] = useFetch(async () => {
-		const response = await fetch(`${API_URL}/checkycards/${id}`);
+		const { data, error } = await supabase
+			.from('checkycards')
+			.select('*')
+			.eq('id', id)
+			.single();
 
-		const data = await response.json();
-
+		if (error) throw new Error(error.message);
 		setCard(data);
-
 		return data;
 	});
+
 	const [updateCard, isCardUpdating] = useFetch(async (isChecked) => {
-		const response = await fetch(`${API_URL}/checkycards/${card.id}`, {
-			method: 'PATCH',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify({ completed: isChecked }),
-		});
+		const { data, error } = await supabase
+			.from('checkycards')
+			.update({ completed: isChecked })
+			.eq('id', card.id)
+			.select()
+			.single();
 
-		const data = await response.json();
-
+		if (error) throw new Error(error.message);
 		setCard(data);
-
 		return data;
 	});
 
@@ -92,8 +92,6 @@ const QuestionPage = () => {
 	const levelOption = levelMap[Number(card.level)] || 'primary';
 
 	const completedOption = card.completed ? 'success' : 'primary';
-
-	console.log(typeof card.description, card.description);
 
 	return (
 		<>

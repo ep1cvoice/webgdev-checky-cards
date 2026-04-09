@@ -1,17 +1,12 @@
-const API_URL = "http://localhost:8800";
+import { supabase } from '../lib/supabase';
 
 export const createCard = async (newQuestion) => {
-	const response = await fetch(`${API_URL}/checkycards`, {
-		method: "POST",
-		headers: {
-			"Content-Type": "application/json",
-		},
-		body: JSON.stringify(newQuestion),
-	});
+	const { data, error } = await supabase
+		.from('checkycards')
+		.insert([newQuestion])
+		.select()
+		.single();
 
-	if (!response.ok) {
-		throw new Error("Failed to create card");
-	}
-
-	return response.json();
+	if (error) throw new Error(error.message);
+	return data;
 };

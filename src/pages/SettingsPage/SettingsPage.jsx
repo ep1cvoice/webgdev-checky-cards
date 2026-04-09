@@ -4,6 +4,7 @@ import { useTheme } from '../../context/ThemeContext';
 import { useRevealAnswer } from '../../context/RevealAnswerContext';
 import Button from '../../components/Button';
 import Switch from 'react-switch';
+import { supabase } from '../../lib/supabase';
 
 import { ArrowLeft, Settings } from 'lucide-react';
 import styles from './SettingsPage.module.css';
@@ -18,20 +19,15 @@ const SettingsPage = () => {
 
 	const handleDeleteAll = async () => {
 		try {
-			const res = await fetch('http://localhost:8800/checkycards');
-			const cards = await res.json();
+			const { error } = await supabase
+				.from('checkycards')
+				.delete()
+				.not('id', 'is', null);
 
-			await Promise.all(
-				cards.map((card) =>
-					fetch(`http://localhost:8800/checkycards/${card.id}`, {
-						method: 'DELETE',
-					}),
-				),
-			);
+			if (error) throw error;
 
 			setShowModal(false);
 			setConfirmText('');
-
 		} catch (err) {
 			console.error(err);
 		}
