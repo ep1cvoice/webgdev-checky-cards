@@ -4,6 +4,7 @@ import { useTheme } from '../../context/ThemeContext';
 import { useRevealAnswer } from '../../context/RevealAnswerContext';
 import Button from '../../components/Button';
 import Switch from 'react-switch';
+import { supabase } from '../../lib/supabase';
 
 import { ArrowLeft, Settings } from 'lucide-react';
 import styles from './SettingsPage.module.css';
@@ -18,20 +19,15 @@ const SettingsPage = () => {
 
 	const handleDeleteAll = async () => {
 		try {
-			const res = await fetch('http://localhost:8800/checkycards');
-			const cards = await res.json();
+			const { error } = await supabase
+				.from('checkycards')
+				.delete()
+				.not('id', 'is', null);
 
-			await Promise.all(
-				cards.map((card) =>
-					fetch(`http://localhost:8800/checkycards/${card.id}`, {
-						method: 'DELETE',
-					}),
-				),
-			);
+			if (error) throw error;
 
 			setShowModal(false);
 			setConfirmText('');
-
 		} catch (err) {
 			console.error(err);
 		}
@@ -119,7 +115,6 @@ const SettingsPage = () => {
 			{showModal && (
 				<div className={styles.modalOverlay}>
 					<div className={styles.modal}>
-
 						<h3 className={styles.modalTitle}>Confirm deletion</h3>
 						<p>
 							Type <b>Yes, delete all cards</b> to confirm.
@@ -130,7 +125,7 @@ const SettingsPage = () => {
 							value={confirmText}
 							onChange={(e) => setConfirmText(e.target.value)}
 							className={styles.modalInput}
-							/>
+						/>
 
 						<div className={styles.modalActions}>
 							<button onClick={() => setShowModal(false)}>Cancel</button>

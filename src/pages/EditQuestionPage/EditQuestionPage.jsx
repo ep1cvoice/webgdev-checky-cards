@@ -1,19 +1,22 @@
 import { useParams } from 'react-router-dom';
 import { useFetch } from '../../hooks/useFetch';
-import { API_URL } from '../../constants';
 import { useEffect, useState } from 'react';
 import { Loader } from '../../components/Loader';
+import { supabase } from '../../lib/supabase';
 import EditQuestion from './EditQuestion';
-
 
 const EditQuestionPage = () => {
 	const { id } = useParams();
 	const [question, setQuestion] = useState(null);
 
 	const [fetchQuestion, isQuestionLoading] = useFetch(async () => {
-		const response = await fetch(`${API_URL}/checkycards/${id}`);
-		const data = await response.json();
+		const { data, error } = await supabase
+			.from('checkycards')
+			.select('*')
+			.eq('id', id)
+			.single();
 
+		if (error) throw new Error(error.message);
 		setQuestion(data);
 	});
 
@@ -25,7 +28,7 @@ const EditQuestionPage = () => {
 		<>
 			{isQuestionLoading && <Loader />}
 
-			{question != null && <EditQuestion initialState = {question}/>}
+			{question != null && <EditQuestion initialState={question} />}
 		</>
 	);
 };

@@ -6,20 +6,20 @@ import Button from '../../components/Button';
 import { dateFormat } from '../../helpers/dateFormat';
 import { useFetch } from '../../hooks/useFetch';
 import { Info, X, ArrowLeft } from 'lucide-react';
-import { API_URL } from '../../constants';
+import { supabase } from '../../lib/supabase';
 
 import styles from './EditQuestionPage.module.css';
 
 const updateCardFetch = async (id, data) => {
-	const response = await fetch(`${API_URL}/checkycards/${id}`, {
-		method: 'PATCH',
-		headers: {
-			'Content-Type': 'application/json',
-		},
-		body: JSON.stringify(data),
-	});
+	const { data: updated, error } = await supabase
+		.from('checkycards')
+		.update(data)
+		.eq('id', id)
+		.select()
+		.single();
 
-	return await response.json();
+	if (error) throw new Error(error.message);
+	return updated;
 };
 
 const editCardAction = async (_prevState, formData) => {
@@ -75,10 +75,12 @@ const EditQuestion = ({ initialState = {} }) => {
 			return;
 		}
 
-		await fetch(`${API_URL}/checkycards/${initialState.id}`, {
-			method: 'DELETE',
-		});
+		const { error } = await supabase
+			.from('checkycards')
+			.delete()
+			.eq('id', initialState.id);
 
+		if (error) throw new Error(error.message);
 		navigate('/');
 	});
 
@@ -87,7 +89,7 @@ const EditQuestion = ({ initialState = {} }) => {
 			<div className={styles.formContainer}>
 				<div className={styles.topContainer}>
 					<div className={styles.topContainerLeft}>
-						<Button onClick={() => navigate((-1))}>
+						<Button onClick={() => navigate(-1)}>
 							{' '}
 							<ArrowLeft size={18} /> Go Back{' '}
 						</Button>

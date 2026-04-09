@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-import { API_URL } from '../../constants';
 import { useSearchParams } from 'react-router-dom';
 import QuestionCardList from '../../components/QuestionCardList';
 import { Loader } from '../../components/Loader';
 import { useFetch } from '../../hooks/useFetch';
 import SearchInput from '../../components/SearchInput';
+import { supabase } from '../../lib/supabase';
 
 import styles from './HomePage.module.css';
 
@@ -26,46 +26,50 @@ const HomePage = () => {
 	};
 	const [limit, setLimit] = useState(getLimit());
 
-	const [getQuestions, isLoading, error] = useFetch(async (url) => {
-		const response = await fetch(`${API_URL}/${url}`);
+	const [getQuestions, isLoading, error] = useFetch(async ({ search, category, sort, currentPage, currentLimit }) => {
+		let query = supabase
+			.from('checkycards')
+			.select('*', { count: 'exact' });
 
-		const total = response.headers.get('X-Total-Count');
-		const data = await response.json();
+		if (search) {
+			query = query.or(
+				`question.ilike.%${search}%,answer.ilike.%${search}%,description.ilike.%${search}%`,
+			);
+		}
 
-		setQuestions(data);
+		if (category) {
+			query = query.eq('category', category);
+		}
 
-		if (total) {
-			setTotalPages(Math.ceil(total / Number(limit)));
+		if (sort) {
+			const isDesc = sort.startsWith('-');
+			const field = sort.replace('-', '');
+			query = query.order(field, { ascending: !isDesc });
+		}
+
+		const from = (currentPage - 1) * currentLimit;
+		query = query.range(from, from + currentLimit - 1);
+
+		const { data, count, error: queryError } = await query;
+
+		if (queryError) throw new Error(queryError.message);
+
+		setQuestions(data || []);
+		if (count !== null) {
+			setTotalPages(Math.ceil(count / currentLimit));
 		}
 
 		return data;
 	});
 
 	useEffect(() => {
-		const params = [];
-
-		if (searchValue.trim()) {
-			params.push(`q=${searchValue.trim()}`);
-		}
-
-		if (technology) {
-			params.push(`category=${technology}`);
-		}
-
-		if (sortSelectValue) {
-			const isDesc = sortSelectValue.startsWith('-');
-			const field = sortSelectValue.replace('-', '');
-
-			params.push(`_sort=${field}`);
-			params.push(`_order=${isDesc ? 'desc' : 'asc'}`);
-		}
-
-		params.push(`_page=${page}`);
-		params.push(`_limit=${limit}`);
-
-		const queryString = `?${params.join('&')}`;
-
-		getQuestions(`checkycards${queryString}`);
+		getQuestions({
+			search: searchValue.trim(),
+			category: technology,
+			sort: sortSelectValue,
+			currentPage: page,
+			currentLimit: limit,
+		});
 	}, [searchValue, technology, sortSelectValue, page, limit]);
 
 	const onSearchChangeHandler = (e) => {
