@@ -1,0 +1,156 @@
+.pageWrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 80dvh;
+	padding: 2rem 1rem;
+}
+
+.card {
+	background: var(--card-bg-color);
+	border: 1px solid var(--border-color);
+	border-radius: 16px;
+	box-shadow: var(--shadow);
+	padding: 2.5rem 2.5rem 2rem;
+	width: 100%;
+	max-width: 420px;
+}
+
+.cardHeader {
+	text-align: center;
+	margin-bottom: 2rem;
+}
+
+.icon {
+	color: var(--color-green);
+	margin-bottom: 0.75rem;
+}
+
+.title {
+	font-size: 1.75rem;
+	font-weight: 700;
+	margin-bottom: 0.25rem;
+}
+
+.subtitle {
+	font-size: 0.9rem;
+	opacity: 0.6;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
+}
+
+.field {
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
+}
+
+.label {
+	font-size: 0.875rem;
+	font-weight: 500;
+	opacity: 0.8;
+}
+
+.input {
+	width: 100%;
+	padding: 0.65rem 0.9rem;
+	border-radius: 8px;
+	border: 1px solid var(--border-color);
+	background: var(--main-bg-color);
+	color: var(--text-color);
+	font-size: 0.95rem;
+	font-family: inherit;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
+	outline: none;
+}
+
+.input:focus {
+	border-color: var(--color-green);
+	box-shadow: 0 0 0 3px rgba(33, 150, 121, 0.18);
+}
+
+.input:disabled {
+	opacity: 0.5;
+}
+
+.passwordWrapper {
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+
+.passwordWrapper .input {
+	padding-right: 2.75rem;
+}
+
+.eyeBtn {
+	position: absolute;
+	right: 0.75rem;
+	background: none;
+	border: none;
+	cursor: pointer;
+	color: var(--text-color);
+	opacity: 0.5;
+	padding: 0;
+	display: flex;
+	align-items: center;
+	transition: opacity 0.2s;
+}
+
+.eyeBtn:hover {
+	opacity: 1;
+}
+
+.error {
+	font-size: 0.875rem;
+	color: rgb(255, 102, 102);
+	background: rgba(255, 102, 102, 0.1);
+	border: 1px solid rgba(255, 102, 102, 0.25);
+	border-radius: 8px;
+	padding: 0.6rem 0.9rem;
+}
+
+.submitBtn {
+	width: 100%;
+	padding: 0.75rem;
+	border-radius: 8px;
+	border: none;
+	background: var(--color-green);
+	color: #fff;
+	font-size: 1rem;
+	font-family: inherit;
+	font-weight: 600;
+	cursor: pointer;
+	transition: background 0.2s ease, opacity 0.2s;
+	margin-top: 0.25rem;
+}
+
+.submitBtn:hover:not(:disabled) {
+	background: #155e4b;
+}
+
+.submitBtn:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+.footer {
+	text-align: center;
+	margin-top: 1.5rem;
+	font-size: 0.9rem;
+	opacity: 0.7;
+}
+
+.link {
+	color: var(--color-green);
+	text-decoration: none;
+	font-weight: 500;
+}
+
+.link:hover {
+	text-decoration: underline;
+}

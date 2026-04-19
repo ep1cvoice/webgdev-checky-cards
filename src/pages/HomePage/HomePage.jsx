@@ -5,12 +5,16 @@ import { Loader } from '../../components/Loader';
 import { useFetch } from '../../hooks/useFetch';
 import SearchInput from '../../components/SearchInput';
 import { supabase } from '../../lib/supabase';
+import { useAuth } from '../../hooks/useAuth';
 
 import styles from './HomePage.module.css';
 
 const HomePage = () => {
 	const [searchParams, setSearchParams] = useSearchParams();
 	const [questions, setQuestions] = useState([]);
+	const { isAuth, hasUserCards, copyCards } = useAuth();
+	const [isCopying, setIsCopying] = useState(false);
+	const [copyError, setCopyError] = useState('');
 
 	const searchValue = searchParams.get('q') || '';
 	const sortSelectValue = searchParams.get('sort') || '';
@@ -19,15 +23,19 @@ const HomePage = () => {
 	const [totalPages, setTotalPages] = useState(1);
 	const technology = searchParams.get('technology') || '';
 	const getLimit = () => {
-		if (window.innerWidth >= 1800) return 15;
-		if (window.innerWidth >= 1500) return 12;
+		if (window.innerWidth >= 1800) return 18;
+		if (window.innerWidth >= 1500) return 15;
 		if (window.innerWidth >= 768) return 8;
 		return 5;
 	};
 	const [limit, setLimit] = useState(getLimit());
 
-	const [getQuestions, isLoading, error] = useFetch(async ({ search, category, sort, currentPage, currentLimit }) => {
-		let query = supabase.from('checkycards').select('*', { count: 'exact' });
+	const table = isAuth && hasUserCards ? 'user_cards' : 'cards';
+
+	const effectiveSort = table === 'cards' && sortSelectValue.includes('completed') ? '' : sortSelectValue;
+
+	const [getQuestions, isLoading, error] = useFetch(async ({ search, category, sort, currentPage, currentLimit, activeTable }) => {
+		let query = supabase.from(activeTable).select('*', { count: 'exact' });
 
 		if (search) {
 			query = query.or(`question.ilike.%${search}%,answer.ilike.%${search}%,description.ilike.%${search}%`);
@@ -42,6 +50,8 @@ const HomePage = () => {
 			const field = sort.replace('-', '');
 			query = query.order(field, { ascending: !isDesc });
 		}
+
+		query = query.order('id', { ascending: true });
 
 		const from = (currentPage - 1) * currentLimit;
 		query = query.range(from, from + currentLimit - 1);
@@ -62,11 +72,24 @@ const HomePage = () => {
 		getQuestions({
 			search: searchValue.trim(),
 			category: technology,
-			sort: sortSelectValue,
+			sort: effectiveSort,
 			currentPage: page,
 			currentLimit: limit,
+			activeTable: table,
 		});
-	}, [searchValue, technology, sortSelectValue, page, limit]);
+	}, [searchValue, technology, sortSelectValue, page, limit, table]);
+
+	const handleCopyCards = async () => {
+		setIsCopying(true);
+		setCopyError('');
+		try {
+			await copyCards();
+		} catch {
+			setCopyError('Something went wrong. Please try again.');
+		} finally {
+			setIsCopying(false);
+		}
+	};
 
 	const onSearchChangeHandler = (e) => {
 		const value = e.target.value;
@@ -123,6 +146,21 @@ const HomePage = () => {
 
 	return (
 		<>
+			{isAuth && !hasUserCards && (
+				<div className={styles.startBanner}>
+					<div className={styles.startBannerInner}>
+						<p>You&apos;re viewing the default cards. Start your own deck to track progress, edit, and add cards. You can delete all your cards and start over anytime in <strong>Settings</strong>.</p>
+						<button
+							className={styles.startBtn}
+							onClick={handleCopyCards}
+							disabled={isCopying}>
+							{isCopying ? 'Copying cards…' : '▶ Start with these cards'}
+						</button>
+						{copyError && <p className={styles.copyError}>{copyError}</p>}
+					</div>
+				</div>
+			)}
+
 			<div className={styles.controlsContainer}>
 				<SearchInput value={searchValue} onChange={onSearchChangeHandler} />
 
@@ -153,8 +191,11 @@ const HomePage = () => {
 						<option value='javascript'>Vanilla JS</option>
 						<option value='react'>React</option>
 						<option value='typescript'>TypeScript</option>
-						<option value='git'>Git</option>
+						<option value='node'>Node.js</option>
+						<option value='next'>Next.js</option>
 						<option value='web'>Web Basics</option>
+						<option value='git'>Git</option>
+						<option value='other'>Other</option>
 					</select>
 					<select value={sortSelectValue} onChange={onSortSelectChangeHandler} className={styles.select}>
 						<option value=''>Sort By</option>
@@ -162,8 +203,8 @@ const HomePage = () => {
 						<option value='-priority'>Priority ↓</option>
 						<option value='level'>Level ↑</option>
 						<option value='-level'>Level ↓</option>
-						<option value='completed'>Completed ↑</option>
-						<option value='-completed'>Completed ↓</option>
+						{table === 'user_cards' && <option value='completed'>Completed ↑</option>}
+						{table === 'user_cards' && <option value='-completed'>Completed ↓</option>}
 					</select>
 				</div>
 			</div>

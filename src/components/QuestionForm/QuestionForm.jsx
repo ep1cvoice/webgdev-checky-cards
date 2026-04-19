@@ -117,7 +117,7 @@ const QuestionForm = ({ formAction, formState, submitBtnText, isLoading }) => {
 				<span>Clear form after creating?</span>
 			</label>
 
-			<Button isDisabled={isLoading}>{submitBtnText}</Button>
+			<Button isNeutral isDisabled={isLoading}>{submitBtnText}</Button>
 		</form>
 	);
 };

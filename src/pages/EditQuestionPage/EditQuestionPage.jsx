@@ -11,7 +11,7 @@ const EditQuestionPage = () => {
 
 	const [fetchQuestion, isQuestionLoading] = useFetch(async () => {
 		const { data, error } = await supabase
-			.from('checkycards')
+			.from('user_cards')
 			.select('*')
 			.eq('id', id)
 			.single();

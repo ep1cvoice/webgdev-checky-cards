@@ -5,16 +5,19 @@ import MarkdownRenderer from '../../components/MarkdownRenderer';
 import Button from '../../components/Button';
 import { dateFormat } from '../../helpers/dateFormat';
 import { useFetch } from '../../hooks/useFetch';
+import { useAuth } from '../../hooks/useAuth';
 import { Info, X, ArrowLeft } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
 
 import styles from './EditQuestionPage.module.css';
 
 const updateCardFetch = async (id, data) => {
+	const { data: { user } } = await supabase.auth.getUser();
 	const { data: updated, error } = await supabase
-		.from('checkycards')
+		.from('user_cards')
 		.update(data)
 		.eq('id', id)
+		.eq('user_id', user.id)
 		.select()
 		.single();
 
@@ -50,6 +53,7 @@ const editCardAction = async (_prevState, formData) => {
 const EditQuestion = ({ initialState = {} }) => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const navigate = useNavigate();
+	const { user } = useAuth();
 	const [submitted, setSubmitted] = useState(false);
 
 	const [formState, formAction] = useActionState(editCardAction, {
@@ -76,9 +80,10 @@ const EditQuestion = ({ initialState = {} }) => {
 		}
 
 		const { error } = await supabase
-			.from('checkycards')
+			.from('user_cards')
 			.delete()
-			.eq('id', initialState.id);
+			.eq('id', initialState.id)
+			.eq('user_id', user.id);
 
 		if (error) throw new Error(error.message);
 		navigate('/');

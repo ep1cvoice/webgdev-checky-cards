@@ -1,8 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSearchParams } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
-import { AUTH_STORAGE } from '../../constants';
 
 import Button from '../Button';
 
@@ -23,9 +22,10 @@ import styles from './Header.module.css';
 
 const Header = () => {
 	const navigate = useNavigate();
-	const { isAuth, setIsAuth } = useAuth();
+	const { isAuth, signOut } = useAuth();
 	const [menuType, setMenuType] = useState('mobile');
 	const [isOpen, setIsOpen] = useState(false);
+	const navRef = useRef(null);
 
 	const toggleMenu = (type = 'mobile') => {
 		if (isOpen && menuType === type) {
@@ -58,10 +58,34 @@ const Header = () => {
 	const activeTechnology = searchParams.get('technology');
 	const currentTech = TECHNOLOGIES[activeTechnology] || null;
 
-	const loginHandler = () => {
-		localStorage.setItem(AUTH_STORAGE, !isAuth);
-		setIsAuth(!isAuth);
+	const loginHandler = async () => {
+		if (isAuth) {
+			try {
+				await signOut();
+				navigate('/');
+			} catch {
+				// ignore
+			}
+		} else {
+			navigate('/login');
+		}
 	};
+
+	useEffect(() => {
+		function handleClickOutside(event) {
+			if (navRef.current && !navRef.current.contains(event.target)) {
+				setIsOpen(false); 
+			}
+		}
+
+		if (isOpen) {
+			document.addEventListener('mousedown', handleClickOutside);
+		}
+
+		return () => {
+			document.removeEventListener('mousedown', handleClickOutside);
+		};
+	}, [isOpen, setIsOpen]);
 
 	return (
 		<>
@@ -116,7 +140,7 @@ const Header = () => {
 
 			{isOpen && <div className={styles.overlay} onClick={() => setIsOpen(false)}></div>}
 
-			<div className={`${styles.sideMenu} ${isOpen ? styles.open : ''}`}>
+			<div ref={navRef} className={`${styles.sideMenu} ${isOpen ? styles.open : ''}`}>
 				{menuType === 'mobile' && (
 					<div className={styles.sideMenuClose} onClick={() => setIsOpen(false)}>
 						<X size={28} />
@@ -151,7 +175,8 @@ const Header = () => {
 							setIsOpen(false);
 							loginHandler();
 						}}
-						isLogged={isAuth} isNeutral={!isAuth}>
+						isLogged={isAuth}
+						isNeutral={!isAuth}>
 						<LogIn size={16} />
 						{isAuth ? 'Log Out' : 'Log In'}
 					</Button>

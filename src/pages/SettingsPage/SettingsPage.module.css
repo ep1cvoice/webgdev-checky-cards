@@ -43,6 +43,13 @@
 	color: #777;
 }
 
+.emailDisplay {
+	font-size: 15px;
+	font-weight: 500;
+	color: var(--text-color);
+	margin-top: 4px;
+}
+
 .modeSelector {
 	display: flex;
 	gap: 10px;

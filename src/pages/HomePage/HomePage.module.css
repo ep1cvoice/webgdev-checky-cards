@@ -1,3 +1,54 @@
+.startBanner {
+	width: 100%;
+	background: var(--card-bg-color);
+	border-radius: 10px;
+	border-bottom: 1px solid var(--border-color);
+	padding: 14px 20px;
+}
+
+.startBannerInner {
+	max-width: 1300px;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	flex-wrap: wrap;
+}
+
+.startBannerInner p {
+	flex: 1;
+	min-width: 200px;
+	font-size: 14px;
+	color: var(--text-color);
+	opacity: 0.85;
+	margin: 0;
+}
+
+.startBtn {
+	padding: 8px 18px;
+	border-radius: 10px;
+	border: none;
+	background: var(--color-green);
+	color: var(--text-color);
+	font-size: 14px;
+	font-weight: 600;
+	cursor: pointer;
+	white-space: nowrap;
+	transition: opacity 0.15s;
+}
+
+.startBtn:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+.copyError {
+	width: 100%;
+	font-size: 13px;
+	color: #e05;
+	margin: 0;
+}
+
 .controlsContainer {
 	width: 100%;
 	max-width: 1300px;
@@ -15,7 +66,6 @@
 	align-items: center;
 	padding: 80px 20px;
 }
-
 
 .selectGroup {
 	display: flex;
@@ -89,7 +139,6 @@
 	background: var(--color-green);
 	color: var(--text-color);
 }
-
 
 @media (max-width: 576px) {
 	.controlsContainer {

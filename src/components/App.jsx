@@ -10,13 +10,20 @@ import AddQuestionPage from '../pages/AddQuestionPage';
 import EditQuestionPage from '../pages/EditQuestionPage';
 import SettingsPage from '../pages/SettingsPage';
 import ForbiddenPage from '../pages/ForbiddenPage/ForbiddenPage';
+import LoginPage from '../pages/LoginPage';
+import RegisterPage from '../pages/RegisterPage';
 import useAuth from '../hooks/useAuth';
 
 const ProtectedRoute = () => {
 	const { isAuth } = useAuth();
 	const location = useLocation();
 
-	return isAuth ? <Outlet /> : <Navigate to='/forbidden' state={{ from: location }} replace />;
+	return isAuth ? <Outlet /> : <Navigate to='/login' state={{ from: location }} replace />;
+};
+
+const GuestRoute = () => {
+	const { isAuth } = useAuth();
+	return isAuth ? <Navigate to='/' replace /> : <Outlet />;
 };
 
 function App() {
@@ -28,6 +35,11 @@ function App() {
 						<Routes>
 							<Route element={<MainLayout />}>
 								<Route path='/' element={<HomePage />} />
+
+								<Route element={<GuestRoute />}>
+									<Route path='/login' element={<LoginPage />} />
+									<Route path='/register' element={<RegisterPage />} />
+								</Route>
 
 								<Route element={<ProtectedRoute />}>
 									<Route path='/addquestion' element={<AddQuestionPage />} />

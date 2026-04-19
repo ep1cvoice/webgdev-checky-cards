@@ -22,7 +22,7 @@ import styles from './QuestionPage.module.css';
 
 const QuestionPage = () => {
 	const navigate = useNavigate();
-	const { isAuth } = useAuth();
+	const { isAuth, hasUserCards } = useAuth();
 	const location = useLocation();
 
 	const checkboxId = useId();
@@ -30,9 +30,11 @@ const QuestionPage = () => {
 	const [card, setCard] = useState(null);
 	const [isChecked, setIsChecked] = useState(false);
 
+	const table = isAuth && hasUserCards ? 'user_cards' : 'cards';
+
 	const [fetchCard, isCardLoading] = useFetch(async () => {
 		const { data, error } = await supabase
-			.from('checkycards')
+			.from(table)
 			.select('*')
 			.eq('id', id)
 			.single();
@@ -42,10 +44,10 @@ const QuestionPage = () => {
 		return data;
 	});
 
-	const [updateCard, isCardUpdating] = useFetch(async (isChecked) => {
+	const [updateCard, isCardUpdating] = useFetch(async (checked) => {
 		const { data, error } = await supabase
-			.from('checkycards')
-			.update({ completed: isChecked })
+			.from('user_cards')
+			.update({ completed: checked })
 			.eq('id', card.id)
 			.select()
 			.single();
@@ -60,7 +62,7 @@ const QuestionPage = () => {
 	}, []);
 
 	useEffect(() => {
-		card !== null && setIsChecked(card.completed);
+		if (card !== null) setIsChecked(card.completed ?? false);
 	}, [card]);
 
 	if (isCardLoading || !card) {
@@ -90,7 +92,6 @@ const QuestionPage = () => {
 	};
 
 	const levelOption = levelMap[Number(card.level)] || 'primary';
-
 	const completedOption = card.completed ? 'success' : 'primary';
 
 	return (
@@ -132,29 +133,28 @@ const QuestionPage = () => {
 					})}
 				</ul>
 
-				<label htmlFor={checkboxId} className={styles.checkboxWrapper}>
-					<input
-						type='checkbox'
-						id={checkboxId}
-						className={styles.checkbox}
-						checked={isChecked}
-						onChange={onCheckBoxChangeHandler}
-						disabled={isCardUpdating}
-					/>
-					<span>mark question as completed</span>
-				</label>
+				{isAuth && hasUserCards && (
+					<label htmlFor={checkboxId} className={styles.checkboxWrapper}>
+						<input
+							type='checkbox'
+							id={checkboxId}
+							className={styles.checkbox}
+							checked={isChecked}
+							onChange={onCheckBoxChangeHandler}
+							disabled={isCardUpdating}
+						/>
+						<span>mark question as completed</span>
+					</label>
+				)}
 
 				<div className={styles.buttonsContainer}>
 					<Button onClick={() => navigate(`/${location.search}`)} isDisabled={isCardUpdating}>
-						{' '}
-						<ArrowLeft size={18} /> Go Back{' '}
+						<ArrowLeft size={18} /> Go Back
 					</Button>
-					{isAuth ? (
+					{isAuth && hasUserCards && (
 						<Button onClick={() => navigate(`/editquestion/${card.id}`)} isDisabled={isCardUpdating}>
-							<Pencil size={18} /> Edit Card{' '}
+							<Pencil size={18} /> Edit Card
 						</Button>
-					) : (
-						''
 					)}
 				</div>
 			</div>
