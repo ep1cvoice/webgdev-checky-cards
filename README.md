@@ -8,7 +8,7 @@ A personal learning tool and flashcard app for web development — browse, filte
 
 [![Made with Supabase](https://supabase.com/badge-made-with-supabase-dark.svg)](https://supabase.com)
 
-**Live at:** [webgdev-checky-cards.vercel.app](https://webgdev-checky-cards.vercel.app)
+**Live at:** [webgdev-checky-cards.vercel.app](https://webdev-checky-cards.vercel.app/)
 ## ![App Preview Desktop](./src/assets/preview/desktop-preview.jpg)
 
 ---
