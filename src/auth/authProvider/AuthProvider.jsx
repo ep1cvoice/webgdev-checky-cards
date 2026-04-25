@@ -21,15 +21,18 @@ export const AuthProvider = ({ children }) => {
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
-		const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
+		const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
 			setIsAuth(!!session);
 			setUser(session?.user ?? null);
 			if (session?.user) {
-				setHasUserCards(await checkHasUserCards());
+				setTimeout(async () => {
+					setHasUserCards(await checkHasUserCards());
+					setLoading(false);
+				}, 0);
 			} else {
 				setHasUserCards(false);
+				setLoading(false);
 			}
-			setLoading(false);
 		});
 
 		return () => subscription.unsubscribe();
