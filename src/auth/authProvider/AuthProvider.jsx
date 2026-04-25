@@ -29,8 +29,6 @@ export const AuthProvider = ({ children }) => {
 				if (session?.user) {
 					setHasUserCards(await checkHasUserCards());
 				}
-			} catch (err) {
-				console.error('Auth init error:', err);
 			} finally {
 				setLoading(false);
 			}
