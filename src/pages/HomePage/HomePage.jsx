@@ -10,14 +10,12 @@ import { useAuth } from '../../hooks/useAuth';
 import styles from './HomePage.module.css';
 
 const applyCardsOrdering = (query, sort, includePosition = true) => {
-	if (includePosition) {
-		query = query.order('position', { ascending: true, nullsFirst: false });
-	}
-
 	if (sort) {
 		const isDesc = sort.startsWith('-');
 		const field = sort.replace('-', '');
 		query = query.order(field, { ascending: !isDesc });
+	} else if (includePosition) {
+		query = query.order('position', { ascending: true, nullsFirst: false });
 	}
 
 	return query.order('id', { ascending: true });
