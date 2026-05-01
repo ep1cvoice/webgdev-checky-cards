@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
+import type { User } from '@supabase/supabase-js';
 import { supabase } from '../../lib/supabase';
 import { AuthContext } from './AuthContext';
 import SplashScreen from '../../components/SplashScreen/SplashScreen';
 
-const checkHasUserCards = async () => {
+const checkHasUserCards = async (): Promise<boolean> => {
 	try {
 		const { count, error } = await supabase
 			.from('user_cards')
@@ -15,9 +16,9 @@ const checkHasUserCards = async () => {
 	}
 };
 
-export const AuthProvider = ({ children }) => {
+export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 	const [isAuth, setIsAuth] = useState(false);
-	const [user, setUser] = useState(null);
+	const [user, setUser] = useState<User | null>(null);
 	const [hasUserCards, setHasUserCards] = useState(false);
 	const [loading, setLoading] = useState(true);
 
@@ -60,36 +61,34 @@ export const AuthProvider = ({ children }) => {
 		return () => subscription.unsubscribe();
 	}, []);
 
-	const signIn = async (email, password) => {
-		const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+	const signIn = async (email: string, password: string): Promise<void> => {
+		const { error } = await supabase.auth.signInWithPassword({ email, password });
 		if (error) throw error;
-		return data;
 	};
 
-	const signUp = async (email, password) => {
-		const { data, error } = await supabase.auth.signUp({ email, password });
+	const signUp = async (email: string, password: string): Promise<void> => {
+		const { error } = await supabase.auth.signUp({ email, password });
 		if (error) throw error;
-		return data;
 	};
 
-	const signOut = async () => {
+	const signOut = async (): Promise<void> => {
 		const { error } = await supabase.auth.signOut();
 		if (error) throw error;
 	};
 
-	const copyCards = async () => {
+	const copyCards = async (): Promise<void> => {
 		const { error } = await supabase.rpc('copy_global_cards_for_user');
 		if (error) throw error;
 		setHasUserCards(true);
 	};
 
-	const deleteAllCards = async () => {
-		const { error } = await supabase.from('user_cards').delete().eq('user_id', user.id);
+	const deleteAllCards = async (): Promise<void> => {
+		const { error } = await supabase.from('user_cards').delete().eq('user_id', user!.id);
 		if (error) throw error;
 		setHasUserCards(false);
 	};
 
-	const deleteAccount = async () => {
+	const deleteAccount = async (): Promise<void> => {
 		const { error } = await supabase.rpc('delete_user_account');
 		if (error) throw error;
 		await supabase.auth.signOut();

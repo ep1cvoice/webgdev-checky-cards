@@ -1,1 +1,1 @@
-export { AuthContext, default as AuthProvider } from './AuthProvider.jsx';
+export { AuthContext, default as AuthProvider } from './AuthProvider.ts';
