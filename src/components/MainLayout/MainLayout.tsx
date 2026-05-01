@@ -1,15 +1,14 @@
 import { Outlet } from 'react-router-dom';
 import styles from './MainLayout.module.css';
 import Header from '../Header/Header';
-import HKLogo from '../../assets/hollow_knight-logo.png'
+import HKLogo from '../../assets/hollow_knight-logo.png';
 
 const MainLayout = () => {
-	const currentDate = new Date();
-	let year = currentDate.getFullYear();
+	const year = new Date().getFullYear();
 
 	return (
 		<div className={styles.mainLayout}>
-			<Header className = {styles.header} />
+			<Header />
 			<div className={styles.mainWrapper}>
 				<main className={styles.main}>
 					<Outlet />

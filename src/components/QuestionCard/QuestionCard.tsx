@@ -3,6 +3,8 @@ import { useState, useRef } from 'react';
 import { useRevealAnswer } from '../../context/RevealAnswerContext';
 import Button from '../Button';
 import Badge from '../Badge';
+import type { BadgeProps } from '../Badge/Badge';
+import type { Card } from '../../hooks/cardsApi';
 
 import cssLogo from '../../assets/CSS3.png';
 import htmlLogo from '../../assets/HTML5.png';
@@ -20,34 +22,40 @@ import ExpressLogo from '../../assets/Express_logo.png';
 import { Star, Expand, Check } from 'lucide-react';
 import styles from './QuestionCard.module.css';
 
-const QuestionCard = ({ card }) => {
+type BadgeVariant = BadgeProps['option'];
+
+const categoryIcons: Record<string, string> = {
+	html: htmlLogo,
+	css: cssLogo,
+	javascript: JSLogo,
+	react: ReactLogo,
+	typescript: TSLogo,
+	git: GitHubLogo,
+	web: InternetLogo,
+	node: NodeLogo,
+	next: NextLogo,
+	devops: DevOpsLogo,
+	backend: ExpressLogo,
+	other: OtherLogo,
+};
+
+const levelMap: Record<number, BadgeVariant> = {
+	1: 'primary',
+	2: 'warning',
+	3: 'alert',
+	4: 'danger',
+};
+
+interface QuestionCardProps {
+	card: Card;
+}
+
+const QuestionCard = ({ card }: QuestionCardProps) => {
 	const navigate = useNavigate();
 	const location = useLocation();
 
-	const categoryIcons = {
-		html: htmlLogo,
-		css: cssLogo,
-		javascript: JSLogo,
-		react: ReactLogo,
-		typescript: TSLogo,
-		git: GitHubLogo,
-		web: InternetLogo,
-		node: NodeLogo,
-		next: NextLogo,
-		devops: DevOpsLogo,
-		backend: ExpressLogo,
-		other: OtherLogo,
-	};
-
-	const levelMap = {
-		1: 'primary',
-		2: 'warning',
-		3: 'alert',
-		4: 'danger',
-	};
-
-	const levelOption = levelMap[Number(card.level)] || 'primary';
-	const completedOption = card.completed ? 'success' : 'primary';
+	const levelOption = levelMap[Number(card.level)] ?? 'primary';
+	const completedOption: BadgeVariant = card.completed ? 'success' : 'primary';
 	const priority = Math.min(Math.max(card.priority ?? 0, 0), 4);
 
 	const { revealMode } = useRevealAnswer();
@@ -55,7 +63,7 @@ const QuestionCard = ({ card }) => {
 	const effectiveMode = isHoverSupported ? revealMode : 'click';
 
 	const [showAnswer, setShowAnswer] = useState(false);
-	const timeoutRef = useRef(null);
+	const timeoutRef = useRef<number | null>(null);
 
 	return (
 		<div className={styles.card}>
@@ -78,7 +86,7 @@ const QuestionCard = ({ card }) => {
 					</Badge>
 				</div>
 
-				<img src={categoryIcons[card.category?.trim()] || JSLogo} alt={card.category} />
+				<img src={categoryIcons[card.category?.trim()] ?? JSLogo} alt={card.category} />
 			</div>
 
 			<h5 className={styles.cardTitle}>{card.question}</h5>
