@@ -8,7 +8,7 @@ const LoginPage = () => {
 	const { signIn } = useAuth();
 	const navigate = useNavigate();
 	const location = useLocation();
-	const from = location.state?.from?.pathname || '/';
+	const from = (location.state as { from?: { pathname: string } })?.from?.pathname || '/';
 
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
@@ -16,7 +16,7 @@ const LoginPage = () => {
 	const [error, setError] = useState('');
 	const [loading, setLoading] = useState(false);
 
-	const handleSubmit = async (e) => {
+	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
 		e.preventDefault();
 		setError('');
 
@@ -32,7 +32,7 @@ const LoginPage = () => {
 			await signIn(trimmedEmail, password);
 			navigate(from, { replace: true });
 		} catch (err) {
-			setError(err.message || 'Login failed. Please try again.');
+			setError((err as Error).message || 'Login failed. Please try again.');
 		} finally {
 			setLoading(false);
 		}

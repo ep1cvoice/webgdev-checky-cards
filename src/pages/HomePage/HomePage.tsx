@@ -6,10 +6,12 @@ import { useFetch } from '../../hooks/useFetch';
 import SearchInput from '../../components/SearchInput';
 import { supabase } from '../../lib/supabase';
 import { useAuth } from '../../hooks/useAuth';
+import type { Card } from '../../hooks/cardsApi';
 
 import styles from './HomePage.module.css';
 
-const applyCardsOrdering = (query, sort, includePosition = true) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const applyCardsOrdering = (query: any, sort: string, includePosition = true): any => {
 	if (sort) {
 		const isDesc = sort.startsWith('-');
 		const field = sort.replace('-', '');
@@ -21,9 +23,18 @@ const applyCardsOrdering = (query, sort, includePosition = true) => {
 	return query.order('id', { ascending: true });
 };
 
+interface FetchQuestionsArgs {
+	search: string;
+	category: string;
+	sort: string;
+	currentPage: number;
+	currentLimit: number;
+	activeTable: string;
+}
+
 const HomePage = () => {
 	const [searchParams, setSearchParams] = useSearchParams();
-	const [questions, setQuestions] = useState([]);
+	const [questions, setQuestions] = useState<Card[]>([]);
 	const { isAuth, hasUserCards, copyCards } = useAuth();
 	const [isCopying, setIsCopying] = useState(false);
 	const [copyError, setCopyError] = useState('');
@@ -34,28 +45,31 @@ const HomePage = () => {
 
 	const [totalPages, setTotalPages] = useState(1);
 	const technology = searchParams.get('technology') || '';
-	const getLimit = () => {
+
+	const getLimit = (): number => {
 		if (window.innerWidth >= 1800) return 18;
 		if (window.innerWidth >= 1500) return 15;
 		if (window.innerWidth >= 768) return 8;
 		return 5;
 	};
+
 	const [limit, setLimit] = useState(getLimit());
 
 	const table = isAuth && hasUserCards ? 'user_cards' : 'cards';
 
 	const effectiveSort = table === 'cards' && sortSelectValue.includes('completed') ? '' : sortSelectValue;
 
-	const [getQuestions, isLoading, error] = useFetch(async ({ search, category, sort, currentPage, currentLimit, activeTable }) => {
+	const [getQuestions, isLoading, error] = useFetch(async ({ search, category, sort, currentPage, currentLimit, activeTable }: FetchQuestionsArgs) => {
 		const from = (currentPage - 1) * currentLimit;
 		const to = from + currentLimit - 1;
 
-		const isMissingPositionColumnError = (err) => {
-			const message = err?.message?.toLowerCase() || '';
+		const isMissingPositionColumnError = (err: unknown): boolean => {
+			const message = (err as { message?: string })?.message?.toLowerCase() || '';
 			return message.includes('position') && (message.includes('column') || message.includes('schema cache'));
 		};
 
-		const buildQuery = (includePosition = true) => {
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
+		const buildQuery = (includePosition = true): any => {
 			let query = supabase.from(activeTable).select('*', { count: 'exact' });
 
 			if (search) {
@@ -77,14 +91,14 @@ const HomePage = () => {
 			({ data, count, error: queryError } = await buildQuery(false));
 		}
 
-		if (queryError) throw new Error(queryError.message);
+		if (queryError) throw new Error((queryError as { message: string }).message);
 
-		setQuestions(data || []);
+		setQuestions((data as Card[]) || []);
 		if (count !== null) {
 			setTotalPages(Math.ceil(count / currentLimit));
 		}
 
-		return data;
+		return data as Card[];
 	});
 
 	useEffect(() => {
@@ -98,7 +112,7 @@ const HomePage = () => {
 		});
 	}, [searchValue, technology, sortSelectValue, page, limit, table]);
 
-	const handleCopyCards = async () => {
+	const handleCopyCards = async (): Promise<void> => {
 		setIsCopying(true);
 		setCopyError('');
 		try {
@@ -110,7 +124,7 @@ const HomePage = () => {
 		}
 	};
 
-	const onSearchChangeHandler = (e) => {
+	const onSearchChangeHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
 		const value = e.target.value;
 
 		setSearchParams((prev) => {
@@ -122,13 +136,13 @@ const HomePage = () => {
 				params.delete('q');
 			}
 
-			params.set('page', 1);
+			params.set('page', '1');
 
 			return params;
 		});
 	};
 
-	const onSortSelectChangeHandler = (e) => {
+	const onSortSelectChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>): void => {
 		const value = e.target.value;
 
 		setSearchParams((prev) => {
@@ -140,17 +154,17 @@ const HomePage = () => {
 				params.delete('sort');
 			}
 
-			params.set('page', 1);
+			params.set('page', '1');
 
 			return params;
 		});
 	};
 
-	const getPageNumbers = (current, total) => {
+	const getPageNumbers = (current: number, total: number): (number | string)[] => {
 		if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1);
 
-		const pages = [];
-		const addPage = (n) => pages.push(n);
+		const pages: (number | string)[] = [];
+		const addPage = (n: number) => pages.push(n);
 		const addEllipsis = () => pages.push('...');
 
 		addPage(1);
@@ -171,16 +185,16 @@ const HomePage = () => {
 		return pages;
 	};
 
-	const handlePageChange = (newPage) => {
+	const handlePageChange = (newPage: number): void => {
 		setSearchParams((prev) => {
 			const params = new URLSearchParams(prev);
-			params.set('page', newPage);
+			params.set('page', String(newPage));
 			return params;
 		});
 	};
 
 	useEffect(() => {
-		const handleResize = () => {
+		const handleResize = (): void => {
 			setLimit(getLimit());
 		};
 
@@ -223,7 +237,7 @@ const HomePage = () => {
 									params.delete('technology');
 								}
 
-								params.set('page', 1);
+								params.set('page', '1');
 
 								return params;
 							});
@@ -276,7 +290,7 @@ const HomePage = () => {
 					) : (
 						<button
 							key={p}
-							onClick={() => handlePageChange(p)}
+							onClick={() => handlePageChange(p as number)}
 							className={`${styles.pageButton} ${page === p ? styles.active : ''}`}>
 							{p}
 						</button>

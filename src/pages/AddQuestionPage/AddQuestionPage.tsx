@@ -2,20 +2,23 @@ import { useState, useActionState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useFetch } from '../../hooks/useFetch';
 import { createCard } from '../../hooks/cardsApi';
+import type { Card } from '../../hooks/cardsApi';
 import Button from '../../components/Button';
 import QuestionForm from '../../components/QuestionForm';
 
 import { ArrowLeft, PenLine } from 'lucide-react';
 import styles from './AddQuestionPage.module.css';
 
+type CreateCardState = Card | { clearForm: boolean };
+
 const AddQuestionPage = () => {
 	const [createCardFetch, isLoading, error] = useFetch(createCard);
 	const [successMessage, setSuccessMessage] = useState('');
 	const navigate = useNavigate();
 
-	const createCardAction = async (_prevState, formData) => {
+	const createCardAction = async (_prevState: CreateCardState, formData: FormData): Promise<CreateCardState> => {
 		try {
-			const newQuestion = Object.fromEntries(formData);
+			const newQuestion = Object.fromEntries(formData) as Record<string, string>;
 			const resources = newQuestion.resources.trim();
 			const isClearForm = newQuestion.clearForm;
 
@@ -32,14 +35,14 @@ const AddQuestionPage = () => {
 
 			setSuccessMessage('Card successfully created!');
 
-			return isClearForm ? { clearForm: true } : question;
+			return isClearForm ? { clearForm: true } : (question as Card);
 		} catch (err) {
-			console.log(err.message);
+			console.log((err as Error).message);
 			return { clearForm: false };
 		}
 	};
 
-	const [formState, formAction] = useActionState(createCardAction, { clearForm: true });
+	const [formState, formAction] = useActionState<CreateCardState, FormData>(createCardAction, { clearForm: true });
 
 	return (
 		<>

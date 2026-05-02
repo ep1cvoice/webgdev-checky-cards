@@ -9,6 +9,8 @@ import Switch from 'react-switch';
 import { ArrowLeft, Settings } from 'lucide-react';
 import styles from './SettingsPage.module.css';
 
+type DangerMode = 'account' | null;
+
 const SettingsPage = () => {
 	const navigate = useNavigate();
 	const { theme, setTheme } = useTheme();
@@ -16,25 +18,27 @@ const SettingsPage = () => {
 	const { revealMode, setRevealMode } = useRevealAnswer();
 	const { user, deleteAccount } = useAuth();
 
-	const [dangerMode, setDangerMode] = useState(null);
+	const [dangerMode, setDangerMode] = useState<DangerMode>(null);
 	const [emailInput, setEmailInput] = useState('');
 	const [isProcessing, setIsProcessing] = useState(false);
 	const [dangerError, setDangerError] = useState('');
 
-	const openModal = (mode) => {
+	const openModal = (mode: DangerMode): void => {
 		setDangerMode(mode);
 		setEmailInput('');
 		setDangerError('');
 	};
 
-	const closeModal = () => {
+	const closeModal = (): void => {
 		setDangerMode(null);
 		setEmailInput('');
 		setDangerError('');
 	};
 
-	const handleConfirm = async () => {
-		if (emailInput.trim().toLowerCase() !== user.email.toLowerCase()) {
+	const handleConfirm = async (): Promise<void> => {
+		if (!user) return;
+
+		if (emailInput.trim().toLowerCase() !== user.email?.toLowerCase()) {
 			setDangerError('Email does not match.');
 			return;
 		}
@@ -132,12 +136,12 @@ const SettingsPage = () => {
 						<p className={styles.subText}>
 							{modalDesc}
 							<br /><br />
-							Type your email <strong>{user.email}</strong> to confirm.
+							Type your email <strong>{user?.email}</strong> to confirm.
 						</p>
 						<input
 							type='email'
 							className={styles.modalInput}
-							placeholder={user.email}
+							placeholder={user?.email ?? ''}
 							value={emailInput}
 							onChange={(e) => setEmailInput(e.target.value)}
 							autoFocus

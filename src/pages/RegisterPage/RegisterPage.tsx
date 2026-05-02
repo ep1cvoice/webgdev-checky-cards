@@ -6,6 +6,8 @@ import styles from './RegisterPage.module.css';
 
 const PASSWORD_MIN_LENGTH = 8;
 
+type PasswordStrength = 'weak' | 'medium' | 'strong' | null;
+
 const RegisterPage = () => {
 	const { signUp } = useAuth();
 	const navigate = useNavigate();
@@ -19,7 +21,7 @@ const RegisterPage = () => {
 	const [successMsg, setSuccessMsg] = useState('');
 	const [loading, setLoading] = useState(false);
 
-	const validate = () => {
+	const validate = (): string | null => {
 		const trimmedEmail = email.trim();
 		if (!trimmedEmail || !password || !confirmPassword) {
 			return 'Please fill in all fields.';
@@ -36,7 +38,7 @@ const RegisterPage = () => {
 		return null;
 	};
 
-	const handleSubmit = async (e) => {
+	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
 		e.preventDefault();
 		setError('');
 		setSuccessMsg('');
@@ -52,13 +54,13 @@ const RegisterPage = () => {
 			await signUp(email.trim(), password);
 			setSuccessMsg('Account created! Check your email to confirm your address, then sign in.');
 		} catch (err) {
-			setError(err.message || 'Registration failed. Please try again.');
+			setError((err as Error).message || 'Registration failed. Please try again.');
 		} finally {
 			setLoading(false);
 		}
 	};
 
-	const passwordStrength = () => {
+	const passwordStrength = (): PasswordStrength => {
 		if (!password) return null;
 		if (password.length < PASSWORD_MIN_LENGTH) return 'weak';
 		if (password.length >= PASSWORD_MIN_LENGTH && /[A-Z]/.test(password) && /[0-9]/.test(password)) return 'strong';

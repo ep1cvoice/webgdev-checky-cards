@@ -3,11 +3,12 @@ import { useFetch } from '../../hooks/useFetch';
 import { useEffect, useState } from 'react';
 import { Loader } from '../../components/Loader';
 import { supabase } from '../../lib/supabase';
+import type { Card } from '../../hooks/cardsApi';
 import EditQuestion from './EditQuestion';
 
 const EditQuestionPage = () => {
-	const { id } = useParams();
-	const [question, setQuestion] = useState(null);
+	const { id } = useParams<{ id: string }>();
+	const [question, setQuestion] = useState<Card | null>(null);
 
 	const [fetchQuestion, isQuestionLoading] = useFetch(async () => {
 		const { data, error } = await supabase
@@ -17,7 +18,7 @@ const EditQuestionPage = () => {
 			.single();
 
 		if (error) throw new Error(error.message);
-		setQuestion(data);
+		setQuestion(data as Card);
 	});
 
 	useEffect(() => {

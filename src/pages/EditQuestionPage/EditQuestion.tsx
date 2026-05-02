@@ -6,31 +6,34 @@ import Button from '../../components/Button';
 import { dateFormat } from '../../helpers/dateFormat';
 import { useFetch } from '../../hooks/useFetch';
 import { useAuth } from '../../hooks/useAuth';
+import type { Card } from '../../hooks/cardsApi';
 import { Info, X, ArrowLeft } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
 
 import styles from './EditQuestionPage.module.css';
 
-const updateCardFetch = async (id, data) => {
+type EditFormState = (Card & { clearForm: boolean }) | { clearForm: boolean };
+
+const updateCardFetch = async (id: number, data: Partial<Card>): Promise<Card> => {
 	const { data: { user } } = await supabase.auth.getUser();
 	const { data: updated, error } = await supabase
 		.from('user_cards')
 		.update(data)
 		.eq('id', id)
-		.eq('user_id', user.id)
+		.eq('user_id', user!.id)
 		.select()
 		.single();
 
 	if (error) throw new Error(error.message);
-	return updated;
+	return updated as Card;
 };
 
-const editCardAction = async (_prevState, formData) => {
+const editCardAction = async (_prevState: EditFormState, formData: FormData): Promise<EditFormState> => {
 	try {
-		const newQuestion = Object.fromEntries(formData);
+		const newQuestion = Object.fromEntries(formData) as Record<string, string>;
 		const resources = newQuestion.resources.trim();
 		const isClearForm = newQuestion.clearForm === 'on';
-		const questionId = newQuestion.id;
+		const questionId = Number(newQuestion.id);
 
 		const question = await updateCardFetch(questionId, {
 			question: newQuestion.question.trim(),
@@ -45,35 +48,39 @@ const editCardAction = async (_prevState, formData) => {
 
 		return isClearForm ? { clearForm: true } : { ...question, clearForm: false };
 	} catch (err) {
-		console.log(err.message);
+		console.log((err as Error).message);
 		return { clearForm: false };
 	}
 };
 
-const EditQuestion = ({ initialState = {} }) => {
+interface EditQuestionProps {
+	initialState: Card;
+}
+
+const EditQuestion = ({ initialState }: EditQuestionProps) => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const navigate = useNavigate();
 	const { user } = useAuth();
 	const [submitted, setSubmitted] = useState(false);
 
-	const [formState, formAction] = useActionState(editCardAction, {
+	const [formState, formAction] = useActionState<EditFormState, FormData>(editCardAction, {
 		...initialState,
 		clearForm: false,
 	});
 
 	useEffect(() => {
-		if (submitted && formState?.id) {
-			navigate(`/question/${formState.id}`);
+		if (submitted && (formState as Card & { clearForm: boolean })?.id) {
+			navigate(`/question/${(formState as Card).id}`);
 		}
 	}, [submitted, formState, navigate]);
 
-	const handleSubmit = (e) => {
+	const handleSubmit = (formData: FormData): void => {
 		setSubmitted(true);
-		formAction(e);
+		formAction(formData);
 	};
 
 	const [removeQuestion, isQuestionRemoving] = useFetch(async () => {
-		let check = confirm('Are your sure you want to delete this card?');
+		const check = confirm('Are your sure you want to delete this card?');
 
 		if (!check) {
 			return;
@@ -83,7 +90,7 @@ const EditQuestion = ({ initialState = {} }) => {
 			.from('user_cards')
 			.delete()
 			.eq('id', initialState.id)
-			.eq('user_id', user.id);
+			.eq('user_id', user!.id);
 
 		if (error) throw new Error(error.message);
 		navigate('/');
