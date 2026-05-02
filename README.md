@@ -3,7 +3,7 @@
 A personal learning tool and flashcard app for web development — browse, filter, and track progress through knowledge cards covering React, JavaScript, TypeScript, HTML, CSS, Git, Node.js, Next.js, and Web fundamentals.
 
 <p>
-  <img src="https://skillicons.dev/icons?i=react,vite,vercel,css" alt="Tech stack icons" />
+  <img src="https://skillicons.dev/icons?i=react,ts,vite,vercel,css" alt="Tech stack icons" />
 </p>
 
 [![Made with Supabase](https://supabase.com/badge-made-with-supabase-dark.svg)](https://supabase.com)
@@ -26,6 +26,7 @@ The main objectives are:
 - Work with Supabase: Row Level Security, RPCs, per-user data isolation
 - Work with forms, pagination, and filtering
 - Apply clean component design and separation of concerns
+- Migrate a real codebase to TypeScript incrementally
 
 **This is also a personal learning tool I actively use every day.** By regularly creating and revisiting cards, the goal is to reinforce important concepts and build a structured knowledge base on my path to becoming a Frontend React Developer.
 
@@ -33,7 +34,7 @@ The main objectives are:
 
 ## Main Idea
 
-WebGDev Checky Cards is a knowledge management tool designed for developers who want to organize and review important concepts across different web technologies.
+WebDev Checky Cards is a knowledge management tool designed for developers who want to organize and review important concepts across different web technologies.
 
 Each card contains:
 
@@ -102,10 +103,23 @@ Each card contains:
 | Layer | Technology |
 |---|---|
 | Frontend | React 19, React Router 7, Vite |
+| Language | TypeScript (full codebase migration) |
 | Backend | Supabase (PostgreSQL + RLS + RPC) |
 | Hosting | Vercel |
 | Styling | CSS Modules |
 | Content | React Markdown, React Syntax Highlighter |
+
+---
+
+## TypeScript Migration
+
+The entire codebase has been migrated from JavaScript to TypeScript:
+
+- All components, pages, hooks, contexts, and helpers are `.tsx` / `.ts`
+- Shared types (`Card`, `NewCard`, `AuthContextType`, `BadgeVariant`, etc.) defined once and imported where needed
+- Strict typing on all props, state, event handlers, and async functions
+- `useFetch` is fully generic — infers argument and return types from the callback automatically
+- Zero `tsc` errors, zero ESLint errors across the full source tree
 
 ---
 
@@ -139,24 +153,24 @@ Row Level Security ensures users can only read and modify their own rows. Deleti
 
 ---
 
-## React Concepts Practiced
+## React & TypeScript Concepts Practiced
 
-- Functional Components & Props
+- Functional Components & Props with typed interfaces
 - `useState`, `useEffect`, `useActionState`, `useId`
-- Controlled Forms
-- Custom Hooks
-- Context API (Theme, Auth, RevealAnswer)
+- Generic custom hooks (`useFetch<TFn>`)
+- Context API (Theme, Auth, RevealAnswer) with typed context values
 - React Router with Protected & Guest Routes
-- Pagination Logic
-- Component Composition & Separation of Concerns
-- Performance patterns (`memo`, `useCallback`, `useMemo`)
+- Pagination logic
+- Component composition & separation of concerns
+- Incremental TypeScript migration of a real codebase
+- `useActionState` with typed form state and `FormData`
 
 ---
 
 ## Architecture
 
 - Single Page Application (SPA)
-- Modular component structure
+- Modular component structure — every directory has a typed barrel `index.ts`
 - Reusable UI components (Button, Badge, Card, Form, etc.)
 - Clear separation of concerns
 - Supabase as persistent backend with RLS — fully deployed, no local server needed
@@ -186,5 +200,3 @@ VITE_SUPABASE_PUBLISHABLE_KEY=your-anon-key
 Both values are available in your Supabase dashboard under **Project Settings → API**.
 
 ---
-
-
